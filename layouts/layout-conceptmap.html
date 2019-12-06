@@ -4,21 +4,17 @@
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   <a name="root"> </a>
-  <h2 id="root">{{[title]}} - {{[fmt]}}</h2>
-  <p>
-    <a href="{{[type]}}-{{[id]}}.{{[fmt]}}">Raw {{[fmt]}}</a>
-  </p>
+  <h2 id="root">{{site.data.pages[page.path].title}}</h2>
   {% assign intro = site.data.pages[page.path].intro %}
   {% if site.data.pages[page.path].intro != null %}
   <div style="display:inline-block">
   {% include {{intro}} %}
   </div>
   {% endif %}
-
   <p>
-    <b>Narrative view of the Value Set</b>
+  Formats: <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>, <a href="{{[type]}}-{{[id]}}.json.html">JSON</a>, <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle</a>
   </p>
-  
+
   {% include {{[type]}}-{{[name]}}.xhtml %}
 
   {% assign notes = site.data.pages[page.path].notes %}

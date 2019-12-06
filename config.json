@@ -47,8 +47,9 @@
 			"template-base": "template/layouts/layout-instance-base.html",
 			"template-format": "template/layouts/layout-instance-format.html",
 			"base": "{{[id]}}.html",
-			"format": "{{[id]}}.{{[fmt]}}.html"
-		},
+			"format": "{{[id]}}.{{[fmt]}}.html",
+      "list-types" : "CodeSystem|ValueSet"
+    },
 		"example": {
 			"java": false,
       "template-base": "template/layouts/layout-instance-base.html",
@@ -93,9 +94,21 @@
 			"profile-json": "{{[id]}}.profile.json.html",
 			"profile-ttl": "{{[id]}}.profile.ttl.html"
 		},
+		"CodeSystem": {
+			"template-base": "template/layouts/layout-codesystem.html",
+			"template-format": "template/layouts/layout-instance-format.html",
+			"base": "codesystem-{{[id]}}.html",
+			"format": "codesystem-{{[id]}}.{{[fmt]}}.html"
+		},
+		"ConceptMap": {
+			"template-base": "template/layouts/layout-conceptmap.html",
+			"template-format": "template/layouts/layout-instance-format.html",
+			"base": "conceptmap-{{[id]}}.html",
+			"format": "conceptmap-{{[id]}}.{{[fmt]}}.html"
+		},
 		"ValueSet": {
 			"template-base": "template/layouts/layout-valueset.html",
-			"template-format": "template/layouts/layout-valueset-format.html",
+			"template-format": "template/layouts/layout-instance-format.html",
 			"base": "valueset-{{[id]}}.html",
 			"format": "valueset-{{[id]}}.{{[fmt]}}.html"
 		}
