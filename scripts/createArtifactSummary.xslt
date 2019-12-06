@@ -57,7 +57,7 @@
                 </a>
               </td>
               <td>
-                <xsl:value-of select="f:description/@value" disable-output-escaping="yes"/>
+                <xsl:value-of select="f:description/@value" disable-output-escaping="no"/>
               </td>
             </tr>
           </xsl:for-each>

@@ -46,16 +46,16 @@
 			"java": false,
 			"template-base": "template/layouts/layout-instance-base.html",
 			"template-format": "template/layouts/layout-instance-format.html",
-			"base": "{{[id]}}.html",
-			"format": "{{[id]}}.{{[fmt]}}.html",
+			"base": "{{[type]}}-{{[id]}}.html",
+			"format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
       "list-types" : "CodeSystem|ValueSet"
     },
 		"example": {
 			"java": false,
       "template-base": "template/layouts/layout-instance-base.html",
       "template-format": "template/layouts/layout-instance-format.html",
-        "base": "{{[id]}}.html",
-        "format": "{{[id]}}.{{[fmt]}}.html"
+        "base": "{{[type]}}-{{[id]}}.html",
+        "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
 		},
 		"ImplementationGuide": {
 			"template-base": "",
@@ -70,13 +70,13 @@
       "template-profile-json": "template/layouts/layout-ext-json.html",
       "template-profile-ttl": "template/layouts/layout-ext-ttl.html",
       "template-format": "",
-      "base": "extension-{{[id]}}.html",
-      "defns": "extension-{{[id]}}-definitions.html",
-      "mappings": "extension-{{[id]}}-mappings.html",
-      "examples": "extension-{{[id]}}-examples.html",
-      "profile-xml": "extension-{{[id]}}.profile.xml.html",
-      "profile-json": "extension-{{[id]}}.profile.json.html",
-      "profile-ttl": "extension-{{[id]}}.profile.ttl.html"
+      "base": "{{[type]}}-{{[id]}}.html",
+      "defns": "{{[type]}}-{{[id]}}-definitions.html",
+      "mappings": "{{[type]}}-{{[id]}}-mappings.html",
+      "examples": "{{[type]}}-{{[id]}}-examples.html",
+      "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
+      "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
+      "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html"
 		},
 		"StructureDefinition": {
 			"template-base": "template/layouts/layout-profile.html",
@@ -86,31 +86,31 @@
 			"template-profile-xml": "template/layouts/layout-profile-xml.html",
 			"template-profile-json": "template/layouts/layout-profile-json.html",
 			"template-profile-ttl": "template/layouts/layout-profile-ttl.html",
-			"base": "{{[id]}}.html",
-			"defns": "{{[id]}}-definitions.html",
-			"mappings": "{{[id]}}-mappings.html",
-			"examples": "{{[id]}}-examples.html",
-			"profile-xml": "{{[id]}}.profile.xml.html",
-			"profile-json": "{{[id]}}.profile.json.html",
-			"profile-ttl": "{{[id]}}.profile.ttl.html"
+			"base": "{{[type]}}-{{[id]}}.html",
+			"defns": "{{[type]}}-{{[id]}}-definitions.html",
+			"mappings": "{{[type]}}-{{[id]}}-mappings.html",
+			"examples": "{{[type]}}-{{[id]}}-examples.html",
+			"profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
+			"profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
+			"profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html"
 		},
 		"CodeSystem": {
 			"template-base": "template/layouts/layout-codesystem.html",
 			"template-format": "template/layouts/layout-instance-format.html",
-			"base": "codesystem-{{[id]}}.html",
-			"format": "codesystem-{{[id]}}.{{[fmt]}}.html"
+			"base": "{{[type]}}-{{[id]}}.html",
+			"format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
 		},
 		"ConceptMap": {
 			"template-base": "template/layouts/layout-conceptmap.html",
 			"template-format": "template/layouts/layout-instance-format.html",
-			"base": "conceptmap-{{[id]}}.html",
-			"format": "conceptmap-{{[id]}}.{{[fmt]}}.html"
+			"base": "{{[type]}}-{{[id]}}.html",
+			"format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
 		},
 		"ValueSet": {
 			"template-base": "template/layouts/layout-valueset.html",
 			"template-format": "template/layouts/layout-instance-format.html",
-			"base": "valueset-{{[id]}}.html",
-			"format": "valueset-{{[id]}}.{{[fmt]}}.html"
+			"base": "{{[type]}}-{{[id]}}.html",
+			"format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
 		}
 	}
 }

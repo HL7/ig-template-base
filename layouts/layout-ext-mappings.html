@@ -8,27 +8,27 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   <ul class="nav nav-tabs">
     <li>
-      <a href="extension-{{[id]}}.html">Content</a>
+      <a href="{{[type]}}-{{[id]}}.html">Content</a>
     </li>
     <li>
-      <a href="extension-{{[id]}}-definitions.html">Detailed Descriptions</a>
+      <a href="{{[type]}}-{{[id]}}-definitions.html">Detailed Descriptions</a>
     </li>
     <li class="active">
       <a href="#">Mappings</a>
     </li>
 {% unless excludexml == 'y' %}
     <li>
-      <a href="extension-{{[id]}}.profile.xml.html">XML</a>
+      <a href="{{[type]}}-{{[id]}}.profile.xml.html">XML</a>
     </li>
 {% endunless %}
 {% unless excludejson == 'y' %}
     <li>
-      <a href="extension-{{[id]}}.profile.json.html">JSON</a>
+      <a href="{{[type]}}-{{[id]}}.profile.json.html">JSON</a>
     </li>
 {% endunless %}
 {% unless excludettl == 'y' %}
     <li>
-      <a href="extension-{{[id]}}.profile.ttl.html">Turtle</a>
+      <a href="{{[type]}}-{{[id]}}.profile.ttl.html">Turtle</a>
     </li>
 {% endunless %}
   </ul>

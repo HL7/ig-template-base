@@ -12,26 +12,26 @@
       <a href="#">Content</a>
     </li>
     <li>
-      <a href="extension-{{[id]}}-definitions.html">Detailed Descriptions</a>
+      <a href="{{[type]}}-{{[id]}}-definitions.html">Detailed Descriptions</a>
     </li>
 {% unless excludemaps == 'y' %}
     <li>
-      <a href="extension-{{[id]}}-mappings.html">Mappings</a>
+      <a href="{{[type]}}-{{[id]}}-mappings.html">Mappings</a>
     </li>
 {% endunless %}
 {% unless excludexml == 'y' %}
     <li>
-      <a href="extension-{{[id]}}.profile.xml.html">XML</a>
+      <a href="{{[type]}}-{{[id]}}.profile.xml.html">XML</a>
     </li>
 {% endunless %}
 {% unless excludejson == 'y' %}
     <li>
-      <a href="extension-{{[id]}}.profile.json.html">JSON</a>
+      <a href="{{[type]}}-{{[id]}}.profile.json.html">JSON</a>
     </li>
 {% endunless %}
 {% unless excludettl == 'y' %}
     <li>
-      <a href="extension-{{[id]}}.profile.ttl.html">Turtle</a>
+      <a href="{{[type]}}-{{[id]}}.profile.ttl.html">Turtle</a>
     </li>
 {% endunless %}
   </ul>
@@ -217,7 +217,7 @@
     </div>
   </div>
   <p>&#160;</p>
-  <p>Other representations of extension: <a href="{{[id]}}.sch">Schematron</a>
+  <p>Other representations of extension: <a href="{{[type]}}-{{[id]}}.sch">Schematron</a>
   </p>
   <a name="tx"> </a>
   <h3 id="tx">Terminology Bindings</h3>

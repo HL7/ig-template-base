@@ -14,17 +14,17 @@
   <ul>
 {% unless excludexml == 'y' %}
     <li>
-      <a href="{{[id]}}.xml.html">XML</a>
+      <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>
     </li>
 {% endunless %}
 {% unless excludejson == 'y' %}
     <li>
-      <a href="{{[id]}}.json.html">JSON</a> 
+      <a href="{{[type]}}-{{[id]}}.json.html">JSON</a> 
     </li>
 {% endunless %}
 {% unless excludettl == 'y' %}
     <li>
-      <a href="{{[id]}}.ttl.html">Turtle</a>
+      <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle</a>
     </li>
 {% endunless %}
   </ul>
