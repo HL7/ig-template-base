@@ -9,7 +9,7 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template match="*[not(self::html:*)]" priority="10">
+  <xsl:template xmlns:svg="http://www.w3.org/2000/svg" match="*[not(self::html:* or self::svg:*)]" priority="10">
     <xsl:message terminate="yes">Only XHTML-namespaced content is permitted</xsl:message>
   </xsl:template>
   <xsl:template match="comment()[normalize-space(translate(., 'DRAFT','draft'))='draft']">
