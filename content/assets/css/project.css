@@ -70,7 +70,7 @@ body {
 .navbar-inverse .navbar-nav > li > a:hover {
   background-color: #9b2fdd;
 }
-segment-footer > .container .inner-wrapper {
+#segment-footer > .container .inner-wrapper {
   padding: 4px 20px;
 }
 #segment-footer > .container .inner-wrapper > p {
