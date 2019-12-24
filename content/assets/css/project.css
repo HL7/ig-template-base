@@ -68,7 +68,11 @@ body {
   background-color: #7b1fad;
 }
 #segment-footer > .container .inner-wrapper {
-  padding: 11px 20px;
+  padding: 4px 20px;
+}
+#segment-footer > .container .inner-wrapper > p {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 #segment-post-footer {
   background-color: #f5f5f5;
@@ -103,7 +107,7 @@ body {
 }
 #content > .inner-wrapper,
 .container > .row > .inner-wrapper {
-  margin-top: 14px;
+  margin-top: 4px;
   margin-bottom: 20px;
 }
 /* SCAFFOlDING OBJECTS
@@ -131,10 +135,10 @@ body {
 }*/
 #ig-status {
   line-height: 20px;
-  margin-top: 26px;
+  margin-top: 10px;
   color: maroon;
   text-align: center;
-  height: 60px;
+  height: 50px;
 }
 #stripe {
   position: absolute;
@@ -168,11 +172,15 @@ body {
   padding-right: 0px;
   margin-bottom: 0;
 }
+.navbar > div > div > ul > li {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 .navbar .nav > li > a {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .navbar .nav > li > a {
-  padding: 10px 12px;
+  padding: 5px 12px;
   text-shadow: none;
 }
 .navbar .nav > li > a,
