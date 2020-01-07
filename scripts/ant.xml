@@ -14,10 +14,10 @@
     <property name="schemas-r5" location="${ig.root}/input-cache/schemas-r5"/>
     <property name="r5-spec" value="http://build.fhir.org/"/>
     <mkdir dir="${schemas-r5}"/>
-    <get src="${fhirspec}fhir-single.xsd" dest="${schemas-r5}" usetimestamp="true"/>
-    <get src="${fhirspec}fhir-xhtml.xsd" dest="${schemas-r5}" usetimestamp="true"/>
-    <get src="${fhirspec}xml.xsd" dest="${schemas-r5}" usetimestamp="true"/>
-    <get src="${fhirspec}xmldsig-core-schema.xsd" dest="${schemas-r5}" usetimestamp="true"/>
+    <get src="${fhirspec}fhir-single.xsd" dest="${schemas-r5}" usetimestamp="true" ignoreerrors="true"/>
+    <get src="${fhirspec}fhir-xhtml.xsd" dest="${schemas-r5}" usetimestamp="true" ignoreerrors="true"/>
+    <get src="${fhirspec}xml.xsd" dest="${schemas-r5}" usetimestamp="true" ignoreerrors="true"/>
+    <get src="${fhirspec}xmldsig-core-schema.xsd" dest="${schemas-r5}" usetimestamp="true" ignoreerrors="true"/>
   </target>
   <target name="onLoad.checkPublisher">
     <uptodate property="currentJar" targetfile="${ig.root}/input-cache/org.hl7.fhir.publisher.jar">
