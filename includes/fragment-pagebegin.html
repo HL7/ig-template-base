@@ -42,8 +42,8 @@
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
         {% include fragment-header.html %}
-{% if site.data.info.ballotstatus != '' %}
-{% assign status = site.data.info.ballotstatus %}
+{% if site.data.info.releaselabel != '' %}
+{% assign status = site.data.info.releaselabel %}
 {% else %}
 {% assign status = site.data.fhir.ig.status %}
 {% endif %}

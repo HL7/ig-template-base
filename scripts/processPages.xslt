@@ -30,11 +30,11 @@
   <xsl:template priority="10" match="/html:div">
     <div>
       <xsl:apply-templates select="@*"/>
-      <xsl:if test="count(html:h2)>1">
+      <xsl:if test="count(html:h3)>1">
         <div class="markdown-toc">
           <p>Contents:</p>
           <ul>
-            <xsl:for-each select="html:h2">
+            <xsl:for-each select="html:h3">
               <li>
                 <xsl:variable name="hierarchy">
                   <xsl:apply-templates mode="findHierarchy" select="."/>
@@ -71,10 +71,10 @@
       <xsl:text>&#x20;</xsl:text>
     </a>
   </xsl:template>
-  <xsl:template priority="10" match="html:h1">
-    <xsl:message terminate="yes">"h1" elements are not permitted</xsl:message>
+  <xsl:template priority="10" match="html:h1|html:h2">
+    <xsl:message terminate="yes">"h1" and "h2" elements are not permitted</xsl:message>
   </xsl:template>
-  <xsl:template priority="10" match="html:h2|html:h3|html:h4|html:h5">
+  <xsl:template priority="10" match="html:h3|html:h4|html:h5">
     <xsl:variable name="hierarchy">
       <xsl:apply-templates mode="findHierarchy" select="."/>
     </xsl:variable>

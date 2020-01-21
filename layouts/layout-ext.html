@@ -37,19 +37,13 @@
   </ul>
   <a name="root"> </a>
   <h2 id="root">Extension: {{[title]}}</h2>
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if site.data.pages[page.path].intro != null %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% endif %}
+  <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this extension is:
   </p>
   <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
   <p>Status: <b>{{site.data.structuredefinitions['{{[id]}}'].status}}</b><br/>
     Extension maintained by: {{site.data.structuredefinitions['{{[id]}}'].publisher}}</p>
-  <p>{{site.data.structuredefinitions['{{[id]}}'].description}}</p>
 
   <p><b>Context of Use</b></p>
   <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
@@ -59,6 +53,13 @@
     {% endfor %}
   </ul>
   
+  {% assign intro = site.data.pages[page.path].intro %}
+  {% if site.data.pages[page.path].intro != null %}
+  <div style="display:inline-block">
+  {% include {{intro}} %}
+  </div>
+  {% endif %}
+
   <p><b>Usage info</b></p>
   {%include StructureDefinition-{{[id]}}-sd-xref.xhtml%}
   
