@@ -37,7 +37,12 @@
 			"relativePath": "_data"
 		}, {
 			"folder": "input/pagecontent",
-			"relativePath": "_includes"
+			"relativePath": "_includes",
+      "transform": "template/scripts/processPages.xslt"
+		}, {
+			"folder": "input/pages",
+			"relativePath": "_includes",
+      "transform": "template/scripts/processPages.xslt"
 		}
 	],
 	"defaults": {
