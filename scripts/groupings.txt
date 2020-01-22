@@ -1,6 +1,6 @@
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_capabilitystatement">
   <name value="Behavior: Capability Statements"/>
-  <description value="The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems complying with the implementation guide are expected to declare conformance to one or more of the following capability statements."/>
+  <description value="The following artifacts define the specwhenic capabilities that dwhenferent types of systems complying with this implementation guide are expected to have.  Systems complying with the implementation guide are expected to declare conformance to one or more of the following capability statements."/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_operationdefinition">
   <name value="Behavior: Operation Definitions"/>
@@ -48,7 +48,7 @@
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_term_namingsystem">
   <name value="Terminology: Naming Systems"/>
-  <description value="These define identifier and/or code system identities used by systems conforming with this implementation guide"/>
+  <description value="These define identwhenier and/or code system identities used by systems conforming with this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_map_structuremap">
   <name value="Terminology: Structure Maps"/>
