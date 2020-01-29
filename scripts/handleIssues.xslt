@@ -31,14 +31,14 @@
     <xsl:param name="code"/>
     <xsl:param name="details"/>
     <xsl:param name="location"/>
-    <xsl:text>{"severity":"</xsl:text>
+    <xsl:text>&#xa;{"severity":"</xsl:text>
     <xsl:value-of select="$severity"/>
     <xsl:text>","code":"</xsl:text>
     <xsl:value-of select="$code"/>
     <xsl:text>","details":{"text":"</xsl:text>
     <xsl:value-of select="$details"/>
-    <xsl:text>"},"location":"</xsl:text>
+    <xsl:text>"},"location":["</xsl:text>
     <xsl:value-of select="$location"/>
-    <xsl:text>"}</xsl:text>
+    <xsl:text>"]}&#xa;,</xsl:text>
   </xsl:template>
 </xsl:stylesheet>  

@@ -5,6 +5,10 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:f="http://hl7.org/fhir" xmlns="http://hl7.org/fhir" exclude-result-prefixes="f">
   <xsl:output method="text" encoding="UTF-8"/>
   <xsl:include href="handleIssues.xslt"/>
+  <xsl:template match="/f:ImplementationGuide">
+    <xsl:apply-templates select="f:definition/f:resource"/>
+  </xsl:template>
+  <xsl:template match="@*|node()"/>
   <xsl:template match="f:definition/f:resource[not(f:name)]">
     <xsl:call-template name="raiseIssue">
       <xsl:with-param name="severity">error</xsl:with-param>
