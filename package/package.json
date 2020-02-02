@@ -5,5 +5,5 @@
   "license": "CC0-1.0",
   "description": "FHIR IG Base Template - foundational for use by anyone",
   "author": "http://hl7.org/fhir",
-  "canonical": "http://github.com/HL7/ig-template-base"
+  "canonical": "http://fhir.org/templates/fhir.base.template"
 }
