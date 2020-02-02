@@ -116,6 +116,10 @@
       <xsl:with-param name="value" select="'input/vocabulary'"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
+      <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="value" select="'input/maps'"/>
+    </xsl:call-template>
+    <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-pages'"/>
       <xsl:with-param name="value" select="'input/pagecontent'"/>
     </xsl:call-template>
