@@ -1,0 +1,24 @@
+{
+  "package-id" : "fhir.base.template",
+  "title" : "Base template for FHIR IGs",
+  "canonical" : "http://fhir.org/templates/fhir.base.template",
+  "introduction" : "This is the basic template",
+  "list" : [
+    {
+      "version" : "current",
+      "desc" : "Continuous Integration Build (latest in version control)",
+      "path" : "https://build.fhir.org/ig/HL7/ig-template-base",
+      "status" : "ci-build",
+      "current" : true
+    },
+    {
+      "version" : "0.0.2",
+      "date" : "2020-02-03",
+      "desc" : "First Release",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.0.2",
+      "status" : "release",
+      "sequence" : "Publications",
+      "current" : true
+    }
+  ]
+}
