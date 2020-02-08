@@ -5,19 +5,22 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   <a name="root"> </a>
   <h2 id="root">{{site.data.pages[page.path].title}}</h2>
+  <p>
+    <b>Summary</b>
+  </p>
+  {%include {{[type]}}-{{[id]}}-summary.xhtml%}
+  
+  <p>
+    <b>References</b>
+  </p>
+  {%include {{[type]}}-{{[id]}}-xref.xhtml%}
+
   {% assign intro = site.data.pages[page.path].intro %}
   {% if site.data.pages[page.path].intro != null %}
   <div style="display:inline-block">
   {% include {{intro}} %}
   </div>
   {% endif %}
-  <p>
-    <b>Summary</b>
-  </p>
-
-  {%include {{[type]}}-{{[id]}}-summary.xhtml%}
-  
-  {%include {{[type]}}-{{[id]}}-xref.xhtml%}
 
   <a name="definition"> </a>
   <h3 id="definition">Content Logical Definition</h3>
