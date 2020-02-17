@@ -19,6 +19,15 @@
       "status" : "release",
       "sequence" : "Publications",
       "current" : true
+    },
+    {
+      "version" : "0.1.0",
+      "date" : "2020-02-03",
+      "desc" : "Imrpved error messages and vocab layour",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.1.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "current" : false
     }
   ]
 }
