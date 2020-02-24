@@ -1,8 +1,8 @@
 /*
- 
+
     Specific layout and styling, project based
-        
-    
+
+
 */
 /*
 Flexslider vs LayerSlider vs SliderRevolution
@@ -14,7 +14,7 @@ breadcrumb vs history what is a breadcrumb hiearchy or history?
 gray-color thingy
 
 widget-row vs thumbs vs joyo-thumbs
-shortcode for 
+shortcode for
 - Fontawesome
 - Accordion
 - Notifications
@@ -28,13 +28,13 @@ widget in sidebar vs in column = uiterlijk op basis van locale class via functio
 
 - SCAFFOLDING							Groundwork for the site. Background colors are set in less or overruled here
 - SCAFFOLDING OBJECTS					Objects reoccurring on every page
-- COMPONENTS							Everything what can be moved around				
+- COMPONENTS							Everything what can be moved around
 - BACK TO TOP							Anchor animating to top of the page
 - EXCEPTIONS FOR SPECIFIC SITUATIONS	Some pages are not like the others
-- D-I-D AREA							Do-It-Dirty 
+- D-I-D AREA							Do-It-Dirty
 
 */
-/* SCAFFOLDING STYLING 
+/* SCAFFOLDING STYLING
 ----------------------------------------------------------------------------------------*/
 html {
   background-color: ;
@@ -91,7 +91,7 @@ body {
 		//padding-right: 0;
 		.segment > .container {
 			//padding-left: 10px;
-			//padding-right: 10px; 
+			//padding-right: 10px;
 		}
 	}
 	.segment {
@@ -258,7 +258,7 @@ body {
         border-bottom: 0;
     }
     .nav-tabs > li > a {
-        border: 1px solid #ddd;        
+        border: 1px solid #ddd;
         .border-top-radius(0);
         .border-right-radius(0);
         .border-bottom-radius(0);
@@ -279,7 +279,7 @@ body {
         border-color: #ddd;
         z-index: 2;
     }
-}	
+}
 */
 .nav-list > li > a {
   padding: 3px 15px;
@@ -436,3 +436,32 @@ h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefi
 h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(section) "." counter(sub-section) "." counter(composite) " ";}
 h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+
+/* ============ canonical form styling ============= */
+.canonical {
+  font-family: monospace, serif !important;
+  font-size: 1em;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  input[readonly] {
+       cursor: pointer!important;
+  }
+
+.copy-me {
+  background-color: #f5f5f5 !important;
+  border-color: black !important;
+  color: unset !important;
+  font-size:1.5em !important;
+  padding: 3px 12px !important;
+}
+
+.copy-me:hover {
+  background-color: #f5f5f5 !important;
+  border-color: black !important;
+  color: unset !important;
+}
+
+.icon-size{
+  font-size:1.5em;
+}

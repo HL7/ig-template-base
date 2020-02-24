@@ -3,32 +3,8 @@
     </div>  <!-- /container -->
   </div>  <!-- /segment-content -->
 
-{% if includetabscripts %}
-  <script type="text/javascript" src="{{site.data.info.assets}}jquery.js"> </script>
-  <script type="text/javascript" src="{{site.data.info.assets}}assets/js/jquery-ui.min.js"> </script>
-  <script type="text/javascript">
-    try {
-      var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
-    } catch(exception) {
-    }
 
-    if (!currentTabIndex)
-      currentTabIndex = '0';
 
-    $( '#tabs' ).tabs({
-      active: currentTabIndex,
-      activate: function( event, ui ) {
-        var active = $('.selector').tabs('option', 'active');
-        currentTabIndex = ui.newTab.index();
-        document.activeElement.blur();
-        try {
-          sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
-        } catch(exception) {
-        }
-      }
-    });
-  </script>
-{% endif %}
   <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
     <div class="container">  <!-- container -->
       <div class="inner-wrapper">
@@ -42,24 +18,36 @@
       </div>  <!-- /inner-wrapper -->
     </div>  <!-- /container -->
   </div>  <!-- /segment-footer -->
-  
+
   <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
     <div class="container">  <!-- container -->
     </div>  <!-- /container -->
   </div>  <!-- /segment-post-footer -->
-  
+
   <!-- JS and analytics only. -->
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script type="text/javascript" src="{{site.data.info.assets}}assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="{{site.data.info.assets}}assets/js/jquery.min.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
   <script type="text/javascript" src="{{site.data.info.assets}}assets/js/bootstrap.min.js"> </script>
   <script type="text/javascript" src="{{site.data.info.assets}}assets/js/respond.min.js"> </script>
   <script type="text/javascript" src="{{site.data.info.assets}}assets/js/anchor.min.js"> </script>
-  <script>anchors.options.visible = 'hover'
-anchors.add()</script>
-  
+
+
+{% include copy-me-script.html %}
+  {% if include.tabscripts %}
+    {% include profile-tabscripts.html %}
+{% endif %}
   <!-- Analytics Below
   ================================================== -->
+
+  <!-- add anchors before the closing body tag -->
+  <script>anchors.options.visible = 'hover'
+  anchors.add()
+  $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+  });
+  </script>
+
   </body>
 </html>
