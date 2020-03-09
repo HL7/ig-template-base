@@ -118,6 +118,6 @@
   </target>
   <scriptdef name="appendArtifacts" language="javascript" description="Adds additional values to the to the onGenerate.files list">
     <attribute name="files"/>
-    self.project.setProperty("onGenerate.files", concat(self.project.getProperty("onGenerate.files"), ';', attributes.get("files")));
+    self.project.setProperty("onGenerate.files", self.project.getProperty("onGenerate.files").concat(";").concat(attributes.get("files")));
   </scriptdef>
 </project>
