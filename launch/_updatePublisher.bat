@@ -3,13 +3,13 @@ SET dlurl=https://fhir.github.io/latest-ig-publisher/org.hl7.fhir.publisher.jar
 SET publisher_jar=org.hl7.fhir.publisher.jar
 SET input_cache_path=%CD%\input-cache\
 
-set update_bat_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/_updatePublisher.bat
-set gen_bat_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/_genonce.bat
-set gencont_bat_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/_gencontinuous.bat
+set update_bat_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/launch/_updatePublisher.bat
+set gen_bat_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/launch/_genonce.bat
+set gencont_bat_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/launch/_gencontinuous.bat
 
-set gencont_sh_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/_gencontinuous.sh
-set gen_sh_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/_genonce.sh
-set update_sh_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/_updatePublisher.sh
+set gencont_sh_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/launch/_gencontinuous.sh
+set gen_sh_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/launch/_genonce.sh
+set update_sh_url=https://raw.githubusercontent.com/HL7/ig-template-base/master/launch/_updatePublisher.sh
 
 
 FOR %%x IN ("%CD%") DO SET upper_path=%%~dpx
