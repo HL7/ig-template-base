@@ -14,7 +14,7 @@
       <xsl:call-template name="raiseIssue">
         <xsl:with-param name="severity">error</xsl:with-param>
         <xsl:with-param name="code">required</xsl:with-param>
-        <xsl:with-param name="details" select="concat('Unable to find name for the resource ', f:reference/f:reference/@value, '.  Names are mandatory to allow proper population of the artifact list.')"/>
+        <xsl:with-param name="details" select="concat('Unable to find ImplementationGuide.definition.resource.name for the resource ', f:reference/f:reference/@value, '.  Name is mandatory if it cannot be inferred from the resource to allow proper population of the artifact list.')"/>
         <xsl:with-param name="location" select="concat('ImplementationGuide.definition.resource[', count(preceding::f:resource), ']')"/>
       </xsl:call-template>
     </xsl:if>
@@ -22,7 +22,7 @@
       <xsl:call-template name="raiseIssue">
         <xsl:with-param name="severity">warning</xsl:with-param>
         <xsl:with-param name="code">invariant</xsl:with-param>
-        <xsl:with-param name="details" select="concat('Unable to find description for the resource ', f:reference/f:reference/@value, '.  Descriptions are strongly encouraged to allow proper population of the artifact list.')"/>
+        <xsl:with-param name="details" select="concat('Unable to find ImplementationGuide.definition.resource.description for the resource ', f:reference/f:reference/@value, '.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.')"/>
         <xsl:with-param name="location" select="concat('ImplementationGuide.definition.resource[', count(preceding::f:resource), ']')"/>
       </xsl:call-template>
     </xsl:if>
