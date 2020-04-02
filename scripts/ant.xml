@@ -82,15 +82,15 @@
     <replace file="${onGenerate.ig.source}1.xml" token="&lt;!--TEMPLATE_GROUPS_HERE--&gt;" value="${groupings}"/>
     <xslt in="${onGenerate.ig.source}1.xml" out="${onGenerate.ig.dest}xml" style="${ig.scripts}/onGenerate.final.xslt"/>
   </target>
-  <target name="onGenerate.igQa" depends="onGenerate.processIg">
-    <xslt in="${onGenerate.ig.dest}xml" out="${ig.template}/ongenerate-validation-igqa.json" style="${ig.scripts}/onGenerate.qa.xslt"/>
-  </target>
   <target name="onGenerate.processIncludes" depends="onGenerate.setup">
     <copy todir="${dir.temp.includes}">
       <fileset dir="${dir.template.includes}" includes="*"/>
     </copy>
   </target>
-  <target name="onGenerate.artifactList" depends="onGenerate.processIg,onGenerate.setup">
+  <target name="onGenerate.igQa" depends="onGenerate.processIg">
+    <xslt in="${onGenerate.ig.dest}xml" out="${ig.template}/ongenerate-validation-igqa.json" style="${ig.scripts}/onGenerate.qa.xslt"/>
+  </target>
+  <target name="onGenerate.artifactList" depends="onGenerate.igQa,onGenerate.setup">
     <xslt in="${onGenerate.ig.dest}xml" out="${dir.temp.includes}/artifacts.xml" style="${ig.scripts}/createArtifactSummary.xslt"/>
     <fileset id="onGenerate.artifacts.id" dir="${ig.root}">
       <include name="${dir.temp.includes}/artifacts.xml"/>
@@ -98,7 +98,7 @@
     <property name="onGenerate.artifacts.files" refid="onGenerate.artifacts.id"/>
     <property name="onGenerate.files" value="${onGenerate.artifacts.files}"/>
   </target>
-  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList,onGenerate.igQa"/>
+  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList"/>
   <target name="onGenerate" depends="onGenerate.extend">
 <!--    <resources id="onGenerate.files.id">
       <fileset refid="onGenerate.artifacts.id"/>

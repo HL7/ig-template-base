@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   - This process runs a QA check on the final IG, ensuring that elements required for publication are properly populated
+  -
+  - NOTE: UTG suppresses this because at the moment, all it does is checks related to the artifacts.html page, which UTG doesn't use.  If we change the template to extend this, we'll
+  -       need to refactor to allow UTG to enable only the relevant validation.
   -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:f="http://hl7.org/fhir" xmlns="http://hl7.org/fhir" exclude-result-prefixes="f">
   <xsl:output method="text" encoding="UTF-8"/>
