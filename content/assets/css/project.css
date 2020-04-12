@@ -107,7 +107,7 @@ body {
   background-color: var(--navbar-bg-color);
 }
 .navbar-inverse .navbar-nav > li > a:hover {
-  background-color: #9b2fdd;
+  background-color: var(--btn-hover-color);
 }
 #segment-footer > .container .inner-wrapper {
   padding: 4px 20px;
@@ -188,7 +188,7 @@ body {
   right: 0;
   top: 0;
   height: 8px;
-  background: #999999;
+  background: var(--stripe-bg-color);
 }
 #notes a {
   color: #555555;
@@ -239,6 +239,8 @@ blockquote.stu-note {
   padding-left: 0px;
   padding-right: 0px;
   margin-bottom: 0;
+/*  background-color: var(--navbar-bg-color); */
+  
 }
 .navbar > div > div > ul > li {
   margin-bottom: 0;
@@ -273,7 +275,7 @@ blockquote.stu-note {
 .dropdown-submenu:focus > a {
   text-decoration: none;
   color: #ffffff;
-  background-color: var(--btn-active-color);
+  background-color: var(--btn-hover-color);
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(var(--btn-gradient-start-color)), to(var(--btn-gradient-end-color)));
   background-image: -webkit-linear-gradient(top, var(--btn-gradient-start-color), 0%, var(--btn-gradient-end-color), 100%);
   background-image: -moz-linear-gradient(top, var(--btn-gradient-start-color) 0%, var(--btn-gradient-end-color) 100%);
@@ -301,6 +303,7 @@ blockquote.stu-note {
 .nav-tabs a {
   color: #555555;
 }
+
 .nav-tabs li a:hover,
 .nav-tabs li a:focus {
   border-bottom-color: #955159;
@@ -308,12 +311,42 @@ blockquote.stu-note {
 .nav-tabs {
   border-bottom-color: #955159;
 }
+
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
-  color: #da0c23;
+  color: var(--btn-active-color);
   border-color: #955159 #955159 transparent;
 }
+
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: var(--btn-active-color);
+  background-color: #ffffff;
+  border: 1px solid #955159;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: var(--btn-active-color);
+  color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color:  var(--btn-text-color);
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #ffffff;
+  background-color: var(--btn-hover-color);
+}
+
 /*
 @media (max-width: 979px) {
     // make tabs act like nav-stacked
@@ -353,7 +386,10 @@ blockquote.stu-note {
 */
 
 
-
+a {
+  color:  var(--link-color);
+  text-decoration: none;
+}
 
 a:hover,
 a:focus {
