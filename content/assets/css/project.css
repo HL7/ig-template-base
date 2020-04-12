@@ -36,6 +36,44 @@ widget in sidebar vs in column = uiterlijk op basis van locale class via functio
 */
 /* SCAFFOLDING STYLING 
 ----------------------------------------------------------------------------------------*/
+
+
+/* Colors 
+
+Usage: 
+var(--publish-box-border); */
+
+:root {
+
+  --ig-status-text-color: maroon; /* 1. IG Title and status text color */
+  --navbar-bg-color: #7b1fad; /* 2. Header container color */
+  --footer-bg-color: #707070; /* 3. Footer background color*/
+  --footer-container-color: #7b1fad; /* 4. Footer container color */
+  --stripe-bg-color: #999999; /* 5. Header strip color */
+
+  --btn-hover-color: #9b2fdd;  /* 6. Menu button hover color */
+  --btn-active-color: #60a0f0; /* 7. Menu button active color */
+  --btn-text-color: #228bbb; /* 8. Menu button text color */
+  --btn-gradient-start-color: #428bca; /* 9. Menu item gradient start color */
+  --btn-gradient-end-color: #357ebd; /* 10. Menu item gradient end  color */
+  --btn-gradient-start-color-alpha: #ff428bca; /* 11. Menu item gradient start color (with alpha) */
+  --btn-gradient-end-color-alpha: #ff357ebd; /* 12. Menu item gradient end color (with alpha) */
+  --link-color: #428bca; /* 13. Hyperlink text color */
+  --link-hover-color: #2a6496; /* 14. Hyperlink text hover color */
+
+  --publish-box-bg-color: #DDAAFF; /* 15. Publish box background color */
+  --publish-box-border: 1px solid #0A0008; /* 16.  Publish box border definition */
+
+  --toc-box-bg-color: #ffeb7e; /* 17.  TOC box background color */
+  --toc-box-border: 1px solid navy; /* 18. TOC box border definition */
+  
+  --stu-note-background-color: #fff2ff; /* 19. (STU) Note box background color */
+  --stu-note-border-left-color: #ffa0ff; /* 20. (STU) Note box border color */
+
+}
+
+
+
 html {
   background-color: ;
 }
@@ -58,14 +96,15 @@ body {
   background-color: #ffffff;
 }
 #segment-footer {
-  background-color: #707070;
+  background-color: var(--footer-bg-color);
 }
+
 #segment-footer > .container {
-  background-color: #7b1fad;
+  background-color: var(--footer-container-color);
   color: #ffffff;
 }
 .navbar-inverse {
-  background-color: #7b1fad;
+  background-color: var(--navbar-bg-color);
 }
 .navbar-inverse .navbar-nav > li > a:hover {
   background-color: #9b2fdd;
@@ -139,7 +178,7 @@ body {
 #ig-status {
   line-height: 20px;
   margin-top: 10px;
-  color: maroon;
+  color: var(--ig-status-text-color);
   text-align: center;
   height: 50px;
 }
@@ -155,10 +194,36 @@ body {
   color: #555555;
 }
 #publish-box {
-  background-color: yellow;
-  border: 1px solid maroon;
+  background-color: var(--publish-box-bg-color);
+  border: var(--publish-box-border); 
   padding: 5px;
 }
+
+.note-to-balloters, .stu-note {
+    margin: 5px;
+    padding: 10px;
+    border-left-style: solid;
+    background-color: var(--stu-note-background-color);
+    border-left-color: var(--stu-note-border-left-color);
+}
+
+.stu-note::before {
+  white-space: pre;
+  content: "Note\A ";
+  #background-color: yellow;
+  color: red;
+  font-weight: bold;
+}
+
+
+blockquote.stu-note {
+	margin: 5px;
+	padding:10px;
+    background-color: var(--stu-note-background-color);
+    border-left-color: var(--stu-note-border-left-color);
+}
+
+
 /* GENERIC OBJECTS
 ----------------------------------------------------------------------------------------*/
 .navbar {
@@ -206,24 +271,29 @@ body {
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  background-color: #333333;
-  background-image: -webkit-gradient(linear, left #da0c23, left 100%, from(#da0c23), to(#333333));
-  background-image: -webkit-linear-gradient(top, #da0c23, #da0c23, #333333, 100%);
-  background-image: -moz-linear-gradient(top, #da0c23 #da0c23, #333333 100%);
-  background-image: linear-gradient(to bottom, #da0c23 #da0c23, #333333 100%);
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--btn-active-color);
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(var(--btn-gradient-start-color)), to(var(--btn-gradient-end-color)));
+  background-image: -webkit-linear-gradient(top, var(--btn-gradient-start-color), 0%, var(--btn-gradient-end-color), 100%);
+  background-image: -moz-linear-gradient(top, var(--btn-gradient-start-color) 0%, var(--btn-gradient-end-color) 100%);
+  background-image: linear-gradient(to bottom, var(--btn-gradient-start-color) 0%, var(--btn-gradient-end-color) 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffda0c23', endColorstr='#ff333333', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=var(--btn-gradient-start-color-alpha), endColorstr=var(--btn-gradient-end-color-alpha), GradientType=0);
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  background-color: #333333;
-  background-image: -webkit-gradient(linear, left #da0c23, left 100%, from(#da0c23), to(#333333));
-  background-image: -webkit-linear-gradient(top, #da0c23, #da0c23, #333333, 100%);
-  background-image: -moz-linear-gradient(top, #da0c23 #da0c23, #333333 100%);
-  background-image: linear-gradient(to bottom, #da0c23 #da0c23, #333333 100%);
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: var(--btn-active-color);
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(var(--btn-gradient-start-color)), to(var(--btn-gradient-end-color)));
+  background-image: -webkit-linear-gradient(top, var(--btn-gradient-start-color), 0%, var(--btn-gradient-start-color), 100%);
+  background-image: -moz-linear-gradient(top, var(--btn-gradient-start-color) 0%, var(--btn-gradient-end-color) 100%);
+  background-image: linear-gradient(to bottom, var(--btn-gradient-start-color) 0%, var(--btn-gradient-end-color) 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffda0c23', endColorstr='#ff333333', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=var(--btn-gradient-start-color-alpha), endColorstr=var(--btn-gradient-end-color-alpha), GradientType=0);
 }
 .nav-tabs {
   margin-bottom: 20px;
@@ -281,6 +351,24 @@ body {
     }
 }	
 */
+
+
+
+
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+
 .nav-list > li > a {
   padding: 3px 15px;
 }
@@ -381,8 +469,8 @@ ul.markdown-toc
   float: right;
   z-index: 10;
   width: 150px;
-  background-color: #ffeb7e;
-  border: 1px solid navy;
+  background-color:  var(--toc-box-bg-color);
+  border: var(--toc-box-border);
 }
 
 ul.markdown-toc p
@@ -407,8 +495,8 @@ div.markdown-toc
   float: right;
   z-index: 10;
   width: 150px;
-  background-color: #ffeb7e;
-  border: 1px solid navy;
+  background-color:  var(--toc-box-bg-color);
+  border: var(--toc-box-border);
 }
 
 div.markdown-toc p
