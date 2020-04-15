@@ -52,7 +52,7 @@ var(--publish-box-border); */
   --stripe-bg-color: #999999; /* 5. Header strip color */
 
   --btn-hover-color: #9b2fdd;  /* 6. Menu button hover color */
-  --btn-active-color: #60a0f0; /* 7. Menu button active color */
+  --btn-active-color: #da0c23; /* 7. Menu button active color */
   --btn-text-color: #e6e6e6; /* 8. Menu button text color */
   --btn-gradient-start-color: #428bca; /* 9. Menu item gradient start color */
   --btn-gradient-end-color: #357ebd; /* 10. Menu item gradient end  color */
@@ -75,7 +75,7 @@ var(--publish-box-border); */
 
 
 html {
-  background-color: ;
+  background-color: #ffffff;
 }
 body {
   background-color: #ffffff;
