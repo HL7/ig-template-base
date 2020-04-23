@@ -548,6 +548,12 @@ div.markdown-toc p.link
   padding-left: 8px;
   margin: 0px;
 }
+
+/* Fix to avoid truncating letter descenders in headings */
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 0.1em;
+}
+
 /* Common content for section numbering */
 body{counter-reset:section}
 h2{counter-reset:sub-section}
