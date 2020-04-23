@@ -550,7 +550,7 @@ div.markdown-toc p.link
 }
 
 /* Fix to avoid truncating letter descenders in headings */
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     padding-bottom: 0.1em;
 }
 
