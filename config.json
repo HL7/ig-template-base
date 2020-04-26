@@ -69,22 +69,26 @@
 			"template-base": "",
 			"template-format": ""
 		},
+		"StructureDefinition:logical": {
+			"template-base": "template/layouts/layout-model.html",
+			"template-format": ""
+		},
 		"StructureDefinition:extension": {
-      "template-base": "template/layouts/layout-ext.html",
-      "template-defns": "template/layouts/layout-ext-definitions.html",
-      "template-mappings": "template/layouts/layout-ext-mappings.html",
-      "template-examples": "",
-      "template-profile-xml": "template/layouts/layout-ext-xml.html",
-      "template-profile-json": "template/layouts/layout-ext-json.html",
-      "template-profile-ttl": "template/layouts/layout-ext-ttl.html",
-      "template-format": "",
-      "base": "{{[type]}}-{{[id]}}.html",
-      "defns": "{{[type]}}-{{[id]}}-definitions.html",
-      "mappings": "{{[type]}}-{{[id]}}-mappings.html",
-      "examples": "{{[type]}}-{{[id]}}-examples.html",
-      "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
-      "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
-      "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html"
+		  "template-base": "template/layouts/layout-ext.html",
+		  "template-defns": "template/layouts/layout-ext-definitions.html",
+		  "template-mappings": "template/layouts/layout-ext-mappings.html",
+		  "template-examples": "",
+		  "template-profile-xml": "template/layouts/layout-ext-xml.html",
+		  "template-profile-json": "template/layouts/layout-ext-json.html",
+		  "template-profile-ttl": "template/layouts/layout-ext-ttl.html",
+		  "template-format": "",
+		  "base": "{{[type]}}-{{[id]}}.html",
+		  "defns": "{{[type]}}-{{[id]}}-definitions.html",
+		  "mappings": "{{[type]}}-{{[id]}}-mappings.html",
+		  "examples": "{{[type]}}-{{[id]}}-examples.html",
+		  "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
+		  "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
+		  "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html"
 		},
 		"StructureDefinition": {
 			"template-base": "template/layouts/layout-profile.html",
