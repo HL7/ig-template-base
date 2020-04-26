@@ -164,7 +164,8 @@ body {
 #logo img {
   max-width: 100%;
 }
-/*#project-nav {
+
+#project-nav {
   line-height: 50px;
   float: left;
   margin-top: 8px;
@@ -174,7 +175,16 @@ body {
 #project-logo {
   float: left;
   margin-left: 3px;
-}*/
+}
+
+#family-nav {
+    line-height: 50px;
+    float: right;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #808080;
+}
+
 #ig-status {
   line-height: 20px;
   margin-top: 10px;
@@ -182,6 +192,8 @@ body {
   text-align: center;
   height: 50px;
 }
+
+
 #stripe {
   position: absolute;
   left: 0;
