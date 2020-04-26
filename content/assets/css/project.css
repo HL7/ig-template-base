@@ -164,7 +164,8 @@ body {
 #logo img {
   max-width: 100%;
 }
-/*#project-nav {
+
+#project-nav {
   line-height: 50px;
   float: left;
   margin-top: 8px;
@@ -174,7 +175,16 @@ body {
 #project-logo {
   float: left;
   margin-left: 3px;
-}*/
+}
+
+#family-nav {
+    line-height: 50px;
+    float: right;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #808080;
+}
+
 #ig-status {
   line-height: 20px;
   margin-top: 10px;
@@ -182,6 +192,8 @@ body {
   text-align: center;
   height: 50px;
 }
+
+
 #stripe {
   position: absolute;
   left: 0;
@@ -250,7 +262,7 @@ blockquote.stu-note {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .navbar .nav > li > a {
-  padding: 5px 12px;
+  padding: 10px 12px;
   text-shadow: none;
 }
 .navbar .nav > li > a,
@@ -548,6 +560,12 @@ div.markdown-toc p.link
   padding-left: 8px;
   margin: 0px;
 }
+
+/* Fix to avoid truncating letter descenders in headings */
+h1, h2, h3, h4, h5, h6, .title {
+overflow: visible;
+}
+
 /* Common content for section numbering */
 body{counter-reset:section}
 h2{counter-reset:sub-section}
