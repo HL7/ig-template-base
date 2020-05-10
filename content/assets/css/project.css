@@ -180,9 +180,13 @@ body {
 #family-nav {
     line-height: 50px;
     float: right;
-    margin-top: 8px;
+    margin-top: 4px;
     margin-bottom: 8px;
     color: #808080;
+}
+
+#family-logo {
+  margin-left: 6px;
 }
 
 #ig-status {
@@ -192,7 +196,6 @@ body {
   text-align: center;
   height: 50px;
 }
-
 
 #stripe {
   position: absolute;
