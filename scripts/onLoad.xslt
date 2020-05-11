@@ -136,6 +136,11 @@
       <xsl:with-param name="value" select="'input/maps'"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
+      <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="value" select="'input/testing'"/>
+      <xsl:with-param name="supplement" select="'Y'"/>
+    </xsl:call-template>
+    <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-pages'"/>
       <xsl:with-param name="value" select="'template/config'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
