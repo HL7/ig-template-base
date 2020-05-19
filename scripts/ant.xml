@@ -52,6 +52,9 @@
     </condition>
     <mkdir dir="${dir.schemas}"/>
   </target>
+  <target name="onGenerate.data">
+    <xslt in="${onGenerate.ig.source}xml" out="${ig.temp}/_data/artifacts.json" style="${ig.scripts}/onGenerate.data.xslt"/>
+  </target>
   <target name="onGenerate.r5-schemas" depends="onGenerate.checkVersions" if="R5">
     <getSchemas version="R5" url="http://build.fhir.org/"/>
   </target>
@@ -98,7 +101,7 @@
     <property name="onGenerate.artifacts.files" refid="onGenerate.artifacts.id"/>
     <property name="onGenerate.files" value="${onGenerate.artifacts.files}"/>
   </target>
-  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList"/>
+  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.data,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList"/>
   <target name="onGenerate" depends="onGenerate.extend">
 <!--    <resources id="onGenerate.files.id">
       <fileset refid="onGenerate.artifacts.id"/>
