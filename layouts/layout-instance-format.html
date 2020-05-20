@@ -7,7 +7,7 @@
 {% if site.data.artifacts[page.path].example %}
   {% assign example = 'Example ' %}
 {% endif %}
-{% assign prefix = {{site.data.artifacts[page.path].type}} %}
+{% assign prefix = site.data.artifacts[page.path].type %}
   <h2 id="root">{{example}}{{prefix}}: {{site.data.pages[page.path].title}}</h2>
   <p>
     <a href="{{[type]}}-{{[id]}}.html">(back to description)</a>
