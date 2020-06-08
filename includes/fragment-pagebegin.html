@@ -4,16 +4,16 @@
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
     <title>{{site.data.fhir.igId | upcase}}\{{site.data.pages[page.path].title}} - FHIR v{{site.data.fhir.version}}</title>
-  
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
 
     <link href="{{site.data.info.assets}}fhir.css" rel="stylesheet"/>
-     
+
     <!-- Bootstrap core CSS -->
     <link href="{{site.data.info.assets}}assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/bootstrap-fhir.css" rel="stylesheet"/>
-  
+
     <!-- Project extras -->
     <link href="{{site.data.info.assets}}assets/css/project.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/pygments-manni.css" rel="stylesheet"/>
@@ -27,21 +27,33 @@
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
-  
+
     <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{site.data.info.assets}}assets/ico/apple-touch-icon-144-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{site.data.info.assets}}assets/ico/apple-touch-icon-114-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{site.data.info.assets}}assets/ico/apple-touch-icon-72-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" href="{{site.data.info.assets}}assets/ico/apple-touch-icon-57-precomposed.png"/>
     <link rel="shortcut icon" href="{{site.data.info.assets}}assets/ico/favicon.png"/>
+
+
+
   </head>
   <body>
-{% assign label = {{site.data.pages[page.path].label}} | split: '.0' %}
+
+    <!-- =================  Section Numbering ====================== -->
+
+{% assign label = site.data.pages[page.path].label | split: '.0' %}
     <style type="text/css">h2{--heading-prefix:"{{site.data.info.headingOffset}}{{label}}"}
-    h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[page.path].label}}"}</style>
+    h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{label}}"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
+
+    <!-- =================  End Section Numbering ====================== -->
+
         {% include fragment-header.html %}
+
+  <!-- =================  Status ====================== -->
+
 {% if site.data.info.releaselabel != '' %}
 {% assign status = site.data.info.releaselabel %}
 {% else %}
@@ -52,12 +64,16 @@
         </div>
       </div> <!-- /container -->
     </div>  <!-- /segment-header -->
-    
+
+  <!-- =================  End Status ====================== -->
+
+  <!-- ================== NavBar ========================= -->
+
     <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
       <div id="stripe"> </div>
       <div class="container">  <!-- container -->
         <!-- HEADER CONTENT -->
-    
+
         <nav class="navbar navbar-inverse">
           <!--status-bar-->
           <div class="container">
@@ -75,16 +91,37 @@
       <!-- /HEADER CONTENT -->
       </div>  <!-- /container -->
     </div>  <!-- /segment-navbar -->
-    <!--status-bar-->
+
+  <!-- ================== End NavBar ========================= -->
+
+    <!-- ================== Breadcrumb ========================= -->
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
-      <div class="container">  <!-- container -->  
+      <div class="container">  <!-- container -->
         <ul class="breadcrumb">
           {{site.data.pages[page.path].breadcrumb}}
-        </ul>  
+        </ul>
       </div>  <!-- /container -->
     </div>  <!-- /segment-breadcrumb -->
-    
+    <!-- ================== End Breadcrumb ========================= -->
+
     <div id="segment-content" class="segment">  <!-- segment-content -->
       <div class="container">  <!-- container -->
         <div class="row">
           <div class="inner-wrapper">
+
+
+            <!-- ================= Page CSS Style (thanks to MS IE) ====================== -->
+            <style type="text/css">
+           /* Common content for section numbering */
+            body{counter-reset:section}
+            h2{counter-reset:sub-section}
+            h3{counter-reset:composite}
+            h4{counter-reset:detail}
+            h5{counter-reset:more-detail}
+            h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+            h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+            h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+            h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+            h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+            </style>
+            <!-- ================= End Page CSS Style (thanks to MS IE) ====================== -->

@@ -8,16 +8,16 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </style>
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
-  <h2>{{site.data.pages[page.path].title}}</h2>
-  {% assign path = page.path | split: '.html' %}
-  {% capture content %}
-  {::options parse_block_html="true" /}  
+<h2>{{site.data.pages[page.path].title}}</h2>
+{% assign path = page.path | split: '.html' %}
+{% capture content %}
+<!-- {% raw %}  {::options parse_block_html="true" /} {% endraw %} -->
 <div class="markdown-toc" markdown="1">
 {:toc}
 * This will not be displayed
 </div>
 {% include {{path}}.md %}
-  {% endcapture %}
-  {{ content | markdownify }}
+{% endcapture %}
+{{ content | markdownify }}
 </div>
 {% include fragment-pageend.html %}

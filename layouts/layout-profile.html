@@ -46,6 +46,7 @@
   </p>
   <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
 
+<!-- ======= included intro ===========-->
   {% assign intro = site.data.pages[page.path].intro %}
   {% if intro != null %}
   {% if site.data.pages[page.path].intro-type == 'xml' %}
@@ -61,6 +62,8 @@
   </div>
   {% endif %}
   {% endif %}
+<!-- ======= end included intro ===========-->
+
   <!-- no uri -->
   <a name="profile"> </a>
   <h3 id="profile">Formal Views of Profile Content</h3>
@@ -226,6 +229,7 @@
   <h3 id="inv">Constraints</h3>
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
+<!-- ======= included intro notes ===========-->
   {% assign notes = site.data.pages[page.path].notes %}
   {% if notes != null %}
   {% if site.data.pages[page.path].notes-type == 'xml' %}
@@ -241,6 +245,7 @@
   </div>
   {% endif %}
   {% endif %}
+<!-- ======= end included notes ===========-->
 
 </div>
 {% assign includetabscripts = 'true' %}
