@@ -3,6 +3,7 @@
 {% include fragment-pagebegin.html %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
   <h2 id="root">{{site.data.pages[page.path].title}}</h2>
   {% assign intro = site.data.pages[page.path].intro %}
@@ -20,7 +21,7 @@
   <p>
   This Code system is referenced in the content logical definition of the following value sets:
   </p>
-  
+
   {% include {{[type]}}-{{[id]}}-xref.xhtml %}
 
   {% include {{[type]}}-{{[id]}}-content.xhtml %}

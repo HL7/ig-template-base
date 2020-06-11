@@ -3,13 +3,14 @@
 {% include fragment-pagebegin.html %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
   <h2 id="root">{{site.data.pages[page.path].title}}</h2>
   <p>
     <b>Summary</b>
   </p>
   {%include {{[type]}}-{{[id]}}-summary.xhtml%}
-  
+
   <p>
     <b>References</b>
   </p>
@@ -26,7 +27,7 @@
   <h3 id="definition">Content Logical Definition</h3>
 
   {%include {{[type]}}-{{[id]}}-cld.xhtml%}
-  
+
   <p>&#160;</p>
   <a name="expansion"> </a>
   <h3 id="expansion">Expansion</h3>

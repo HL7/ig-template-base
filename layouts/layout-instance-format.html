@@ -3,11 +3,9 @@
 {% include fragment-pagebegin.html %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='{{[fmt]}}' %}
   <a name="root"> </a>
   <h2 id="root">{{site.data.pages[page.path].title}}</h2>
-  <p>
-    <a href="{{[type]}}-{{[id]}}.html">(back to description)</a>
-  </p>
   <p>
     <a href="{{[type]}}-{{[id]}}.{{[fmt]}}">Raw {{[fmt]}}</a>
   </p>
@@ -17,11 +15,11 @@
   {% include {{intro}} %}
   </div>
   {% endif %}
-  
+
   <p>
     <b>Source view</b>
   </p>
-  
+
   {% include {{[type]}}-{{[name]}}.xhtml %}
 
   {% assign notes = site.data.pages[page.path].notes %}
