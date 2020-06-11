@@ -35,21 +35,16 @@
   <a name="root"> </a>
   <h2 id="root">Extension: {{[title]}} - Turtle Profile</h2>
   <p>Turtle representation of the {{[id]}} Extension</p>
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if site.data.pages[page.path].intro != null %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% endif %}
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html %}
+
 
   {%include StructureDefinition-{{[id]}}-ttl-html.xhtml%}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if site.data.pages[page.path].notes != null %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% endif %}
+  <!-- insert notes if present -->
+  {% include fragment-notes.html %}
+
 </div>
 {% assign includetabscripts = 'true' %}
 {% include fragment-pageend.html %}
