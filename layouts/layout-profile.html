@@ -45,22 +45,9 @@
   The official URL for this profile is:
   </p>
   <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
+<!-- insert intro if present -->
+{% include fragment-intro.html %}
 
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if intro != null %}
-  {% if site.data.pages[page.path].intro-type == 'xml' %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% else %}
-  {% capture intro-content %}
-{% include {{intro}} %}
-  {% endcapture %}
-  <div style="display:inline-block">
-  {{ intro-content | markdownify }}
-  </div>
-  {% endif %}
-  {% endif %}
   <!-- no uri -->
   <a name="profile"> </a>
   <h3 id="profile">Formal Views of Profile Content</h3>
@@ -226,21 +213,8 @@
   <h3 id="inv">Constraints</h3>
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if notes != null %}
-  {% if site.data.pages[page.path].notes-type == 'xml' %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% else %}
-  {% capture note-content %}
-{% include {{notes}} %}
-  {% endcapture %}
-  <div style="display:inline-block">
-  {{ note-content | markdownify }}
-  </div>
-  {% endif %}
-  {% endif %}
+<!-- insert notes if present -->
+{% include fragment-intro.html %}
 
 </div>
 {% assign includetabscripts = 'true' %}
