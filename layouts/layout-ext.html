@@ -49,10 +49,10 @@
   <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
   <ul>
     {% for context in site.data.structuredefinitions['{{[id]}}'].contexts %}
-    <li>{{context}}</li>
+    <li>{{context.type}}</li>
     {% endfor %}
   </ul>
-  
+
   {% assign intro = site.data.pages[page.path].intro %}
   {% if site.data.pages[page.path].intro != null %}
   <div style="display:inline-block">
@@ -62,7 +62,7 @@
 
   <p><b>Usage info</b></p>
   {%include StructureDefinition-{{[id]}}-sd-xref.xhtml%}
-  
+
   <!-- no uri -->
   <a name="profile"> </a>
   <h3 id="profile">Formal Views of Extension Content</h3>
@@ -223,7 +223,7 @@
   <a name="tx"> </a>
   <h3 id="tx">Terminology Bindings</h3>
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
-  
+
   <a name="inv"> </a>
   <h3 id="inv">Constraints</h3>
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
