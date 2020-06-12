@@ -39,7 +39,14 @@
 {% endunless %}
   </ul>
   <a name="root"> </a>
-  <h2 id="root">StructureDefinition: {{[title]}}</h2>
+{% if site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
+  {% assign modelType = 'Logical Model' %}
+{% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
+  {% assign modelType = 'Resource Profile' %}
+{% else %}
+  {% assign modelType = 'Data Type Profile' %}
+{% endif %}
+  <h2 id="root">{{modelType}}: {{[title]}}</h2>
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this profile is:
@@ -207,16 +214,17 @@
   <p>Other representations of profile: <a href="{{[type]}}-{{[id]}}.sch">Schematron</a>
   </p>
   <a name="tx"> </a>
-  <h3 id="tx">Terminology Bindings</h3>
+  <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
   <a name="inv"> </a>
-  <h3 id="inv">Constraints</h3>
+  <!--Constraints  heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
 <!-- insert notes if present -->
 {% include fragment-notes.html %}
 
+  {%include StructureDefinition-{{[id]}}-history.xhtml%}
 </div>
 {% assign includetabscripts = 'true' %}
 {% include fragment-pageend.html %}

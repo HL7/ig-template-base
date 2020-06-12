@@ -7,5 +7,6 @@
     <xsl:if test="f:fhirVersion/@value[starts-with(., '3.')]">R3=Y&#xa;</xsl:if>
     <xsl:if test="f:fhirVersion/@value[starts-with(., '1.4')]">R2B=Y&#xa;</xsl:if>
     <xsl:if test="f:fhirVersion/@value[starts-with(., '1.0')]">R2=Y&#xa;</xsl:if>
+    <xsl:value-of select="concat('igVersion=', f:version/@value, '&#xa;')"/>
 	</xsl:template>
 </xsl:stylesheet>

@@ -49,7 +49,7 @@
   <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
   <ul>
     {% for context in site.data.structuredefinitions['{{[id]}}'].contexts %}
-    <li>{{context}}</li>
+    <li>{{context.type}}</li>
     {% endfor %}
   </ul>
 
@@ -217,15 +217,17 @@
   <p>Other representations of extension: <a href="{{[type]}}-{{[id]}}.sch">Schematron</a>
   </p>
   <a name="tx"> </a>
-  <h3 id="tx">Terminology Bindings</h3>
+  <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
   <a name="inv"> </a>
-  <h3 id="inv">Constraints</h3>
+  <!--Constraints  heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
   <!-- insert notes if present -->
   {% include fragment-notes.html %}
+
+  {%include StructureDefinition-{{[id]}}-history.xhtml%}
 
 </div>
 {% assign includetabscripts = 'true' %}

@@ -4,7 +4,7 @@
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   <a name="root"> </a>
-  <h2 id="root">{{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">CodeSystem: {{site.data.pages[page.path].title}}</h2>
 
   <!-- insert intro if present -->
   {% include fragment-intro.html %}
@@ -25,6 +25,8 @@
 
   <!-- insert notes if present -->
   {% include fragment-notes.html %}
+
+  {%include {{[type]}}-{{[id]}}-history.xhtml%}
 
 </div>
 {% include fragment-pageend.html %}
