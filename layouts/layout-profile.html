@@ -6,28 +6,23 @@
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
 
   <a name="root"> </a>
-  <h2 id="root">StructureDefinition: {{[title]}}</h2>
+{% if site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
+  {% assign modelType = 'Logical Model' %}
+{% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
+  {% assign modelType = 'Resource Profile' %}
+{% else %}
+  {% assign modelType = 'Data Type Profile' %}
+{% endif %}
+  <h2 id="root">{{modelType}}: {{[title]}}</h2>
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this profile is:
   </p>
   <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
 
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if intro != null %}
-  {% if site.data.pages[page.path].intro-type == 'xml' %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% else %}
-  {% capture intro-content %}
-{% include {{intro}} %}
-  {% endcapture %}
-  <div style="display:inline-block">
-  {{ intro-content | markdownify }}
-  </div>
-  {% endif %}
-  {% endif %}
+<!-- insert intro if present -->
+{% include fragment-intro.html %}
+
   <!-- no uri -->
   <a name="profile"> </a>
   <h3 id="profile">Formal Views of Profile Content</h3>
@@ -186,29 +181,17 @@
   <p>Other representations of profile: <a href="{{[type]}}-{{[id]}}.sch">Schematron</a>
   </p>
   <a name="tx"> </a>
-  <h3 id="tx">Terminology Bindings</h3>
+  <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
   <a name="inv"> </a>
-  <h3 id="inv">Constraints</h3>
+  <!--Constraints  heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if notes != null %}
-  {% if site.data.pages[page.path].notes-type == 'xml' %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% else %}
-  {% capture note-content %}
-{% include {{notes}} %}
-  {% endcapture %}
-  <div style="display:inline-block">
-  {{ note-content | markdownify }}
-  </div>
-  {% endif %}
-  {% endif %}
+<!-- insert notes if present -->
+{% include fragment-notes.html %}
 
+  {%include StructureDefinition-{{[id]}}-history.xhtml%}
 </div>
 {% assign includetabscripts = 'true' %}
 {% include fragment-pageend.html %}

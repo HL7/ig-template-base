@@ -18,16 +18,12 @@
   <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
   <ul>
     {% for context in site.data.structuredefinitions['{{[id]}}'].contexts %}
-    <li>{{context}}</li>
+    <li>{{context.type}}</li>
     {% endfor %}
   </ul>
 
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if site.data.pages[page.path].intro != null %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% endif %}
+  <!-- insert intro if present -->
+  {% include fragment-intro.html %}
 
   <p><b>Usage info</b></p>
   {%include StructureDefinition-{{[id]}}-sd-xref.xhtml%}
@@ -190,19 +186,18 @@
   <p>Other representations of extension: <a href="{{[type]}}-{{[id]}}.sch">Schematron</a>
   </p>
   <a name="tx"> </a>
-  <h3 id="tx">Terminology Bindings</h3>
+  <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
   <a name="inv"> </a>
-  <h3 id="inv">Constraints</h3>
+  <!--Constraints  heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if site.data.pages[page.path].notes != null %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% endif %}
+  <!-- insert notes if present -->
+  {% include fragment-notes.html %}
+
+  {%include StructureDefinition-{{[id]}}-history.xhtml%}
+
 </div>
 {% assign includetabscripts = 'true' %}
 {% include fragment-pageend.html %}
