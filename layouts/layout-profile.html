@@ -53,21 +53,9 @@
   </p>
   <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
 
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if intro != null %}
-  {% if site.data.pages[page.path].intro-type == 'xml' %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% else %}
-  {% capture intro-content %}
-{% include {{intro}} %}
-  {% endcapture %}
-  <div style="display:inline-block">
-  {{ intro-content | markdownify }}
-  </div>
-  {% endif %}
-  {% endif %}
+<!-- insert intro if present -->
+{% include fragment-intro.html %}
+
   <!-- no uri -->
   <a name="profile"> </a>
   <h3 id="profile">Formal Views of Profile Content</h3>
@@ -233,21 +221,8 @@
   <!--Constraints  heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if notes != null %}
-  {% if site.data.pages[page.path].notes-type == 'xml' %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% else %}
-  {% capture note-content %}
-{% include {{notes}} %}
-  {% endcapture %}
-  <div style="display:inline-block">
-  {{ note-content | markdownify }}
-  </div>
-  {% endif %}
-  {% endif %}
+<!-- insert notes if present -->
+{% include fragment-notes.html %}
 
   {%include StructureDefinition-{{[id]}}-history.xhtml%}
 </div>

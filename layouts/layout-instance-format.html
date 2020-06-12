@@ -15,24 +15,19 @@
   <p>
     <a href="{{[type]}}-{{[id]}}.{{[fmt]}}">Raw {{[fmt]}}</a>
   </p>
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if site.data.pages[page.path].intro != null %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% endif %}
-  
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html %}
+
+
   <p>
     <b>Source view</b>
   </p>
-  
+
   {% include {{[type]}}-{{[name]}}.xhtml %}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if site.data.pages[page.path].notes != null %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% endif %}
+  <!-- insert notes if present -->
+  {% include fragment-notes.html %}
+
 </div>
 {% include fragment-pageend.html %}

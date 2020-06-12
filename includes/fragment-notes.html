@@ -1,0 +1,15 @@
+{% assign notes = site.data.pages[page.path].notes %}
+{% if notes != null %}
+{% if site.data.pages[page.path].notes-type == 'xml' %}
+<div style="display:inline-block">
+{% include {{notes}} %}
+</div>
+{% else %}
+{% capture note-content %}
+{% include {{notes}} %}
+{% endcapture %}
+<div style="display:inline-block" markdown="1">
+{{ note-content | markdownify }}
+</div>
+{% endif %}
+{% endif %}

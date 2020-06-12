@@ -47,13 +47,10 @@
   {% assign modelType = 'Data Type Profile' %}
 {% endif %}
   <h2 id="root">{{modelType}}: {{[title]}} - Examples</h2>
-  {% assign intro = site.data.pages[page.path].intro %}
-  {% if site.data.pages[page.path].intro != null %}
-  <div style="display:inline-block">
-  {% include {{intro}} %}
-  </div>
-  {% endif %}
-  
+
+   <!-- insert intro if present -->
+    {% include fragment-intro.html %}
+
 {% assign basepath = page.path | replace: '-examples.html', '.html' %}
 {% if site.data.pages[basepath].examples.size > 0 %}
   <p>Examples for the {{[id]}} Profile.</p>
@@ -72,12 +69,9 @@
   <p><b>No examples are currently available for the {{id}} Profile.</b></p>
 {% endif %}
 
-  {% assign notes = site.data.pages[page.path].notes %}
-  {% if site.data.pages[page.path].notes != null %}
-  <div style="display:inline-block">
-  {% include {{notes}} %}
-  </div>
-  {% endif %}
+<!-- insert notes if present -->
+{% include fragment-notes.html %}
+
 </div>
 {% assign includetabscripts = 'true' %}
 {% include fragment-pageend.html %}
