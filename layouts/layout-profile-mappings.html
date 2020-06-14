@@ -13,7 +13,9 @@
 {% else %}
   {% assign modelType = 'Data Type Profile' %}
 {% endif %}
-  <h2 id="root">{{modelType}}: {{[title]}} - Mappings</h2>
+<h2 id="root">{{modelType}}: {{[title]}} - Mappings</h2>
+
+<p>Mappings for the {{id}} Profile.</p>
 
   <!-- insert intro if present -->
   {% include fragment-intro.html %}

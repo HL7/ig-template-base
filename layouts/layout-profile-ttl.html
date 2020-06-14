@@ -14,11 +14,11 @@
 {% else %}
   {% assign modelType = 'Data Type Profile' %}
 {% endif %}
-  <h2 id="root">{{modelType}}: {{[title]}} - {{format | upcase}} Profile</h2>
+<h2 id="root">{{modelType}}: {{[title]}} - {{format | upcase}} Profile</h2>
 
-  <p>
-    <a href="{{[type]}}-{{[id]}}.{{format}}">Raw {{format}}</a>
-  </p>
+<p>{{format | upcase}} representation of the {{[id]}} Profile.</p>
+
+<p><a href="{{[type]}}-{{[id]}}.{{format}}">Raw {{format}}</a></p>
 
   <!-- insert intro if present -->
   {% include fragment-intro.html %}
