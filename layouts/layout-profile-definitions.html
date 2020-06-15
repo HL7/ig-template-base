@@ -1,44 +1,11 @@
 ---
 ---
 {% include fragment-pagebegin.html %}
-{% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
-{% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
-{% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
-{% assign excludemaps = site.data.info.excludemap | downcase | slice: 0 %}
 <div style="counter-reset: section 4" class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
-  <ul class="nav nav-tabs">
-    <li>
-      <a href="{{[type]}}-{{[id]}}.html">Content</a>
-    </li>
-    <li class="active">
-      <a href="#">Detailed Descriptions</a>
-    </li>
-{% unless excludemaps == 'y' %}
-    <li>
-      <a href="{{[type]}}-{{[id]}}-mappings.html">Mappings</a>
-    </li>
-{% endunless %}
-    <li>
-      <a href="{{[type]}}-{{[id]}}-examples.html">Examples</a>
-    </li>
-{% unless excludexml == 'y' %}
-    <li>
-      <a href="{{[type]}}-{{[id]}}.profile.xml.html">XML</a>
-    </li>
-{% endunless %}
-{% unless excludejson == 'y' %}
-    <li>
-      <a href="{{[type]}}-{{[id]}}.profile.json.html">JSON</a>
-    </li>
-{% endunless %}
-{% unless excludettl == 'y' %}
-    <li>
-      <a href="{{[type]}}-{{[id]}}.profile.ttl.html">Turtle</a>
-    </li>
-{% endunless %}
-  </ul>
+  {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='definition' %}
   <a name="root"> </a>
+
 {% if site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
   {% assign modelType = 'Logical Model' %}
 {% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
@@ -46,12 +13,13 @@
 {% else %}
   {% assign modelType = 'Data Type Profile' %}
 {% endif %}
-  <h2 id="root">{{modelType}}: {{[title]}} - Detailed Descriptions</h2>
-  <p>Definitions for the {{[id]}} Profile.</p>
+
+<h2 id="root">{{modelType}}: {{[title]}} - Detailed Descriptions</h2>
+
+<p>Definitions for the {{[id]}} Profile.</p>
 
   <!-- insert intro if present -->
   {% include fragment-intro.html %}
-
 
   {%include StructureDefinition-{{[id]}}-dict.xhtml%}
 

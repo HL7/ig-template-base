@@ -1,0 +1,47 @@
+{% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
+{% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
+{% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
+<ul class="nav nav-tabs">
+{% if include.active == 'content' %}
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+{% else %}
+  <li>
+    <a href="{{include.type}}-{{include.id}}.html">Narrative Content</a>
+  </li>
+{% endif %}
+{% unless excludexml == 'y' %}
+  {% if include.active == 'xml' %}
+    <li class="active">
+      <a href="#">XML</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}.xml.html">XML</a>
+    </li>
+  {% endif %}
+{% endunless %}
+{% unless excludejson == 'y' %}
+  {% if include.active == 'json' %}
+    <li class="active">
+      <a href="#">JSON</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}.json.html">JSON</a>
+    </li>
+  {% endif %}
+{% endunless %}
+{% unless excludettl == 'y' %}
+  {% if include.active == 'ttl' %}
+    <li class="active">
+      <a href="#">TTL</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}.ttl.html">TTL</a>
+    </li>
+  {% endif %}
+{% endunless %}
+</ul>
