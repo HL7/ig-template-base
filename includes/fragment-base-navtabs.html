@@ -1,6 +1,9 @@
 {% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
 {% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
 {% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
+{% assign resource_ = include.type| append: '/'| append: include.id  %}
+{% assign has_history = site.data.resources[resource_].['history'] %}
+
 <ul class="nav nav-tabs">
 {% if include.active == 'content' %}
   <li class="active">
@@ -44,4 +47,10 @@
     </li>
   {% endif %}
 {% endunless %}
+{% if  site.data.resources[resource_].['history'] %}
+    <li>
+      <a href="{{[include.type]}}-{{[include.id]}}.profile.history.html">History</a>
+    </li>
+{% endif %}
+
 </ul>
