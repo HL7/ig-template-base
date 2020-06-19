@@ -4,6 +4,9 @@
 {% assign excludemaps = site.data.info.excludemap | downcase | slice: 0 %}
 {% assign excludeexamples = site.data.info.excludeexample | downcase | slice: 0 %}
 {% assign sd_type = site.data.structuredefinitions.[include.id].type %}
+{% assign resource_ = include.type| append: '/'| append: include.id  %}
+{% assign has_history = site.data.resources[resource_].['history'] %}
+
 <ul class="nav nav-tabs">
 {% if include.active == 'content' %}
   <li class="active">
@@ -84,4 +87,15 @@
     </li>
   {% endif %}
 {% endunless %}
+{% if  site.data.resources[resource_].['history'] %}
+  {% if include.active == 'history' %}
+    <li class="active">
+      <a href="#">History</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}.profile.history.html">History</a>
+    </li>
+  {% endif %}
+{% endif %}
 </ul>
