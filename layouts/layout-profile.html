@@ -40,6 +40,9 @@
       <li>
         <a href="#tabs-snap">Snapshot Table</a>
       </li>
+      <li>
+        <a href="#tabs-snapms">Snapshot Table (Must Support)</a>
+      </li>
 {% unless excludexml == 'y' %}
 <!--      <li>
         <a href="#tabs-xml">Pseudo-XML</a>
@@ -118,6 +121,14 @@
       </div>
     </div>-->
 {% endunless %}
+    <a name="tabs-snapms"> </a>
+    <div id="tabs-snapms">
+      <div id="tbl-snap">
+        <div id="tbl-snap-inner">
+          {%include StructureDefinition-{{[id]}}-snapshot-by-mustsupport.xhtml%}
+        </div>
+      </div>
+    </div>
     <a name="tabs-all"> </a>
     <div id="tabs-all">
       <div id="all-summ">
