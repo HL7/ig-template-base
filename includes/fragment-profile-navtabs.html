@@ -6,7 +6,8 @@
 {% assign sd_type = site.data.structuredefinitions.[include.id].type %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
-
+{% assign basepath = page.path | replace: '-examples.html', '.html' %}
+{% assign example_count = site.data.pages[basepath].examples.size %}
 <ul class="nav nav-tabs">
 {% if include.active == 'content' %}
   <li class="active">
@@ -40,6 +41,7 @@
   {% endif %}
 {% endunless %}
 
+{% unless example_count == 0 %}
 {% unless sd_type == 'Extension' %}
   {% unless excludeexamples == 'y' %}
     {% if include.active == 'example' %}
@@ -52,6 +54,7 @@
       </li>
     {% endif %}
   {% endunless %}
+{% endunless %}
 {% endunless %}
 
 {% unless excludexml == 'y' %}
