@@ -6,17 +6,19 @@
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='definition' %}
   <a name="root"> </a>
 
-{% if site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
-  {% assign modelType = 'Logical Model' %}
-{% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
-  {% assign modelType = 'Resource Profile' %}
-{% else %}
-  {% assign modelType = 'Data Type Profile' %}
-{% endif %}
+  {% if site.data.structuredefinitions['{{[id]}}'].type == 'Extension' %}
+    {% assign modelType = 'Extension' %}
+  {% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
+    {% assign modelType = 'Logical Model' %}
+  {% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
+    {% assign modelType = 'Resource Profile' %}
+  {% else %}
+    {% assign modelType = 'Data Type Profile' %}
+  {% endif %}
 
-<h2 id="root">{{modelType}}: {{[title]}} - Detailed Descriptions</h2>
+<h2 id="root">FOO {{modelType}}: {{[title]}} - Detailed Descriptions</h2>
 
-<p>Definitions for the {{[id]}} Profile.</p>
+<p>Definitions for the {{[id]}} {{modelType | downcase}}.</p>
 
   <!-- insert intro if present -->
   {% include fragment-intro.html %}
