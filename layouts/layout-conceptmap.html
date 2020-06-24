@@ -9,7 +9,7 @@
   <h2 id="root">ConceptMap: {{site.data.pages[page.path].title}}</h2>
 
   <!-- insert intro if present -->
-  {% include fragment-intro.html %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
 
   <p>
   Formats: <a href="{{[type]}}-{{[id]}}.xml.html">XML</a>, <a href="{{[type]}}-{{[id]}}.json.html">JSON</a>, <a href="{{[type]}}-{{[id]}}.ttl.html">Turtle</a>
@@ -18,7 +18,7 @@
   {% include {{[type]}}-{{[name]}}.xhtml %}
 
   <!-- insert notes if present -->
-  {% include fragment-notes.html %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
 
   {%include {{[type]}}-{{[id]}}-history.xhtml%}
 

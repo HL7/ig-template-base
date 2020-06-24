@@ -10,12 +10,12 @@
   <p>Mappings for the {{[id]}} Profile.</p>
 
   <!-- insert intro if present -->
-  {% include fragment-intro.html %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
 
   {%include StructureDefinition-{{[id]}}-maps.xhtml%}
 
   <!-- insert notes if present -->
-  {% include fragment-notes.html %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
 
 </div>
 {% assign includetabscripts = 'true' %}

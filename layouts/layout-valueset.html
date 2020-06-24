@@ -17,7 +17,7 @@
   {%include {{[type]}}-{{[id]}}-xref.xhtml%}
 
   <!-- insert intro if present -->
-  {% include fragment-intro.html %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
 
   <a name="definition"> </a>
 
@@ -63,7 +63,7 @@
   </table>
 
   <!-- insert notes if present -->
-  {% include fragment-notes.html %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
 
   {%include {{[type]}}-{{[id]}}-history.xhtml%}
 
