@@ -1,18 +1,14 @@
 ---
 ---
+<!-- get modelType -->
+{% include fragment-modelType.html id='{{[id]}}' %}
+
 {% include fragment-pagebegin.html %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
 
   <a name="root"> </a>
-{% if site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
-  {% assign modelType = 'Logical Model' %}
-{% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
-  {% assign modelType = 'Resource Profile' %}
-{% else %}
-  {% assign modelType = 'Data Type Profile' %}
-{% endif %}
   <h2 id="root">{{modelType}}: {{[title]}}</h2>
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
