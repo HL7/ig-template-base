@@ -8,7 +8,7 @@
   <h2 id="root">CodeSystem: {{site.data.pages[page.path].title}}</h2>
 
   <!-- insert intro if present -->
-  {% include fragment-intro.html %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
 
   <p>
     <b>Summary</b>
@@ -25,7 +25,7 @@
   {% include {{[type]}}-{{[id]}}-content.xhtml %}
 
   <!-- insert notes if present -->
-  {% include fragment-notes.html %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
 
   {%include {{[type]}}-{{[id]}}-history.xhtml%}
 
