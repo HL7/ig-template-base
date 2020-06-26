@@ -82,6 +82,7 @@
       <xsl:apply-templates select="f:template"/>
     </xsl:copy>
   </xsl:template>
+  <xsl:template match="f:parameter[f:code/@value='find-other-resources']"/>
   <xsl:template name="addParameters">
     <xsl:if test="$addResources='true'">
       <xsl:call-template name="setParameter">
