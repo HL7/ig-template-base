@@ -11,7 +11,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <h2>{{site.data.pages[page.path].title}}</h2>
   {% assign path = page.path | split: '.html' %}
   {% capture content %}
-  {::options parse_block_html="true" /}  
 <div class="markdown-toc" markdown="1">
 {:toc}
 * This will not be displayed

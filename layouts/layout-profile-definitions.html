@@ -1,30 +1,25 @@
 ---
 ---
+<!-- get modelType -->
+{% include fragment-modelType.html id='{{[id]}}' %}
+
 {% include fragment-pagebegin.html %}
 <div style="counter-reset: section 4" class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='definition' %}
-  <a name="root"> </a>
 
-{% if site.data.structuredefinitions['{{[id]}}'].kind == 'logical' %}
-  {% assign modelType = 'Logical Model' %}
-{% elsif site.data.structuredefinitions['{{[id]}}'].kind == 'resource' %}
-  {% assign modelType = 'Resource Profile' %}
-{% else %}
-  {% assign modelType = 'Data Type Profile' %}
-{% endif %}
-
+<a name="root"> </a>
 <h2 id="root">{{modelType}}: {{[title]}} - Detailed Descriptions</h2>
 
-<p>Definitions for the {{[id]}} Profile.</p>
+<p>Definitions for the {{[id]}} {{modelType | downcase}}.</p>
 
   <!-- insert intro if present -->
-  {% include fragment-intro.html %}
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
 
   {%include StructureDefinition-{{[id]}}-dict.xhtml%}
 
   <!-- insert notes if present -->
-  {% include fragment-notes.html %}
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
 
 </div>
 {% assign includetabscripts = 'true' %}

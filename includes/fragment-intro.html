@@ -2,11 +2,11 @@
 {% if intro != null %}
 {% if site.data.pages[page.path].intro-type == 'xml' %}
 <div style="display:inline-block">
-{% include {{intro}} %}
+{% include {{intro}} type=include.type id=include.id %}
 </div>
 {% else %}
 {% capture intro-content %}
-{% include {{intro}} %}
+{% include {{intro}} type=include.type id=include.id %}
 {% endcapture %}
 <div style="display:inline-block" markdown="1">
 {{ intro-content | markdownify }}

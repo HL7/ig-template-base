@@ -1,8 +1,8 @@
 /*
- 
+
     Specific layout and styling, project based
-        
-    
+
+
 */
 /*
 Flexslider vs LayerSlider vs SliderRevolution
@@ -14,7 +14,7 @@ breadcrumb vs history what is a breadcrumb hiearchy or history?
 gray-color thingy
 
 widget-row vs thumbs vs joyo-thumbs
-shortcode for 
+shortcode for
 - Fontawesome
 - Accordion
 - Notifications
@@ -28,19 +28,19 @@ widget in sidebar vs in column = uiterlijk op basis van locale class via functio
 
 - SCAFFOLDING							Groundwork for the site. Background colors are set in less or overruled here
 - SCAFFOLDING OBJECTS					Objects reoccurring on every page
-- COMPONENTS							Everything what can be moved around				
+- COMPONENTS							Everything what can be moved around
 - BACK TO TOP							Anchor animating to top of the page
 - EXCEPTIONS FOR SPECIFIC SITUATIONS	Some pages are not like the others
-- D-I-D AREA							Do-It-Dirty 
+- D-I-D AREA							Do-It-Dirty
 
 */
-/* SCAFFOLDING STYLING 
+/* SCAFFOLDING STYLING
 ----------------------------------------------------------------------------------------*/
 
 
-/* Colors 
+/* Colors
 
-Usage: 
+Usage:
 var(--publish-box-border); */
 
 :root {
@@ -66,7 +66,7 @@ var(--publish-box-border); */
 
   --toc-box-bg-color: #ffeb7e; /* 17.  TOC box background color */
   --toc-box-border: 1px solid navy; /* 18. TOC box border definition */
-  
+
   --stu-note-background-color: #fff2ff; /* 19. (STU) Note box background color */
   --stu-note-border-left-color: #ffa0ff; /* 20. (STU) Note box border color */
 
@@ -130,7 +130,7 @@ body {
 		//padding-right: 0;
 		.segment > .container {
 			//padding-left: 10px;
-			//padding-right: 10px; 
+			//padding-right: 10px;
 		}
 	}
 	.segment {
@@ -210,7 +210,7 @@ body {
 }
 #publish-box {
   background-color: var(--publish-box-bg-color);
-  border: var(--publish-box-border); 
+  border: var(--publish-box-border);
   padding: 5px;
 }
 
@@ -375,7 +375,7 @@ blockquote.stu-note {
         border-bottom: 0;
     }
     .nav-tabs > li > a {
-        border: 1px solid #ddd;        
+        border: 1px solid #ddd;
         .border-top-radius(0);
         .border-right-radius(0);
         .border-bottom-radius(0);
@@ -396,7 +396,7 @@ blockquote.stu-note {
         border-color: #ddd;
         z-index: 2;
     }
-}	
+}
 */
 
 
@@ -580,3 +580,27 @@ h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefi
 h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(section) "." counter(sub-section) "." counter(composite) " ";}
 h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+
+/* ============ downloads css ============= */
+
+a[href$=".sch"]:after, a[href$=".zip"]:after, a[href$=".tgz"]:after, a[href$=".xml"]:not([no-download^="true"]):after, a[href$=".json"]:not([no-download^="true"]):after, a[href$=".csv"]:after, a[href$=".ttl"]:not([no-download^="true"]):after {
+  content: url(../images/download.png);
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 3px;
+}
+
+/* =========== external links ============= */
+p a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not([no-external^="true"]):after {
+    content: url(../images/external.png);
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 3px;
+}
+
+li a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not([no-external^="true"]):after {
+    content: url(../images/external.png);
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 3px;
+}
