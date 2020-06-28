@@ -33,6 +33,10 @@
     {
       "name": "ext-history",
       "description": "Change History"
+    },
+    {
+      "name": "history",
+      "description": "Change History"
     }
   ],
   "_pre-process-documentation": "This array of objects indicates data being converted from existing files using scripts to support dependency checking when performing continuous builds",
@@ -121,20 +125,26 @@
     "CodeSystem": {
       "template-base": "template/layouts/layout-codesystem.html",
       "template-format": "template/layouts/layout-instance-format.html",
+      "template-history": "template/layouts/layout-history.html",
       "base": "{{[type]}}-{{[id]}}.html",
-      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "history": "{{[type]}}-{{[id]}}.history.html"
     },
     "ConceptMap": {
       "template-base": "template/layouts/layout-conceptmap.html",
       "template-format": "template/layouts/layout-instance-format.html",
+      "template-history": "template/layouts/layout-history.html",
       "base": "{{[type]}}-{{[id]}}.html",
-      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "profile-history": "{{[type]}}-{{[id]}}.history.html"
     },
     "ValueSet": {
       "template-base": "template/layouts/layout-valueset.html",
       "template-format": "template/layouts/layout-instance-format.html",
+      "template-history": "template/layouts/layout-history.html",
       "base": "{{[type]}}-{{[id]}}.html",
-      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "history": "{{[type]}}-{{[id]}}.history.html"
     }
   }
 }

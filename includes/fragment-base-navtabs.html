@@ -48,9 +48,15 @@
   {% endif %}
 {% endunless %}
 {% if  site.data.resources[resource_].['history'] %}
-    <li>
-      <a href="{{[include.type]}}-{{[include.id]}}.profile.history.html">History</a>
-    </li>
+{% if include.active == 'history' %}
+<li class="active">
+  <a href="#">History</a>
+</li>
+{% else %}
+<li>
+  <a href="{{include.type}}-{{include.id}}.history.html">History</a>
+</li>
+{% endif %}
 {% endif %}
 
 </ul>
