@@ -21,9 +21,6 @@
     </xsl:if>
     <xsl:for-each select="f:exampleCanonical">
       <xsl:variable name="refId" select="substring-after(@value, $baseUrl)"/>
-<xsl:message>
-<xsl:value-of select="$refId"/>
-</xsl:message>
       <xsl:for-each select="ancestor::f:ImplementationGuide/f:definition/f:resource[f:reference/f:reference/@value=$refId]">
         <xsl:variable name="page" select="f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']/f:valueUri/@value"/>
         <xsl:value-of select="concat(',&quot;exampleOf&quot;:{&quot;name&quot;:&quot;', f:name/@value, '&quot;,&quot;url&quot;:&quot;', $page, '&quot;}')"/>
