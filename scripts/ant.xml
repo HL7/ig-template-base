@@ -77,6 +77,12 @@
     <property name="dir.template.includes" value="${ig.template}/includes" relative="yes"/>
     <loadfile property="groupings" srcFile="${ig.scripts}/groupings.txt" encoding="UTF-8"/>
   </target>
+  <target name="onGenerate.plantUml">
+<!--    <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
+      <arg line="-nometadata -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/*.plantuml&quot;"/>
+    </java>-->
+  </target>
   <target name="onGenerate.infoFile" depends="onGenerate.setup">
     <xslt in="${onGenerate.ig.source}xml" out="${ig.temp}/_data/info.json" style="${ig.scripts}/onGenerate.genJson.xslt"/>
   </target>
@@ -97,11 +103,12 @@
     <xslt in="${onGenerate.ig.dest}xml" out="${dir.temp.includes}/artifacts.xml" style="${ig.scripts}/createArtifactSummary.xslt"/>
     <fileset id="onGenerate.artifacts.id" dir="${ig.root}">
       <include name="${dir.temp.includes}/artifacts.xml"/>
+      <include name="${dir.temp.includes}/*.svg"/>
     </fileset>
     <property name="onGenerate.artifacts.files" refid="onGenerate.artifacts.id"/>
     <property name="onGenerate.files" value="${onGenerate.artifacts.files}"/>
   </target>
-  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.data,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList"/>
+  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.data,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList,onGenerate.plantUml"/>
   <target name="onGenerate" depends="onGenerate.extend">
 <!--    <resources id="onGenerate.files.id">
       <fileset refid="onGenerate.artifacts.id"/>
