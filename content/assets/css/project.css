@@ -70,6 +70,9 @@ var(--publish-box-border); */
   --stu-note-background-color: #fff2ff; /* 19. (STU) Note box background color */
   --stu-note-border-left-color: #ffa0ff; /* 20. (STU) Note box border color */
 
+  --ig-header-color: #f5f5f5; /* 21. Header color (sides) */
+  --ig-header-container-color: #e7e6e7; /* 22. Header container color (center) */
+
 }
 
 
@@ -90,10 +93,10 @@ body {
   position: relative;
 }
 #segment-header {
-  background-color: #f5f5f5;
+  background-color: var(--ig-header-color);
 }
 #segment-header > .container {
-  background-color: #ffffff;
+  background-color: var(--ig-header-container-color);
 }
 #segment-footer {
   background-color: var(--footer-bg-color);
@@ -191,7 +194,7 @@ body {
 
 #ig-status {
   line-height: 20px;
-  margin-top: 10px;
+  margin-top: 17px;
   color: var(--ig-status-text-color);
   text-align: center;
   height: 50px;
