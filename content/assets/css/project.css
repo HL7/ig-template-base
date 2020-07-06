@@ -71,7 +71,7 @@ var(--publish-box-border); */
   --stu-note-border-left-color: #ffa0ff; /* 20. (STU) Note box border color */
 
   --ig-header-color: #f5f5f5; /* 21. Header color (sides) */
-  --ig-header-container-color: #e7e6e7; /* 22. Header container color (center) */
+  --ig-header-container-color: #ffffff; /* 22. Header container color (center) */
 
 }
 
