@@ -607,3 +607,42 @@ li a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not(
     text-decoration: none;
     padding-left: 3px;
 }
+
+/* ----------New content for ballot styling------*/
+
+.new-content::before {
+  white-space: pre;
+  content: "New Content\A ";
+  color: red;
+  font-weight: bold;}
+.new-content{
+    margin: 5px;
+    padding: 10px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.bg-success{
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #bce8f1;
+}
+
+.bg-info{
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #d6e9c6;
+}
+
+.bg-warning{
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.bg-danger{
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
