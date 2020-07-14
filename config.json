@@ -72,14 +72,18 @@
       "template-format": "template/layouts/layout-instance-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "list-types": "CodeSystem|ValueSet"
+      "list-types": "CodeSystem|ValueSet",
+      "template-history": "template/layouts/layout-history.html",
+      "history": "{{[type]}}-{{[id]}}.history.html"
     },
     "example": {
       "java": false,
       "template-base": "template/layouts/layout-instance-base.html",
       "template-format": "template/layouts/layout-instance-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
-      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "template-history": "template/layouts/layout-history.html",
+      "history": "{{[type]}}-{{[id]}}.history.html"
     },
     "ImplementationGuide": {
       "template-base": "",
