@@ -1,6 +1,8 @@
 ---
 ---
+<!-- layouts\layout-changehistory.html -->
 <!-- get modelType -->
+
 
 {% include fragment-pagebegin.html %}
 
@@ -9,8 +11,9 @@
   {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='history' %}
 
   <a name="root"> </a>
-  <h2 id="root">{{[type]}}: {{[title]}} - Change History</h2>
-  <p>Changes in the {{[id]}} {{[type]}} resource.</p>
+  <h2 id="root">{{type}}: {{[title]}} - Change History</h2>
+  <p>History of changes for {{[id]}} {{type | downcase}}.</p>
+
   {%include {{[type]}}-{{[id]}}-history.xhtml%}
 
 </div>

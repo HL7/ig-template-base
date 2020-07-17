@@ -6,6 +6,7 @@
 {% assign sd_type = site.data.structuredefinitions.[include.id].type %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
+{% assign basepath = page.path | replace: '-examples.html', '.html' %}
 {% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
 {% assign example_count = site.data.pages[basepath].examples.size %}
 
