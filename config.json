@@ -28,15 +28,11 @@
     },
     {
       "name": "profile-history",
-      "description": "Change History"
-    },
-    {
-      "name": "ext-history",
-      "description": "Change History"
+      "description": "Profile Change History"
     },
     {
       "name": "history",
-      "description": "Change History"
+      "description": "Resource Change History"
     }
   ],
   "_pre-process-documentation": "This array of objects indicates data being converted from existing files using scripts to support dependency checking when performing continuous builds",
@@ -87,7 +83,8 @@
     },
     "ImplementationGuide": {
       "template-base": "",
-      "template-format": ""
+      "template-format": "",
+      "template-history": ""
     },
     "StructureDefinition:extension": {
       "template-base": "template/layouts/layout-ext.html",
@@ -106,7 +103,7 @@
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
-      "ext-history": "{{[type]}}-{{[id]}}.ext.history.html"
+      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html"
     },
     "StructureDefinition": {
       "template-base": "template/layouts/layout-profile.html",
