@@ -130,4 +130,16 @@
     <attribute name="files"/>
     self.project.setProperty("onGenerate.files", self.project.getProperty("onGenerate.files").concat(";").concat(attributes.get("files")));
   </scriptdef>
+
+  <target name="copyDataFiles" extensionOf="onGenerate.extend">
+  <!-- Jekyll data files from IG (input/data) or from template -->
+    <copy todir="${ig.temp}/_data" failonerror="false">
+      <fileset dir="${ig.template}/data"/>
+    </copy>
+    <copy todir="${ig.temp}/_data" failonerror="false">
+      <fileset dir="${dir.input}/data"/>
+    </copy>
+  </target>
+
+
 </project>
