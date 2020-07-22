@@ -136,9 +136,12 @@
     <copy todir="${ig.temp}/_data" failonerror="false">
       <fileset dir="${ig.template}/data"/>
     </copy>
-    <copy todir="${ig.temp}/_data" failonerror="false">
+  <!-- input/data already works, no need to add (commenting out in case we need to revisit due to conflicts and overlaps ) -->
+  <!--
+         <copy todir="${ig.temp}/_data" failonerror="false">
       <fileset dir="${dir.input}/data"/>
     </copy>
+  -->  
   </target>
 
 
