@@ -108,7 +108,7 @@
     <property name="onGenerate.artifacts.files" refid="onGenerate.artifacts.id"/>
     <property name="onGenerate.files" value="${onGenerate.artifacts.files}"/>
   </target>
-  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.data,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList,onGenerate.plantUml"/>
+  <extension-point name="onGenerate.extend" depends="onGenerate.schemas,onGenerate.data,onGenerate.infoFile,onGenerate.processIncludes,onGenerate.artifactList,onGenerate.plantUml, onGenerate.copyDataFiles"/>
   <target name="onGenerate" depends="onGenerate.extend">
 <!--    <resources id="onGenerate.files.id">
       <fileset refid="onGenerate.artifacts.id"/>
@@ -130,4 +130,19 @@
     <attribute name="files"/>
     self.project.setProperty("onGenerate.files", self.project.getProperty("onGenerate.files").concat(";").concat(attributes.get("files")));
   </scriptdef>
+
+  <target name="onGenerate.copyDataFiles">
+  <!-- Jekyll data files from IG (input/data) or from template -->
+    <copy todir="${ig.temp}/_data" failonerror="false">
+      <fileset dir="${ig.template}/data"/>
+    </copy>
+  <!-- input/data already works, no need to add (commenting out in case we need to revisit due to conflicts and overlaps ) -->
+  <!--
+         <copy todir="${ig.temp}/_data" failonerror="false">
+      <fileset dir="${dir.input}/data"/>
+    </copy>
+  -->  
+  </target>
+
+
 </project>
