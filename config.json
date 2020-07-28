@@ -28,15 +28,11 @@
     },
     {
       "name": "profile-history",
-      "description": "Change History"
+      "description": "Profile Change History"
     },
     {
-      "name": "ext-history",
-      "description": "Change History"
-    },
-    {
-      "name": "history",
-      "description": "Change History"
+      "name": "change-history",
+      "description": "Resource Change History"
     }
   ],
   "_pre-process-documentation": "This array of objects indicates data being converted from existing files using scripts to support dependency checking when performing continuous builds",
@@ -72,14 +68,18 @@
       "template-format": "template/layouts/layout-instance-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "list-types": "CodeSystem|ValueSet"
+      "list-types": "CodeSystem|ValueSet",
+      "template-history": "template/layouts/layout-history.html",
+      "history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "example": {
       "java": false,
       "template-base": "template/layouts/layout-instance-base.html",
       "template-format": "template/layouts/layout-instance-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
-      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html"
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "template-history": "template/layouts/layout-history.html",
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "ImplementationGuide": {
       "template-base": "",
@@ -102,7 +102,7 @@
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
-      "ext-history": "{{[type]}}-{{[id]}}.ext.history.html"
+      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html"
     },
     "StructureDefinition": {
       "template-base": "template/layouts/layout-profile.html",
@@ -113,6 +113,7 @@
       "template-profile-json": "template/layouts/layout-profile-format.html",
       "template-profile-ttl": "template/layouts/layout-profile-format.html",
       "template-profile-history": "template/layouts/layout-profile-history.html",
+      "template-format": "",
       "base": "{{[type]}}-{{[id]}}.html",
       "defns": "{{[type]}}-{{[id]}}-definitions.html",
       "mappings": "{{[type]}}-{{[id]}}-mappings.html",
@@ -128,7 +129,7 @@
       "template-history": "template/layouts/layout-history.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "history": "{{[type]}}-{{[id]}}.history.html"
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "ConceptMap": {
       "template-base": "template/layouts/layout-conceptmap.html",
@@ -136,15 +137,15 @@
       "template-history": "template/layouts/layout-history.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "profile-history": "{{[type]}}-{{[id]}}.history.html"
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "ValueSet": {
       "template-base": "template/layouts/layout-valueset.html",
       "template-format": "template/layouts/layout-instance-format.html",
-      "template-history": "template/layouts/layout-history.html",
+      "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "history": "{{[type]}}-{{[id]}}.history.html"
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     }
   }
 }
