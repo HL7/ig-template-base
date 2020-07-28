@@ -83,7 +83,8 @@
     },
     "ImplementationGuide": {
       "template-base": "",
-      "template-format": ""
+      "template-format": "",
+      "template-change-history":""
     },
     "StructureDefinition:extension": {
       "template-base": "template/layouts/layout-ext.html",
