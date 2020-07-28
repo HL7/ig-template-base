@@ -189,9 +189,15 @@
   <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
+{% capture invariants %}
+  {% include StructureDefinition-{{[id]}}-inv.xhtml %}
+{% endcapture %}
+<!-- 218 is size of empty table -->
+{% unless invariants.size <= 218 %}
   <a name="inv"> </a>
   <!--Constraints  heading in the fragment -->
-  {%include StructureDefinition-{{[id]}}-inv.xhtml%}
+  {% include StructureDefinition-{{[id]}}-inv.xhtml %}
+{% endunless%}
 
   <!-- insert notes if present -->
   {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
