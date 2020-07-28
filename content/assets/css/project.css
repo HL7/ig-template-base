@@ -230,6 +230,13 @@ body {
   font-weight: bold;
 }
 
+.note-to-balloters::before {
+  white-space: pre;
+  content: "Note to Balloters\A ";
+  #background-color: yellow;
+  color: red;
+  font-weight: bold;
+}
 
 blockquote.stu-note {
 	margin: 5px;
