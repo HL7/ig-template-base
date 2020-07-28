@@ -103,7 +103,8 @@
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
-      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html"
+      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
+      "template-change-history": ""
     },
     "StructureDefinition": {
       "template-base": "template/layouts/layout-profile.html",
@@ -122,7 +123,9 @@
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
-      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html"
+      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
+      "template-change-history": "",
+      "_comment": "this template-change-history is here to undo the definition in the Any settings"
     },
     "CodeSystem": {
       "template-base": "template/layouts/layout-codesystem.html",
