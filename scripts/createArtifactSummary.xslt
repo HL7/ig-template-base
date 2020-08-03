@@ -62,7 +62,10 @@
               </td>
               <xsl:if test="$showDescriptions">
                 <td>
+                  <xsl:text>{% capture desc %}</xsl:text>
                   <xsl:value-of select="f:description/@value" disable-output-escaping="no"/>
+                  <xsl:text>{% endcapture %}
+{{ desc | markdownify}}</xsl:text>
                 </td>
               </xsl:if>
             </tr>
