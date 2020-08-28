@@ -10,6 +10,7 @@
 
   <a name="root"> </a>
   <h2 id="root">{{modelType}}: {{[title]}}</h2>
+  {% include {{[type]}}-{{[id]}}-status.xhtml %}
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this profile is:
@@ -181,11 +182,14 @@
           {%include StructureDefinition-{{[id]}}-pseudo-ttl.xhtml%}
         </div>
       </div>-->
-{% endunless %}
+      {% endunless %}
     </div>
   </div>
   <p>&#160;</p>
+
+  {% if modelType != 'Logical Model' %}
   <p>Other representations of profile: <a href="{{[type]}}-{{[id]}}.sch">Schematron</a>
+  {% endif %}
   </p>
   <a name="tx"> </a>
   <!--Terminology Bindings heading in the fragment -->
