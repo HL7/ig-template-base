@@ -37,8 +37,11 @@
     </div>
   </xsl:template>
   <xsl:template match="f:grouping">
-    <p>
-      <xsl:value-of select="f:description/@value"/>
+    <p> 
+      <xsl:text>{% capture grouping_desc %}</xsl:text>
+      <xsl:value-of select="f:description/@value" disable-output-escaping="no"/>
+       <xsl:text>{% endcapture %}
+    {{ grouping_desc | markdownify}}</xsl:text>
     </p>
     <p>
       <xsl:variable name="showDescriptions" select="count(parent::f:definition/f:resource[f:groupingId/@value=current()/@id]/f:description/@value)!=0"/>
