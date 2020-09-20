@@ -18,6 +18,7 @@
     <link href="{{site.data.info.assets}}assets/css/project.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="{{site.data.info.assets}}assets/css/prism.css" rel="stylesheet" />
     {% include fragment-css.html %}
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
@@ -37,6 +38,8 @@
   </head>
   <body onload="document.body.style.opacity='1'">
 {% assign label = {{site.data.pages[page.path].label}} | split: '.0' %}
+	  <script src="{{site.data.info.assets}}assets/js/prism.js"></script>
+
     <style type="text/css">h2{--heading-prefix:"{{site.data.info.headingOffset}}{{label}}"}
     h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[page.path].label}}"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
