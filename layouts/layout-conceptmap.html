@@ -7,6 +7,7 @@
   <a name="root"> </a>
 
   <h2 id="root">ConceptMap: {{site.data.pages[page.path].title}}</h2>
+  {% include {{[type]}}-{{[id]}}-status.xhtml %}
 
   <!-- insert intro if present -->
   {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}

@@ -6,6 +6,7 @@
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
   <h2 id="root">Extension: {{[title]}}</h2>
+  {% include {{[type]}}-{{[id]}}-status.xhtml %}
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this extension is:
