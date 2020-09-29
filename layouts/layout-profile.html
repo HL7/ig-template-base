@@ -10,7 +10,9 @@
 
   <a name="root"> </a>
   <h2 id="root">{{modelType}}: {{[title]}}</h2>
-  <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
+
+{% include fragment-summary-table.html type='{{[type]}}' id='{{[id]}}' %}
+
   <p>
   The official URL for this profile is:
   </p>
