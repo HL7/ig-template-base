@@ -42,6 +42,10 @@
       "relativePath": "_includes"
     },
     {
+      "folder": "fsh-generated/includes",
+      "relativePath": "_includes"
+    },
+    {
       "folder": "input/data",
       "relativePath": "_data"
     },
