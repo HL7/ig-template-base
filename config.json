@@ -125,6 +125,7 @@
       "defns": "{{[type]}}-{{[id]}}-definitions.html",
       "mappings": "{{[type]}}-{{[id]}}-mappings.html",
       "examples": "{{[type]}}-{{[id]}}-examples.html",
+      "format": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
