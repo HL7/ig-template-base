@@ -10,6 +10,10 @@
   <name value="Behavior: Message Definitions"/>
   <description value="These define the types of messages that can be sent and/or received by systems complying with this implementation guide"/>
 </grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_searchparameter">
+  <name value="Behavior: Search Parameters"/>
+  <description value="These define the properties by which a RESTful server can be searched.  They can also be used for sorting and including related resources."/>
+</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_graphdefinition">
   <name value="Structures: Graph Definitions"/>
   <description value="These define collections of interrelated resources that are useful to pass around as a group"/>
@@ -24,7 +28,7 @@
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_abstractprofile">
   <name value="Structures: Abstract Profiles"/>
-  <description value="These are profiles on resources or data types that describe patterns used by other profiles, but can't be instantiated directly.  I.e. instances can conform to profiles *based* on these abstract profiles, but don't declare conformance to the abstract profiles themselves."/>
+  <description value="These are profiles on resources or data types that describe patterns used by other profiles, but cannot be instantiated directly.  I.e. instances can conform to profiles *based* on these abstract profiles, but do not declare conformance to the abstract profiles themselves."/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_profile">
   <name value="Structures: Resource Profiles"/>
@@ -68,5 +72,5 @@
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_other">
   <name value="Other"/>
-  <description value="These are resources that are used within this implementation guide that don't fit into one of the other categories"/>
+  <description value="These are resources that are used within this implementation guide that do not fit into one of the other categories"/>
 </grouping>

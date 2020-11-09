@@ -9,8 +9,10 @@
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
 
   <a name="root"> </a>
-  <h2 id="root">{{modelType}}: {{[title]}}</h2>
-  <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
+  <h2 id="root">{{modelType}}: {{site.data.pages[page.path].title}}</h2>
+
+{% include {{[type]}}-{{[id]}}-summary-table.xhtml type='{{[type]}}' id='{{[id]}}' %}
+
   <p>
   The official URL for this profile is:
   </p>
@@ -191,9 +193,15 @@
   <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
-  <a name="inv"> </a>
-  <!--Constraints  heading in the fragment -->
-  {%include StructureDefinition-{{[id]}}-inv.xhtml%}
+  {% capture invariants %}
+    {% include StructureDefinition-{{[id]}}-inv.xhtml %}
+  {% endcapture %}
+  <!-- 218 is size of empty table -->
+  {% unless invariants.size <= 218 %}
+    <a name="inv"> </a>
+    <!--Constraints  heading in the fragment -->
+    {% include StructureDefinition-{{[id]}}-inv.xhtml %}
+  {% endunless%}
 
 <!-- insert notes if present -->
 {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}

@@ -45,6 +45,7 @@
         <xsl:when test="$infoExt='CapabilityStatement'">_dyn_capabilitystatement</xsl:when>
         <xsl:when test="$infoExt='OperationDefinition'">_dyn_operationdefinition</xsl:when>
         <xsl:when test="$infoExt='MessageDefinition'">_dyn_messagedefinition</xsl:when>
+        <xsl:when test="$infoExt='SearchParameter'">_dyn_searchparameter</xsl:when>
         <xsl:when test="$infoExt='GraphDefinition'">_str_graphdefinition</xsl:when>
         <xsl:when test="starts-with($infoExt,'StructureDefinition:logical')">_str_logicalmodel</xsl:when>
         <xsl:when test="$infoExt='Questionnaire'">_str_questionnaire</xsl:when>
