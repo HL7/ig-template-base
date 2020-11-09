@@ -1,4 +1,4 @@
-{
+﻿{
   "package-id": "fhir.base.template",
   "title": "Base template for FHIR IGs",
   "canonical": "http://fhir.org/templates/fhir.base.template",
@@ -12,13 +12,29 @@
       "current": true
     },
     {
-      "version": "0.1.1",
-      "desc": "Copy button, mapping folder, better overrides",
-      "path": "http://fhir.org/templates/fhir.base.template/0.1.0",
+      "version": "0.2.1",
+      "desc": "update to correct versions of prism.js",
+      "path": "http://fhir.org/templates/fhir.base.template/0.2.1",
       "status": "release",
       "sequence": "Publications",
       "current": true,
-      "date": "yyyy-mm-dd"
+      "date": "2020-09-29"
+    },
+    {
+      "version": "0.2.0",
+      "desc": "Syntax highlighting for xml | json | turtle etc",
+      "path": "http://fhir.org/templates/fhir.base.template/0.2.0",
+      "status": "release",
+      "sequence": "Publications",
+      "date": "2020-09-26"
+    },
+    {
+      "version": "0.1.1",
+      "desc": "Copy button, mapping folder, better overrides",
+      "path": "http://fhir.org/templates/fhir.base.template/0.1.1",
+      "status": "release",
+      "sequence": "Publications",
+      "date": "2020-06-15"
     },
     {
       "version": "0.1.0",

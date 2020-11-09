@@ -233,6 +233,13 @@ body {
   font-weight: bold;
 }
 
+.note-to-balloters::before {
+  white-space: pre;
+  content: "Note to Balloters\A ";
+  #background-color: yellow;
+  color: red;
+  font-weight: bold;
+}
 
 blockquote.stu-note {
 	margin: 5px;
@@ -645,4 +652,16 @@ li a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not(
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
+}
+
+
+/*--------- smooth transitions ---------- */
+
+body{
+    opacity: 0;
+    transition: opacity 0.7s;
+    -webkit-transition: opacity 0.7s; /* Safari */
+    -ms-transition: opacity 0.7s; /* ie */
+    -o-transition: opacity 0.7s; /* opera */
+    -moz-transition: opacity 0.7s; /* firefox */
 }

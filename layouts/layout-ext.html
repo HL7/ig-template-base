@@ -5,7 +5,7 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
-  <h2 id="root">Extension: {{[title]}}</h2>
+  <h2 id="root">Extension: {{site.data.pages[page.path].title}}</h2>
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this extension is:
@@ -189,9 +189,15 @@
   <!--Terminology Bindings heading in the fragment -->
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
+{% capture invariants %}
+  {% include StructureDefinition-{{[id]}}-inv.xhtml %}
+{% endcapture %}
+<!-- 218 is size of empty table -->
+{% unless invariants.size <= 218 %}
   <a name="inv"> </a>
   <!--Constraints  heading in the fragment -->
-  {%include StructureDefinition-{{[id]}}-inv.xhtml%}
+  {% include StructureDefinition-{{[id]}}-inv.xhtml %}
+{% endunless%}
 
   <!-- insert notes if present -->
   {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}

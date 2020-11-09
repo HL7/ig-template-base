@@ -31,7 +31,7 @@
       "description": "Profile Change History"
     },
     {
-      "name": "history",
+      "name": "change-history",
       "description": "Resource Change History"
     }
   ],
@@ -42,12 +42,21 @@
       "relativePath": "_includes"
     },
     {
+      "folder": "fsh-generated/includes",
+      "relativePath": "_includes"
+    },
+    {
       "folder": "input/data",
       "relativePath": "_data"
     },
     {
       "folder": "input/resourcedocs",
       "relativePath": "_data"
+    },
+    {
+      "folder": "input/intro-notes",
+      "relativePath": "_includes",
+      "transform": "template/scripts/processPages.xslt"
     },
     {
       "folder": "input/pagecontent",
@@ -69,8 +78,8 @@
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
       "list-types": "CodeSystem|ValueSet",
-      "template-history": "template/layouts/layout-history.html",
-      "history": "{{[type]}}-{{[id]}}.history.html"
+      "template-change-history": "template/layouts/layout-changehistory.html",
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "example": {
       "java": false,
@@ -78,13 +87,13 @@
       "template-format": "template/layouts/layout-instance-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "template-history": "template/layouts/layout-history.html",
-      "history": "{{[type]}}-{{[id]}}.history.html"
+      "template-change-history": "template/layouts/layout-changehistory.html",
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "ImplementationGuide": {
       "template-base": "",
       "template-format": "",
-      "template-history": ""
+      "template-change-history":""
     },
     "StructureDefinition:extension": {
       "template-base": "template/layouts/layout-ext.html",
@@ -103,7 +112,8 @@
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
-      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html"
+      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
+      "template-change-history": ""
     },
     "StructureDefinition": {
       "template-base": "template/layouts/layout-profile.html",
@@ -114,38 +124,43 @@
       "template-profile-json": "template/layouts/layout-profile-format.html",
       "template-profile-ttl": "template/layouts/layout-profile-format.html",
       "template-profile-history": "template/layouts/layout-profile-history.html",
+      "template-format": "",
       "base": "{{[type]}}-{{[id]}}.html",
       "defns": "{{[type]}}-{{[id]}}-definitions.html",
       "mappings": "{{[type]}}-{{[id]}}-mappings.html",
       "examples": "{{[type]}}-{{[id]}}-examples.html",
+      "format": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
       "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
       "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
-      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html"
+      "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
+      "template-change-history": "",
+      "_comment": "this template-change-history is here to undo the definition in the Any settings"
     },
     "CodeSystem": {
       "template-base": "template/layouts/layout-codesystem.html",
       "template-format": "template/layouts/layout-instance-format.html",
-      "template-history": "template/layouts/layout-history.html",
+      "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "history": "{{[type]}}-{{[id]}}.history.html"
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "ConceptMap": {
       "template-base": "template/layouts/layout-conceptmap.html",
       "template-format": "template/layouts/layout-instance-format.html",
-      "template-history": "template/layouts/layout-history.html",
+      "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "profile-history": "{{[type]}}-{{[id]}}.history.html"
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "ValueSet": {
       "template-base": "template/layouts/layout-valueset.html",
       "template-format": "template/layouts/layout-instance-format.html",
-      "template-history": "template/layouts/layout-history.html",
+      "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "history": "{{[type]}}-{{[id]}}.history.html"
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     }
   }
 }
+
