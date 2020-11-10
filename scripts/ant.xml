@@ -79,9 +79,12 @@
   </target>
   <target name="check-plantumlfiles">
     <condition property="plantumlfiles.exist">
+      <and>
+        <available type="dir" file="${basedir}/${folder.input}/images-source"/>
         <resourcecount when="greater" count="0">
-            <fileset file="${basedir}/${folder.input}/images-source/*.plantuml"/>
+          <fileset file="${basedir}/${folder.input}/images-source/*.plantuml"/>
         </resourcecount>
+      </and>
     </condition>
   </target>
   <target name="onGenerate.plantUml" depends="check-plantumlfiles" if="plantumlfiles.exist">

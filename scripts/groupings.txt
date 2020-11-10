@@ -1,14 +1,14 @@
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_capabilitystatement">
   <name value="Behavior: Capability Statements"/>
-  <description value="The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems complying with the implementation guide are expected to declare conformance to one or more of the following capability statements."/>
+  <description value="The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems conforming to this implementation guide are expected to declare conformance to one or more of the following capability statements."/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_operationdefinition">
   <name value="Behavior: Operation Definitions"/>
-  <description value="These are custom operations that can be supported by and/or invoked by systems complying with this implementation guide"/>
+  <description value="These are custom operations that can be supported by and/or invoked by systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_messagedefinition">
   <name value="Behavior: Message Definitions"/>
-  <description value="These define the types of messages that can be sent and/or received by systems complying with this implementation guide"/>
+  <description value="These define the types of messages that can be sent and/or received by systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_dyn_searchparameter">
   <name value="Behavior: Search Parameters"/>
@@ -24,7 +24,7 @@
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_questionnaire">
   <name value="Structures: Questionnaires"/>
-  <description value="These define forms used by systems conforming with this implementation guide to capture or expose data to end users"/>
+  <description value="These define forms used by systems conforming to this implementation guide to capture or expose data to end users"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_abstractprofile">
   <name value="Structures: Abstract Profiles"/>
@@ -32,31 +32,31 @@
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_profile">
   <name value="Structures: Resource Profiles"/>
-  <description value="These define constraints on FHIR resources that need to be complied with by conformant implementations"/>
+  <description value="These define constraints on FHIR resources for systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_datatype">
   <name value="Structures: Data Type Profiles"/>
-  <description value="These define constraints on FHIR data types that need to be complied with by conformant implementations"/>
+  <description value="These define constraints on FHIR data types for systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_str_extension">
   <name value="Structures: Extension Definitions"/>
-  <description value="These define constraints on FHIR data types that need to be complied with by conformant implementations"/>
+  <description value="These define constraints on FHIR data types for systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_term_valueset">
   <name value="Terminology: Value Sets"/>
-  <description value="These define sets of codes used by systems conforming with this implementation guide"/>
+  <description value="These define sets of codes used by systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_term_codesystem">
   <name value="Terminology: Code Systems"/>
-  <description value="These define new code systems used by systems conforming with this implementation guide"/>
+  <description value="These define new code systems used by systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_term_namingsystem">
   <name value="Terminology: Naming Systems"/>
-  <description value="These define identifier and/or code system identities used by systems conforming with this implementation guide"/>
+  <description value="These define identifier and/or code system identities used by systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_map_structuremap">
   <name value="Terminology: Structure Maps"/>
-  <description value="These define transformations to convert between data structures used by systems conforming with this implementation guide"/>
+  <description value="These define transformations to convert between data structures used by systems conforming to this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_map_conceptmap">
   <name value="Terminology: Concept Maps"/>
