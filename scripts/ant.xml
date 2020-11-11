@@ -88,11 +88,19 @@
     </condition>
     <condition property="template.plantumlfiles.exist">
       <and>
-        <available type="dir" file="${basedir}/${ig.template}/images-source"/>
+        <available type="dir" file="${ig.template}/images-source"/>
         <resourcecount when="greater" count="0">
-          <fileset file="${basedir}/${ig.template}/images-source/*.plantuml"/>
+          <fileset file="${ig.template}/images-source/*.plantuml"/>
         </resourcecount>
       </and>
+    </condition>
+    <condition property="template.plantumlfiles.exista">
+      <available type="dir" file="${ig.template}/images-source"/>
+    </condition>
+    <condition property="template.plantumlfiles.existb">
+      <resourcecount when="greater" count="0">
+        <fileset file="${ig.template}/images-source/*.plantuml"/>
+      </resourcecount>
     </condition>
   </target>
   <target name="onGenerate.plantUml.ig" depends="check-plantumlfiles" if="ig.plantumlfiles.exist">
@@ -104,10 +112,15 @@
   <target name="onGenerate.plantUml.template" depends="check-plantumlfiles" if="template.plantumlfiles.exist">
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
-      <arg line="-nometadata -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/*.plantuml&quot;"/>
+      <arg line="-nometadata -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/*.plantuml&quot;"/>
     </java>
   </target>
-  <target name="onGenerate.plantUml" depends="onGenerate.plantUml.ig,onGenerate.plantUml.template"/>
+  <target name="onGenerate.plantUml" depends="onGenerate.plantUml.ig,onGenerate.plantUml.template">
+<echo message="${ig.template}/images-source"/>
+<echo message="${template.plantumlfiles.exista}"/>
+<echo message="${template.plantumlfiles.existb}"/>
+<echo message="${template.plantumlfiles.exist}"/>
+  </target>
   <target name="onGenerate.infoFile" depends="onGenerate.setup">
     <xslt in="${onGenerate.ig.source}xml" out="${ig.temp}/_data/info.json" style="${ig.scripts}/onGenerate.genJson.xslt"/>
   </target>
