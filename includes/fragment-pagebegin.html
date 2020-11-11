@@ -79,32 +79,12 @@
       </div>  <!-- /container -->
     </div>  <!-- /segment-navbar -->
     <!--status-bar-->
-{% capture previous %}
-{% if site.data.pages[page.path].previous %}
-<a href="{{site.data.pages[page.path].previous}}">&lt; previous</a>
-{% endif %}
-{% endcapture %}
-{% capture next %}
-{% if site.data.pages[page.path].next %}
-<a href="{{site.data.pages[page.path].next}}">next ></a>
-{% endif %}
-{% endcapture %}
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
-        <table style="background-color:#f5f5f5;width:100%;padding:0px 0px;margin-bottom:0px">
-          <tr style="padding:0px 0px;margin-bottom:0px">
-            <td style="padding: 8px 15px;border-radius:4px">
-              <ul class="breadcrumb" style="padding: 0px 0px; background-color:;border-radius:0px">
-                {{site.data.pages[page.path].breadcrumb}}
-              </ul>
-            </td>
-            <td style="padding: 8px 15px;border-radius:4px">
-              <span style="float:right">{{previous}} | {{next}}</span>
-            </td>
-          </tr>
-        </table>
+        <ul class="breadcrumb">
+          {{site.data.pages[page.path].breadcrumb}}
+        </ul>
       </div>  <!-- /container -->
-      <div></div>
     </div>  <!-- /segment-breadcrumb -->
 
     <div id="segment-content">  <!-- segment-content -->

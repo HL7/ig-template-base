@@ -38,16 +38,6 @@
   </script>
   <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
     <div class="container">  <!-- container -->
-      <table style="background-color:#f5f5f5;width:100%;padding:0px 0px;margin-bottom:0px">
-        <tr style="padding:0px 0px;margin-bottom:0px">
-          <td style="padding: 4px 15px;border-radius:4px">
-            {{previous}}
-          </td>
-          <td style="padding: 4px 15px;border-radius:4px">
-            <span style="float:right">{{next}}</span>
-          </td>
-        </tr>
-      </table>
       <div class="inner-wrapper">
         <p>
           IG &#169; {{site.data.info.copyrightyear}} <a style="color: #81BEF7" href="{{site.data.fhir.ig.contact[0].telecom[0]}}">{{site.data.fhir.ig.publisher}}</a>.  Package {{site.data.fhir.packageId}}#{{site.data.fhir.igVer}} based on <a style="color: #81BEF7" href="{{site.data.fhir.path}}">FHIR {{site.data.fhir.version}}</a>. Generated <span title="{{site.data.fhir.genDate}}">{{site.data.fhir.genDate | date: "%Y-%m-%d"}}</span>
