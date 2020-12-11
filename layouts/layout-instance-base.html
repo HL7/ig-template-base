@@ -13,6 +13,9 @@
 {% assign prefix = site.data.artifacts[page.path].type %}
   <h2 id="root">{{example}}{{prefix}}: {{site.data.pages[page.path].title}}</h2>
 
+  <!-- insert contains/containedIn text if present -->
+  {% include fragment-contained.html type='{{[type]}}' id='{{[id]}}' %}
+
 {% unless example %}
   {% if '{{[type]}}' == 'CapabilityStatement' %}
       <p>

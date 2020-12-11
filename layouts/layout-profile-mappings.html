@@ -11,6 +11,9 @@
 <a name="root"> </a>
 <h2 id="root">{{modelType}}: {{[title]}} - Mappings</h2>
 
+  <!-- insert contains/containedIn text if present -->
+  {% include fragment-contained.html type='{{[type]}}' id='{{[id]}}' %}
+
 <p>Mappings for the {{[id]}} {{modelType | downcase }}.</p>
 
   <!-- insert intro if present -->

@@ -9,6 +9,7 @@
 {% assign basepath = page.path | replace: '-examples.html', '.html' %}
 {% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
 {% assign example_count = site.data.pages[basepath].examples.size %}
+{% assign containedIn = site.data.resources2[resource_].['containedIn'] %}
 
 <ul class="nav nav-tabs">
 {% if include.active == 'content' %}
@@ -59,7 +60,7 @@
 {% endunless %}
 {% endunless %}
 
-{% unless excludexml == 'y' %}
+{% unless excludexml == 'y' or containedIn %}
   {% if include.active == 'xml' %}
     <li class="active">
       <a href="#">XML</a>
@@ -70,7 +71,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% unless excludejson == 'y' %}
+{% unless excludejson == 'y' or containedIn %}
   {% if include.active == 'json' %}
     <li class="active">
       <a href="#">JSON</a>
@@ -81,7 +82,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% unless excludettl == 'y' %}
+{% unless excludettl == 'y' or containedIn %}
   {% if include.active == 'ttl' %}
     <li class="active">
       <a href="#">TTL</a>
@@ -92,7 +93,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% if  site.data.resources[resource_].['history'] %}
+{% if has_history %}
   {% if include.active == 'history' %}
     <li class="active">
       <a href="#">History</a>
