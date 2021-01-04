@@ -1,9 +1,9 @@
 {% assign containedIn = site.data.resources2[resource_].['containedIn'] %}
 {% assign contains = site.data.resources2[resource_].['contains'] %}
-{% assign typeLabel = modelType | default: include.type %}
+{% assign typeLabel = modelType | default include.type %}
 
 {% if containedIn %}
-  {% assign name = site.data.resources[containedIn].name | default: containedIn %}
+  {% assign name = site.data.resources[containedIn].name | default containedIn %}
   <p>This {{ typeLabel }} is a contained resource within <a href='{{ site.data.resources[containedIn].path }}'>{{ name }}</a>.</p>
 {% endif %}
 
@@ -15,7 +15,7 @@
   {% endif %}
   <ul>
     {% for each in contains %}
-      {% assign name = site.data.resources2[each].name | default: each %}
+      {% assign name = site.data.resources2[each].name | default each %}
       <li><a href='{{ site.data.resources2[each].path }}'>{{ name }}</a></li>
     {% endfor %}
   </ul>
