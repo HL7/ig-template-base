@@ -11,9 +11,6 @@
   <a name="root"> </a>
   <h2 id="root">{{modelType}}: {{site.data.pages[page.path].title}}</h2>
 
-  <!-- insert contains/containedIn text if present -->
-  {% include fragment-contained.html type='{{[type]}}' id='{{[id]}}' %}
-
 {% include {{[type]}}-{{[id]}}-summary-table.xhtml type='{{[type]}}' id='{{[id]}}' %}
 
   <p>
