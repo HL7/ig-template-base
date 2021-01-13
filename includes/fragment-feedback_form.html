@@ -7,10 +7,6 @@
       <script type="text/javascript">
         $(':header[id]').each(function() {
           var id = $(this).attr('id');
-          var formVars = new Set();  
-            formVars.add("sectionId");  
-            formVars.add("pageTitle");  
-            formVars.add("sectionName");  
           var feedbackurl = '{{feedbackEntry.formUrl}}';  //this still needs to be secured
           var feedbacklabel = 'Feedback';
           {% if feedbackEntry.parameters %}
