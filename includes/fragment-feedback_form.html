@@ -7,7 +7,7 @@
       <script type="text/javascript">
         $(':header[id]').each(function() {
           var id = $(this).attr('id');
-          var feedbackurl = '{{feedbackEntry.formUrl}}';  //this still needs to be secured
+          var feedbackurl = '{{feedbackEntry.formUrl}}'; 
           var feedbacklabel = 'Feedback';
           {% if feedbackEntry.parameters %}
             {% if feedbackEntry.label %}
