@@ -62,18 +62,6 @@
   <name value="Terminology: Concept Maps"/>
   <description value="These define transformations to convert between codes by systems conforming with this implementation guide"/>
 </grouping>
-<grouping xmlns="http://hl7.org/fhir" id="_ex_examplescenario">
-  <name value="Example: Example Scenarios"/>
-  <description value="These define groups of interrelated examples that demonstrate one or more of the workflows supported by this implementation guide"/>
-</grouping>
-<grouping xmlns="http://hl7.org/fhir" id="_ex_example">
-  <name value="Example: Example Instances"/>
-  <description value="These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like"/>
-</grouping>
-<grouping xmlns="http://hl7.org/fhir" id="_other">
-  <name value="Other"/>
-  <description value="These are resources that are used within this implementation guide that do not fit into one of the other categories"/>
-</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_ka_activitydefinition">
   <name value="Knowledge Artifacts: Activity Definitions"/>
   <description value="These define activities that can be performed as part of content in this implementation guide"/>
@@ -89,4 +77,16 @@
 <grouping xmlns="http://hl7.org/fhir" id="_ka_measure">
   <name value="Knowledge Artifacts: Measure"/>
   <description value="These define measures as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ex_examplescenario">
+  <name value="Example: Example Scenarios"/>
+  <description value="These define groups of interrelated examples that demonstrate one or more of the workflows supported by this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ex_example">
+  <name value="Example: Example Instances"/>
+  <description value="These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_other">
+  <name value="Other"/>
+  <description value="These are resources that are used within this implementation guide that do not fit into one of the other categories"/>
 </grouping>
