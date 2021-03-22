@@ -5,13 +5,13 @@
   {% if feedbackEntry.active %}
     {% if feedbackEntry.type == 'googleform' %}
       <script type="text/javascript">
-        $(':header[id]').each(function() {
+        $(':header[id]').each(function() { // apply this to each heading
           var id = $(this).attr('id');
-          var feedbackurl = '{{feedbackEntry.formUrl}}'; 
+          var feedbackurl = '{{feedbackEntry.formUrl}}'; // the feedbackEntry (in the YAML) file will have a URL, which will be a google forms URL. This URL can be clicked, so the security risks are the same as an IG Editor entering any other URL.
           var feedbacklabel = 'Feedback';
           {% if feedbackEntry.parameters %}
             {% if feedbackEntry.label %}
-              feedbacklabel = '{{feedbackEntry.label}}';
+              feedbacklabel = '{{feedbackEntry.label}}';  // The feedback label is a string
             {% endif %};
 
             {% for parm in feedbackEntry.parameters %}
@@ -19,11 +19,11 @@
             var parameterVariableName = '';
             var parameterValue = '';
 /* <![CDATA[ */
-            parameterFieldId = 'entry.'+parseInt({{ parm.fieldId }}).toString()
-            parameterVariableName = '{{ parm.variableName }}'
+            parameterFieldId = 'entry.'+parseInt({{ parm.fieldId }}).toString() // the parameter fields is parsed as an integer, i presume this means no code can be injected there.
+            parameterVariableName = '{{ parm.variableName }}' 
 /* ]]> */
 
-            switch (parameterVariableName) {
+            switch (parameterVariableName) { // the variableName only has 3 possible values. Everything else will default to "not supported"
               default:
                   console.log("Parameter value not supported");
                   break;
