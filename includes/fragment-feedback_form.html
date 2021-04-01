@@ -4,7 +4,8 @@
 {% for feedbackEntry in site.data.features.feedback %}
   {% if feedbackEntry.active %}
     {% if feedbackEntry.type == 'googleform' %}
-      <script type="text/javascript">
+    <script type="text/javascript">
+     /* <![CDATA[ */
         $(':header[id]').each(function() { // apply this to each heading
           var id = $(this).attr('id');
           var feedbackurl = '{{feedbackEntry.formUrl}}'; // the feedbackEntry (in the YAML) file will have a URL, which will be a google forms URL. This URL can be clicked, so the security risks are the same as an IG Editor entering any other URL.
@@ -12,35 +13,35 @@
           {% if feedbackEntry.parameters %}
             {% if feedbackEntry.label %}
               feedbacklabel = '{{feedbackEntry.label}}';  // The feedback label is a string
-            {% endif %};
+            {% endif %}
 
             {% for parm in feedbackEntry.parameters %}
-            var parameterFieldId = '';
-            var parameterVariableName = '';
-            var parameterValue = '';
-/* <![CDATA[ */
-            parameterFieldId = 'entry.'+parseInt({{ parm.fieldId }}).toString() // the parameter fields is parsed as an integer, i presume this means no code can be injected there.
-            parameterVariableName = '{{ parm.variableName }}' 
-/* ]]> */
+              var parameterFieldId = '';
+              var parameterVariableName = '';
+              var parameterValue = '';
+              {% if parm.fieldId %}parameterFieldId = 'entry.'+parseInt({{ parm.fieldId }}).toString();{% endif %} // the parameter fields is parsed as an integer, i presume this means no code can be injected there.
+              {% if parm.variableName %}parameterVariableName = '{{ parm.variableName }}';{% endif %}
 
-            switch (parameterVariableName) { // the variableName only has 3 possible values. Everything else will default to "not supported"
-              default:
-                  console.log("Parameter value not supported");
-                  break;
-                case "pageTitle":
-                  parameterValue = encodeURIComponent($(document).attr('title'));
-                  break;
-                case "sectionId":
-                  parameterValue = id;
-                  break;
-                case "sectionName":
-                  parameterValue = document.getElementById(id).textContent;
-                  break;
-            }
-            feedbackurl = feedbackurl + '&';
-            feedbackurl = feedbackurl + parameterFieldId + '=' + parameterValue;
+              switch (parameterVariableName) { // the variableName only has 3 possible values. Everything else will default to "not supported"
+                default:
+                    console.log("Parameter value not supported");
+                    break;
+                  case "pageTitle":
+                    parameterValue = encodeURIComponent($(document).attr('title'));
+                    break;
+                  case "sectionId":
+                    parameterValue = id;
+                    break;
+                  case "sectionName":
+                    parameterValue = document.getElementById(id).textContent;
+                    break;
+              }
+/* <![CDATA[ */
+              feedbackurl = feedbackurl + '&';
+              feedbackurl = feedbackurl + parameterFieldId + '=' + parameterValue;
+/* ]]> */
             {% endfor %}
-          {% endif %}
+            {% endif %}
           if (id) { //To make sure the element has an id
             $(this).append(function () {
               return $('<a/>', {
@@ -54,7 +55,8 @@
               });
             });
           }
-        })
+        }) 
+/* ]]> */
       </script>  
     {% endif %}
   {% endif %}
