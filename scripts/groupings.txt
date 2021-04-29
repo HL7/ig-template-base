@@ -62,6 +62,22 @@
   <name value="Terminology: Concept Maps"/>
   <description value="These define transformations to convert between codes by systems conforming with this implementation guide"/>
 </grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_activitydefinition">
+  <name value="Knowledge Artifacts: Activity Definitions"/>
+  <description value="These define activities that can be performed as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_plandefinition">
+  <name value="Knowledge Artifacts: Plan Definitions"/>
+  <description value="These define workflows, rules, strategies, or protocols as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_library">
+  <name value="Knowledge Artifacts: Libraries"/>
+  <description value="These define logic, asset collections and other libraries as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_measure">
+  <name value="Knowledge Artifacts: Measure"/>
+  <description value="These define measures as part of content in this implementation guide"/>
+</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="_ex_examplescenario">
   <name value="Example: Example Scenarios"/>
   <description value="These define groups of interrelated examples that demonstrate one or more of the workflows supported by this implementation guide"/>
