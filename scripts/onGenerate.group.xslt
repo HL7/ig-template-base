@@ -30,7 +30,7 @@
   </xsl:template>
   <xsl:template match="f:definition">
     <xsl:copy>
-      <xsl:apply-templates select="@*|f:id|f:extension|f:modwhenierExtension|f:grouping|comment()[not(preceding-sibling::f:resource|preceding-sibling::f:page)]"/>
+      <xsl:apply-templates select="@*|f:id|f:extension|f:modifierExtension|f:grouping|comment()[not(preceding-sibling::f:resource|preceding-sibling::f:page)]"/>
       <!-- This is a placeholder that will be replaced with the list of groups from this template.  (We use a separate file so they're easier to override/translate.) -->
       <xsl:comment>TEMPLATE_GROUPS_HERE</xsl:comment>
       <xsl:apply-templates select="f:resource|f:page|f:parameter|f:template|comment()[preceding-sibling::f:resource|preceding-sibling::f:page]"/>
