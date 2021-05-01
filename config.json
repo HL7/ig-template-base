@@ -15,18 +15,6 @@
       "description": "Examples"
     },
     {
-      "name": "profile-xml",
-      "description": "Profile XML"
-    },
-    {
-      "name": "profile-json",
-      "description": "Profile JSON"
-    },
-    {
-      "name": "profile-ttl",
-      "description": "Profile Turtle"
-    },
-    {
       "name": "profile-history",
       "description": "Profile Change History"
     },
@@ -100,18 +88,13 @@
       "template-defns": "template/layouts/layout-profile-definitions.html",
       "template-mappings": "template/layouts/layout-profile-mappings.html",
       "template-examples": "",
-      "template-profile-xml": "template/layouts/layout-profile-format.html",
-      "template-profile-json": "template/layouts/layout-profile-format.html",
-      "template-profile-ttl": "template/layouts/layout-profile-format.html",
       "template-profile-history": "template/layouts/layout-profile-history.html",
-      "template-format": "",
+      "template-format": "template/layouts/layout-profile-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "defns": "{{[type]}}-{{[id]}}-definitions.html",
       "mappings": "{{[type]}}-{{[id]}}-mappings.html",
       "examples": "{{[type]}}-{{[id]}}-examples.html",
-      "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
-      "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
-      "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
+      "format": "{{[type]}}-{{[id]}}.profile.{{[fmt]}}.html",
       "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
       "template-change-history": ""
     },
@@ -120,19 +103,13 @@
       "template-defns": "template/layouts/layout-profile-definitions.html",
       "template-mappings": "template/layouts/layout-profile-mappings.html",
       "template-examples": "template/layouts/layout-profile-examples.html",
-      "template-profile-xml": "template/layouts/layout-profile-format.html",
-      "template-profile-json": "template/layouts/layout-profile-format.html",
-      "template-profile-ttl": "template/layouts/layout-profile-format.html",
       "template-profile-history": "template/layouts/layout-profile-history.html",
-      "template-format": "",
+      "template-format": "template/layouts/layout-profile-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "defns": "{{[type]}}-{{[id]}}-definitions.html",
       "mappings": "{{[type]}}-{{[id]}}-mappings.html",
       "examples": "{{[type]}}-{{[id]}}-examples.html",
-      "format": "{{[type]}}-{{[id]}}.profile.xml.html",
-      "profile-xml": "{{[type]}}-{{[id]}}.profile.xml.html",
-      "profile-json": "{{[type]}}-{{[id]}}.profile.json.html",
-      "profile-ttl": "{{[type]}}-{{[id]}}.profile.ttl.html",
+      "format": "{{[type]}}-{{[id]}}.profile.{{[fmt]}}.html",
       "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
       "template-change-history": "",
       "_comment": "this template-change-history is here to undo the definition in the Any settings"
