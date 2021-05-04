@@ -36,7 +36,7 @@
       <xsl:apply-templates select="f:resource|f:page|f:parameter|f:template|comment()[preceding-sibling::f:resource|preceding-sibling::f:page]"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template match="f:resource[not(f:groupingId) or contains(f:groupingId/@value, 'spreadsheet.xml')]">
+  <xsl:template match="f:resource[f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']][not(f:groupingId) or contains(f:groupingId/@value, 'spreadsheet.xml')]">
     <xsl:variable name="infoExt" select="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/resource-information']/f:valueString/@value"/>
     <xsl:variable name="groupingId">
       <xsl:choose>

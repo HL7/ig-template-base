@@ -87,7 +87,7 @@
   </xsl:template>
   <xsl:template name="artifactPages">
     <xsl:for-each select="/f:ImplementationGuide/f:definition/f:grouping">
-      <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
+      <xsl:for-each select="parent::f:definition/f:resource[f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']][f:groupingId/@value=current()/@id]">
         <page xmlns="http://hl7.org/fhir">
           <nameUrl value="{f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']/f:valueUri/@value}"/>
           <title value="{f:name/@value}"/>
