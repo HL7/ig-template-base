@@ -11,7 +11,6 @@
     <link href="{{site.data.info.assets}}fhir.css" rel="stylesheet"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{site.data.info.assets}}assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/bootstrap-fhir.css" rel="stylesheet"/>
 
     <!-- Project extras -->
@@ -36,7 +35,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{site.data.info.assets}}assets/ico/apple-touch-icon-57-precomposed.png"/>
     <link rel="shortcut icon" href="{{site.data.info.assets}}assets/ico/favicon.png"/>
   </head>
-  <body onload="document.body.style.opacity='1'">
+  <body>
 {% assign label = {{site.data.pages[page.path].label}} | split: '.0' %}
 	  <script src="{{site.data.info.assets}}assets/js/prism.js"></script>
 
@@ -97,7 +96,7 @@
     </div>  <!-- /segment-breadcrumb -->
 
     <a name="top"> </a>
-    <div id="segment-content">  <!-- segment-content -->
+    <div id="segment-content" class="segment">  <!-- segment-content -->
       <div class="container">  <!-- container -->
         <div class="row">
           <div class="inner-wrapper">
