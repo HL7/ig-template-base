@@ -12,16 +12,29 @@
     },
     {
       "name": "examples",
-      "description": "Examples"
+      "description": "Examples",
+      "isExamples": true
+    },
+    {
+      "name": "format",
+      "description": "FMT Representation"
     },
     {
       "name": "profile-history",
-      "description": "Profile Change History"
+      "description": "Profile Change History",
+      "isHistory": true
     },
     {
       "name": "change-history",
-      "description": "Resource Change History"
+      "description": "Resource Change History",
+      "isHistory": true
     }
+  ],
+  "_formats-documentation": "Lists the formats in the order format-specific pages should be generated.  (Note that suppressed formats won't appear, even if listed here.)",
+  "formats": [
+    "xml",
+    "json",
+    "ttl"
   ],
   "_pre-process-documentation": "This array of objects indicates data being converted from existing files using scripts to support dependency checking when performing continuous builds",
   "pre-process": [

@@ -83,10 +83,20 @@
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
           {{site.data.pages[page.path].breadcrumb}}
+          <span style="float:right;">
+{% if site.data.pages[page.path].previous %}
+            <a href="{{site.data.pages[page.path].previous}}">&lt;prev</a> | 
+{% endif %}
+            <a href="#bottom">bottom</a>
+{% if site.data.pages[page.path].next %}
+          | <a href="{{site.data.pages[page.path].next}}">next&gt;</a>
+{% endif %}
+          </span>
         </ul>
       </div>  <!-- /container -->
     </div>  <!-- /segment-breadcrumb -->
 
+    <a name="top"> </a>
     <div id="segment-content">  <!-- segment-content -->
       <div class="container">  <!-- container -->
         <div class="row">
