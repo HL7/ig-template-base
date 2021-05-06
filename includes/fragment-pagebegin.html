@@ -35,7 +35,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{site.data.info.assets}}assets/ico/apple-touch-icon-57-precomposed.png"/>
     <link rel="shortcut icon" href="{{site.data.info.assets}}assets/ico/favicon.png"/>
   </head>
-  <body>
+  <body onload="document.body.style.opacity='1'">
 {% assign label = {{site.data.pages[page.path].label}} | split: '.0' %}
 	  <script src="{{site.data.info.assets}}assets/js/prism.js"></script>
 
