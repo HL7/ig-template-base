@@ -78,10 +78,12 @@
       </div>  <!-- /container -->
     </div>  <!-- /segment-navbar -->
     <!--status-bar-->
+{% assign shownav = site.data.info.shownav | downcase | slice: 0 %}
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
           {{site.data.pages[page.path].breadcrumb}}
+{% if shownav == 'y' %}
           <span style="float:right;">
 {% if site.data.pages[page.path].previous %}
             <a href="{{site.data.pages[page.path].previous}}">&lt;prev</a> | 
@@ -91,6 +93,7 @@
           | <a href="{{site.data.pages[page.path].next}}">next&gt;</a>
 {% endif %}
           </span>
+{% endif %}
         </ul>
       </div>  <!-- /container -->
     </div>  <!-- /segment-breadcrumb -->
