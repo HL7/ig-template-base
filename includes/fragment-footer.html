@@ -1,2 +1,4 @@
           Links: <a style="color: #81BEF7" href="{{site.data.info.assets}}toc.html">Table of Contents</a> |
                  <a style="color: #81BEF7" href="qa.html">QA Report</a>
+                 {% for feedbacklink in site.data.features.feedback %}{% if feedbacklink.dashboard %} | <a style="color: #81BEF7" target="_blank" href="{{feedbacklink.dashboard.url}}">{{feedbacklink.dashboard.label}}</a>{% endif %}{% endfor %}
+                

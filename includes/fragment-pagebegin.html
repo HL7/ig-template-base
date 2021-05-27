@@ -11,7 +11,6 @@
     <link href="{{site.data.info.assets}}fhir.css" rel="stylesheet"/>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{site.data.info.assets}}assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/bootstrap-fhir.css" rel="stylesheet"/>
 
     <!-- Project extras -->
@@ -79,15 +78,28 @@
       </div>  <!-- /container -->
     </div>  <!-- /segment-navbar -->
     <!--status-bar-->
+{% assign shownav = site.data.info.shownav | downcase | slice: 0 %}
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
           {{site.data.pages[page.path].breadcrumb}}
+{% if shownav == 'y' %}
+          <span style="float:right;">
+{% if site.data.pages[page.path].previous %}
+            <a href="{{site.data.pages[page.path].previous}}">&lt;prev</a> | 
+{% endif %}
+            <a href="#bottom">bottom</a>
+{% if site.data.pages[page.path].next %}
+          | <a href="{{site.data.pages[page.path].next}}">next&gt;</a>
+{% endif %}
+          </span>
+{% endif %}
         </ul>
       </div>  <!-- /container -->
     </div>  <!-- /segment-breadcrumb -->
 
-    <div id="segment-content">  <!-- segment-content -->
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
       <div class="container">  <!-- container -->
         <div class="row">
           <div class="inner-wrapper">

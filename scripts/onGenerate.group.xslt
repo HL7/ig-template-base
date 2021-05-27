@@ -30,36 +30,40 @@
   </xsl:template>
   <xsl:template match="f:definition">
     <xsl:copy>
-      <xsl:apply-templates select="@*|f:id|f:extension|f:modwhenierExtension|f:grouping|comment()[not(preceding-sibling::f:resource|preceding-sibling::f:page)]"/>
+      <xsl:apply-templates select="@*|f:id|f:extension|f:modifierExtension|f:grouping|comment()[not(preceding-sibling::f:resource|preceding-sibling::f:page)]"/>
       <!-- This is a placeholder that will be replaced with the list of groups from this template.  (We use a separate file so they're easier to override/translate.) -->
       <xsl:comment>TEMPLATE_GROUPS_HERE</xsl:comment>
       <xsl:apply-templates select="f:resource|f:page|f:parameter|f:template|comment()[preceding-sibling::f:resource|preceding-sibling::f:page]"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template match="f:resource[not(f:groupingId) or contains(f:groupingId/@value, 'spreadsheet.xml')]">
+  <xsl:template match="f:resource[f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']][not(f:groupingId) or contains(f:groupingId/@value, 'spreadsheet.xml')]">
     <xsl:variable name="infoExt" select="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/resource-information']/f:valueString/@value"/>
     <xsl:variable name="groupingId">
       <xsl:choose>
-        <xsl:when test="$mode='defaultgroup'">_other</xsl:when>
-        <xsl:when test="f:exampleBoolean/@value='true' or f:exampleCanonical">_ex_example</xsl:when>
-        <xsl:when test="$infoExt='CapabilityStatement'">_dyn_capabilitystatement</xsl:when>
-        <xsl:when test="$infoExt='OperationDefinition'">_dyn_operationdefinition</xsl:when>
-        <xsl:when test="$infoExt='MessageDefinition'">_dyn_messagedefinition</xsl:when>
-        <xsl:when test="$infoExt='SearchParameter'">_dyn_searchparameter</xsl:when>
-        <xsl:when test="$infoExt='GraphDefinition'">_str_graphdefinition</xsl:when>
-        <xsl:when test="starts-with($infoExt,'StructureDefinition:logical')">_str_logicalmodel</xsl:when>
-        <xsl:when test="$infoExt='Questionnaire'">_str_questionnaire</xsl:when>
-        <xsl:when test="$infoExt='StructureDefinition:resource:abstract' or$infoExt='StructureDefinition:primitive-type:abstract' or $infoExt='StructureDefinition:complex-type:abstract'">_str_abstractprofile</xsl:when>
-        <xsl:when test="$infoExt='StructureDefinition:resource'">_str_profile</xsl:when>
-        <xsl:when test="$infoExt='StructureDefinition:primitive-type' or $infoExt='StructureDefinition:complex-type'">_str_datatype</xsl:when>
-        <xsl:when test="$infoExt='StructureDefinition:extension'">_str_extension</xsl:when>
-        <xsl:when test="$infoExt='ValueSet'">_term_valueset</xsl:when>
-        <xsl:when test="$infoExt='CodeSystem'">_term_codesystem</xsl:when>
-        <xsl:when test="$infoExt='NamingSystem'">_term_namingsystem</xsl:when>
-        <xsl:when test="$infoExt='StructureMap'">_map_structuremap</xsl:when>
-        <xsl:when test="$infoExt='ConceptMap'">_map_conceptmap</xsl:when>
-        <xsl:when test="$infoExt='ExampleScenario'">_ex_examplescenario</xsl:when>
-        <xsl:otherwise>_other</xsl:otherwise>
+        <xsl:when test="$mode='defaultgroup'">-other</xsl:when>
+        <xsl:when test="f:exampleBoolean/@value='true' or f:exampleCanonical">-ex-example</xsl:when>
+        <xsl:when test="$infoExt='CapabilityStatement'">-dyn-capabilitystatement</xsl:when>
+        <xsl:when test="$infoExt='OperationDefinition'">-dyn-operationdefinition</xsl:when>
+        <xsl:when test="$infoExt='MessageDefinition'">-dyn-messagedefinition</xsl:when>
+        <xsl:when test="$infoExt='SearchParameter'">-dyn-searchparameter</xsl:when>
+        <xsl:when test="$infoExt='GraphDefinition'">-str-graphdefinition</xsl:when>
+        <xsl:when test="starts-with($infoExt,'StructureDefinition:logical')">-str-logicalmodel</xsl:when>
+        <xsl:when test="$infoExt='Questionnaire'">-str-questionnaire</xsl:when>
+        <xsl:when test="$infoExt='StructureDefinition:resource:abstract' or$infoExt='StructureDefinition:primitive-type:abstract' or $infoExt='StructureDefinition:complex-type:abstract'">-str-abstractprofile</xsl:when>
+        <xsl:when test="$infoExt='StructureDefinition:resource'">-str-profile</xsl:when>
+        <xsl:when test="$infoExt='StructureDefinition:primitive-type' or $infoExt='StructureDefinition:complex-type'">-str-datatype</xsl:when>
+        <xsl:when test="$infoExt='StructureDefinition:extension'">-str-extension</xsl:when>
+        <xsl:when test="$infoExt='ValueSet'">-term-valueset</xsl:when>
+        <xsl:when test="$infoExt='CodeSystem'">-term-codesystem</xsl:when>
+        <xsl:when test="$infoExt='NamingSystem'">-term-namingsystem</xsl:when>
+        <xsl:when test="$infoExt='StructureMap'">-map-structuremap</xsl:when>
+        <xsl:when test="$infoExt='ConceptMap'">-map-conceptmap</xsl:when>
+        <xsl:when test="$infoExt='ExampleScenario'">-ex-examplescenario</xsl:when>
+        <xsl:when test="$infoExt='ActivityDefinition'">-ka-activitydefinition</xsl:when>
+        <xsl:when test="$infoExt='Library'">-ka-library</xsl:when>
+        <xsl:when test="$infoExt='Measure'">-ka-measure</xsl:when>
+        <xsl:when test="$infoExt='PlanDefinition'">-ka-plandefinition</xsl:when>
+        <xsl:otherwise>-other</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:copy>
