@@ -77,7 +77,7 @@
       "template-format": "template/layouts/layout-instance-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
-      "list-types": "CodeSystem|ValueSet",
+      "list-types": "CodeSystem|ValueSet|NamingSystem",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
