@@ -74,8 +74,8 @@ var(--publish-box-border); */
   --ig-header-container-color: #ffffff; /* 22. Header container color (center) */
   --footer-nav-bg-color: #f5f5f5; /* 23. Footer navigation background color*/
 
-  --footer-text-color: #777777; /* 24. Footer highlight font color */
-  --footer-hyperlink-text-color: #800000; /* 25. Footer hyperlinks font color */
+  --footer-text-color: #ffffff; /* 24. Footer highlight font color */
+  --footer-hyperlink-text-color: #81BEF7; /* 25. Footer hyperlinks font color */
   --footer-highlight-text-color: #ffff77; /* 26. Footer highlight font color */
 
   --breadcrumb-bg-color: #f5f5f5; /* 27. Breadcrumb font color */
