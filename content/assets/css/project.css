@@ -129,7 +129,7 @@ body {
 #segment-footer > .container .inner-wrapper > p {
   padding-bottom: 0px;
   margin-bottom: 0px;
-  color:var(--footer-text-color); 
+  color:var(--footer-text-color);
 }
 #segment-post-footer {
   background-color: #f5f5f5;
@@ -242,7 +242,7 @@ body {
   background-image: url('../images/dragon.png');
   background-size: 150px 150px;
   display: inline-block;
-  float:left; 
+  float:left;
   margin-right: 10px;
   width: 150px;
   height: 150px;
@@ -633,14 +633,14 @@ a[href$=".sch"]:after, a[href$=".xlsx"]:after, a[href$=".zip"]:after, a[href$=".
 }
 
 /* =========== external links ============= */
-p a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not([no-external^="true"]):after {
+p a[href^="http://"]:not([no-external^="true"]):after,p a[href^="https://"]:not([no-external^="true"]):after {
     content: url(../images/external.png);
     display: inline-block;
     text-decoration: none;
     padding-left: 3px;
 }
 
-li a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not([no-external^="true"]):after {
+li a[href^="http://"]:not([no-external^="true"]):after,li a[href^="https://"]:not([no-external^="true"]):after {
     content: url(../images/external.png);
     display: inline-block;
     text-decoration: none;
@@ -698,7 +698,7 @@ li a[href^="http://"]:not([no-external^="true"]):after, a[href^="https://"]:not(
   padding-left: 7px;
   padding-right: 7px;
   float: right ; /* none or right */
-  border-radius: 6px; 
+  border-radius: 6px;
   border: 0.5px solid #ffffff;
 }
 
