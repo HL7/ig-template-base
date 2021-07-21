@@ -5,7 +5,7 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
-  <h2 id="root">Extension: {{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">Extension: {{site.data.pages[page.path].title | escape_once}}</h2>
   <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
   <p>
   The official URL for this extension is:

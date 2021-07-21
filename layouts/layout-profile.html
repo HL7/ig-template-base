@@ -9,7 +9,7 @@
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
 
   <a name="root"> </a>
-  <h2 id="root">{{modelType}}: {{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">{{modelType}}: {{site.data.pages[page.path].title | escape_once}}</h2>
 
 {% include {{[type]}}-{{[id]}}-summary-table.xhtml type='{{[type]}}' id='{{[id]}}' %}
 
