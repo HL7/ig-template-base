@@ -6,7 +6,7 @@
   {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
 
-  <h2 id="root">ConceptMap: {{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">ConceptMap: {{site.data.pages[page.path].title | escape_once}}</h2>
 
   <!-- insert intro if present -->
   {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}

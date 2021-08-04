@@ -11,7 +11,7 @@
   {% assign example = 'Example ' %}
 {% endif %}
 {% assign prefix = site.data.artifacts[page.path].type %}
-  <h2 id="root">{{example}}{{prefix}}: {{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">{{example}}{{prefix}}: {{site.data.pages[page.path].title | escape_once}}</h2>
 
 {% unless example %}
   {% if '{{[type]}}' == 'CapabilityStatement' %}

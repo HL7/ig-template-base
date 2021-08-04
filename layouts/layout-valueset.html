@@ -5,7 +5,7 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
-  <h2 id="root">ValueSet: {{site.data.pages[page.path].title}}</h2>
+  <h2 id="root">ValueSet: {{site.data.pages[page.path].title | escape_once}}</h2>
   <p>
     <b>Summary</b>
   </p>
