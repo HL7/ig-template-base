@@ -207,7 +207,7 @@ body {
 #ig-status {
   line-height: 20px;
   margin-top: 17px;
-  color: var(--ig-status-text-color);
+  color: lime;
   text-align: center;
   height: 50px;
 }
