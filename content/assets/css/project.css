@@ -45,7 +45,7 @@ var(--publish-box-border); */
 
 :root {
 
-  --ig-status-text-color: lime; /* 1. IG Title and status text color */
+  --ig-status-text-color: maroon; /* 1. IG Title and status text color */
   --navbar-bg-color: #7b1fad; /* 2. Header container color */
   --footer-bg-color: #707070; /* 3. Footer background color*/
   --footer-container-bg-color: #7b1fad; /* 4. Footer container color */
@@ -207,7 +207,7 @@ body {
 #ig-status {
   line-height: 20px;
   margin-top: 17px;
-  color: lime;
+  color: var(--ig-status-text-color);
   text-align: center;
   height: 50px;
 }
