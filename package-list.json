@@ -12,12 +12,20 @@
       "current": true
     },
     {
+      "version": "0.2.2",
+      "desc": "release updated version of onload.xslt for Sushi users",
+      "path": "http://fhir.org/templates/fhir.base.template/0.2.2",
+      "status": "release",
+      "sequence": "Publications",
+      "current": true,
+      "date": "2021-09-03"
+    },
+    {
       "version": "0.2.1",
       "desc": "update to correct versions of prism.js",
       "path": "http://fhir.org/templates/fhir.base.template/0.2.1",
       "status": "release",
       "sequence": "Publications",
-      "current": true,
       "date": "2020-09-29"
     },
     {
