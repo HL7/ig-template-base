@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ProcessIg">
   <property name="folder.input" value="input"/>
+   <target name="createIGyaml" depends="onGenerate.igQa,onGenerate.setup" extensionOf="onGenerate.extend">
+    <xslt in="${onGenerate.ig.source}xml" out="temp/pages/application.yaml" style="${ig.scripts}/hapi-yaml.xslt"/>
+    <copy file="temp/pages/application.yaml" tofile="temp/pages/_data/application.yaml"/>
+    <fileset id="onGenerate.hapi.yaml" dir="${ig.root}">
+      <include name="temp/pages/application.yaml"/>
+    </fileset>
+    <property name="onGenerate.hapi.yaml.files" refid="onGenerate.hapi.yaml"/>
+    <appendArtifacts files="${onGenerate.hapi.yaml.files}"/>
+    <echo>application.yaml created</echo>
+  </target>
   <target name="onLoad.findSpreadsheets">
     <!-- Look in all input folders that might contain spreadsheets and capture the list of spreadsheet XML files as a property -->
     <fileset id="spreadsheet.contents.id" dir="${ig.root}">
