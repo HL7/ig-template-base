@@ -13,7 +13,7 @@
     }
 
     if (!currentTabIndex)
-      currentTabIndex = '0';
+      currentTabIndex = '1';
 
     $( '#tabs' ).tabs({
       active: currentTabIndex,
@@ -35,42 +35,18 @@
           $('a[href="' + window.location.hash + '"]').click()
       }
     });
+    var a=document.getElementById('dockerLine').innerHTML;
+    //document.getElementById('releaseDockerLine').innerHTML= 'docker run -p 8080:8080 -e hapi.fhir.default_encoding=json -e "--spring.config.location='+ a +'application.yaml" hapiproject/hapi:latest';
+    document.getElementById('dockerLine').innerHTML = 'docker run -p 8080:8080 -e hapi.fhir.default_encoding=json -e "--spring.config.location='+location.href.replace(/[^/]*$/, '')+'application.yaml" hapiproject/hapi:latest'
+
   </script>
-  <a name="bottom"> </a>
   <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
     <div class="container">  <!-- container -->
-{% if shownav == 'y' %}
-      <div style="background-color:var(--footer-nav-bg-color)">
-        <table style="width:100%">
-          <tbody>
-            <tr>
-              <td style="text-align:left">&#xA0;
-{% if site.data.pages[page.path].previous %}
-                <a href="{{site.data.pages[page.path].previous}}">&lt;prev</a>
-{% else %}
-                <span style="visibility:hidden">&lt;prev</span>
-{% endif %}
-              </td>
-              <td style="text-align:center">
-                <a href="#top">top</a>
-              </td>
-              <td style="text-align:right">&#xA0;
-{% if site.data.pages[page.path].next %}
-                <a href="{{site.data.pages[page.path].next}}">next&gt;</a>
-{% else %}
-                <span style="visibility:hidden">next&gt;</span>
-{% endif %}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-{% endif %}
       <div class="inner-wrapper">
         <p>
-          IG &#169; {{site.data.info.copyrightyear}} <a style="color:var(--footer-hyperlink-text-color)" href="{{site.data.fhir.ig.contact[0].telecom[0]}}">{{site.data.fhir.ig.publisher | escape}}</a>.  Package {{site.data.fhir.packageId}}#{{site.data.fhir.igVer}} based on <a style="color: var(--footer-hyperlink-text-color)" href="{{site.data.fhir.path}}">FHIR {{site.data.fhir.version}}</a>. Generated <span title="{{site.data.fhir.genDate}}">{{site.data.fhir.genDate | date: "%Y-%m-%d"}}</span>
+          IG &#169; {{site.data.info.copyrightyear}} <a style="color: #81BEF7" href="{{site.data.fhir.ig.contact[0].telecom[0]}}">{{site.data.fhir.ig.publisher | escape}}</a>.  Package {{site.data.fhir.packageId}}#{{site.data.fhir.igVer}} based on <a style="color: #81BEF7" href="{{site.data.fhir.path}}">FHIR {{site.data.fhir.version}}</a>. Generated <span title="{{site.data.fhir.genDate}}">{{site.data.fhir.genDate | date: "%Y-%m-%d"}}</span>
           <br/>
-          <span style="color: var(--footer-highlight-text-color)"></span>
+          <span style="color: #FFFF77">
             {% include fragment-footer.html %}
           </span>
         </p>
