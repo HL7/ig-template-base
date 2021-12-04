@@ -2,9 +2,7 @@
 {% if notes != null %}
 <h3>Notes:</h3>
 {% if site.data.pages[page.path].notes-type == 'xml' %}
-<div style="display:inline-block">
 {% include {{notes}} type=include.type id=include.id %}
-</div>
 {% else %}
 {% capture note-content %}
 {% include {{notes}} type=include.type id=include.id %}
