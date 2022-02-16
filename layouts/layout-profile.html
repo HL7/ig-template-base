@@ -21,7 +21,7 @@
 {% if site.data.resources[resource_].experimental == true or site.data.structuredefinitions["{{[id]}}"].abstract == true %}){% endif %}
   </h2>
 
-{% include fragment-resourcetable.html %}
+{% include fragment-resourceTable.html %}
 {%if site.data.resources[resource_].description %}
 <p>
 {{site.data.resources[resource_].description|markdownify}}

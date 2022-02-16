@@ -8,7 +8,7 @@
   <h2 id="root">ValueSet: {{site.data.pages[page.path].title | escape_once}}
 {% if site.data.resources[resource_].experimental == true %}(Experimental){% endif %}
   </h2>
-{% include fragment-resourcetable.html %}
+{% include fragment-resourceTable.html %}
 {%if site.data.resources[resource_].description %}
 <p>
 {{site.data.resources[resource_].description|markdownify}}

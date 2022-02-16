@@ -12,7 +12,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   {% if page.path == 'index.html' %}
   {% include fragment-igTable.html %}
   {% endif %}
-  {% include fragment-pagetable.html %}
+  {% include fragment-pageTable.html %}
   {% assign path = page.path | split: '.html' %}
   {% include {{path}}.xml %}
 </div>
