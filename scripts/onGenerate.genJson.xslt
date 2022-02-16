@@ -40,6 +40,7 @@
         <xsl:with-param name="property" select="'shownav'"/>
       </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="fmm" select="f:definition/f:parameter[f:code/@value='fmm-definition']/f:value/@value"/>
     <xsl:value-of select="concat('{&#xa;',
     '  &quot;releaselabel&quot;:&quot;', $releaselabel, '&quot;,&#xa;',
     '  &quot;copyrightyear&quot;:&quot;', $copyrightyear, '&quot;,&#xa;',
@@ -47,7 +48,8 @@
     '  &quot;excludexml&quot;:&quot;', $excludexml, '&quot;,&#xa;',
     '  &quot;excludejson&quot;:&quot;', $excludejson, '&quot;,&#xa;',
     '  &quot;excludettl&quot;:&quot;', $excludettl, '&quot;,&#xa;',
-    '  &quot;excludemap&quot;:&quot;', $excludemap, '&quot;&#xa;}')"/>
+    '  &quot;excludemap&quot;:&quot;', $excludemap, '&quot;,&#xa;',
+    '  &quot;fmm-definition&quot;:&quot;', $fmm, '&quot;&#xa;}')"/>
   </xsl:template>
   <xsl:template name="getBoolean">
     <xsl:param name="boolean"/>

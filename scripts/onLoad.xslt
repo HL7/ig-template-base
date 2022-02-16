@@ -237,6 +237,14 @@
       <xsl:with-param name="code" select="'active-tables'"/>
       <xsl:with-param name="value" select="'true'"/>
     </xsl:call-template>
+    <xsl:call-template name="setParameter">
+      <xsl:with-param name="code" select="'fmm-definition'"/>
+      <xsl:with-param name="value" select="'http://hl7.org/fhir/versions.html#maturity'"/>
+    </xsl:call-template>
+    <xsl:call-template name="setParameter">
+      <xsl:with-param name="code" select="'propagate-status'"/>
+      <xsl:with-param name="value" select="'true'"/>
+    </xsl:call-template>
   </xsl:template>
   <xsl:template name="setParameter">
     <xsl:param name="code"/>

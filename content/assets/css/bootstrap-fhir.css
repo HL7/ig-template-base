@@ -1151,6 +1151,10 @@ table th[class^="col-"] {
   background-color: #faf2cc;
   border-color: #f8e5be;
 }
+td > :last-child {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
 fieldset {
   padding: 0;
   margin: 0;
