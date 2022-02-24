@@ -43,7 +43,12 @@
 {% endif %}
       <td colspan="{{colspan}}">
         {% if site.data.resources[resource_].status.standards-status %}
-          <i>Standards status:</i> <a href="{{site.data.fhir.path}}versions.html#std-process" title="Standard Status">{{site.data.resources[resource_].status.standards-status|capitalize}}</a>
+          <i>
+            {% if table_prefix != nil %}
+              {{table_prefix}}
+            {% endif %}
+            Standards status:
+          </i> <a href="{{site.data.fhir.path}}versions.html#std-process" title="Standard Status">{{site.data.resources[resource_].status.standards-status|capitalize}}</a>
           {% if site.data.resources[resource_].status.normativeVersion %}
             (from v{{site.data.resources[resource_].status.normativeVersion}})
           {% endif %}

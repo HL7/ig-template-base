@@ -3,7 +3,7 @@
     <tr>
   {% if site.data.pages[page.path].status %}
       <td>
-        <i>Standards status:</i> <a href="{{site.data.fhir.path}}versions.html#std-process" title="Standard Status">{{site.data.pages[page.path].status|capitalize}}</a>
+        <i>Page standards status:</i> <a href="{{site.data.fhir.path}}versions.html#std-process" title="Standard Status">{{site.data.pages[page.path].status|capitalize}}</a>
         {% if site.data.pages[page.path].normativeVersion %}
           (from v{{site.data.pages[page.path].normativeVersion}})
         {% endif %}
