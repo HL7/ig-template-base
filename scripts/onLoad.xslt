@@ -245,6 +245,10 @@
       <xsl:with-param name="code" select="'propagate-status'"/>
       <xsl:with-param name="value" select="'true'"/>
     </xsl:call-template>
+    <xsl:call-template name="setParameter">
+      <xsl:with-param name="code" select="'excludelogbinaryformat'"/>
+      <xsl:with-param name="value" select="'true'"/>
+    </xsl:call-template>
   </xsl:template>
   <xsl:template name="setParameter">
     <xsl:param name="code"/>

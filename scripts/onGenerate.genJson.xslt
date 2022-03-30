@@ -28,6 +28,12 @@
         <xsl:with-param name="property" select="'excludettl'"/>
       </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="excludelogbinaryformat">
+      <xsl:call-template name="getBoolean">
+        <xsl:with-param name="boolean" select="f:definition/f:parameter[f:code/@value='excludelogbinaryformat']/f:value/@value"/>
+        <xsl:with-param name="property" select="'excludelogbinaryformat'"/>
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:variable name="excludemap">
       <xsl:call-template name="getBoolean">
         <xsl:with-param name="boolean" select="f:definition/f:parameter[f:code/@value='excludemap']/f:value/@value"/>
@@ -48,6 +54,7 @@
     '  &quot;excludexml&quot;:&quot;', $excludexml, '&quot;,&#xa;',
     '  &quot;excludejson&quot;:&quot;', $excludejson, '&quot;,&#xa;',
     '  &quot;excludettl&quot;:&quot;', $excludettl, '&quot;,&#xa;',
+    '  &quot;excludelogbinaryformat&quot;:&quot;', $excludelogbinaryformat, '&quot;,&#xa;',
     '  &quot;excludemap&quot;:&quot;', $excludemap, '&quot;,&#xa;',
     '  &quot;fmm-definition&quot;:&quot;', $fmm, '&quot;&#xa;}')"/>
   </xsl:template>
