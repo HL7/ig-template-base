@@ -5,11 +5,19 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
-  <h2 id="root">ValueSet: {{site.data.pages[page.path].title | escape_once}}</h2>
-  <p>
-    <b>Summary</b>
-  </p>
-  {%include {{[type]}}-{{[id]}}-summary.xhtml%}
+  <h2 id="root">ValueSet: {{site.data.pages[page.path].title | escape_once}}
+{% if site.data.resources[resource_].experimental == true %}(Experimental){% endif %}
+  </h2>
+{% include fragment-resourceTable.html %}
+{%if site.data.resources[resource_].description %}
+<p>
+{{site.data.resources[resource_].description|markdownify}}
+</p>
+{% endif %}{%if site.data.resources[resource_].purpose %}
+<p>
+{{site.data.resources[resource_].purpose|markdownify}}
+</p>
+{% endif %}
 
   <p>
     <b>References</b>
@@ -41,7 +49,7 @@
           In this scheme, some codes are under other codes, and imply that the code they are under also applies</td>
     </tr>
     <tr>
-      <td>Source</td>
+      <td>System</td>
       <td>The source of the definition of the code (when the value set draws in codes defined elsewhere)</td>
     </tr>
     <tr>
@@ -61,6 +69,11 @@
       <td>Additional notes about how to use the code</td>
     </tr>
   </table>
+
+  {% if site.data.resources[resource_].contained != nil %}
+  <h4>Contained resources</h4>
+  {% include {{[type]}}-{{[id]}}-contained-index.xhtml %}
+  {% endif %}
 
   <!-- insert notes if present -->
   {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}

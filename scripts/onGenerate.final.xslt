@@ -88,10 +88,21 @@
   <xsl:template name="artifactPages">
     <xsl:for-each select="/f:ImplementationGuide/f:definition/f:grouping">
       <xsl:for-each select="parent::f:definition/f:resource[f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']][f:groupingId/@value=current()/@id]">
+        <xsl:variable name="id" select="substring-after(f:reference/f:reference/@value, '/')"/>
         <page xmlns="http://hl7.org/fhir">
           <nameUrl value="{f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']/f:valueUri/@value}"/>
           <title value="{f:name/@value}"/>
           <generation value="generated"/>
+          <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/contained-resource-information']">
+            <page xmlns="http://hl7.org/fhir">
+              <xsl:variable name="url" select="concat(f:extension[@url='type']/f:valueCode/@value, '-', $id, '_', f:extension[@url='id']/f:valueId/@value, '.html')"/>
+              <nameUrl value="{$url}"/>
+              <xsl:for-each select="f:extension[@url='title']/f:valueString">
+                <title value="{@value}"/>
+              </xsl:for-each>
+              <generation value="generated"/>
+            </page>
+          </xsl:for-each>
         </page>      
       </xsl:for-each>
     </xsl:for-each>

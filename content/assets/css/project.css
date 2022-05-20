@@ -201,6 +201,7 @@ body {
 }
 
 #family-logo {
+  float: right;
   margin-left: 6px;
 }
 
@@ -716,4 +717,27 @@ li a[href^="http://"]:not([no-external^="true"]):after,li a[href^="https://"]:no
   content: none !important;
   padding-left: 3px;
   padding-right: 3px;
+}
+
+.copy-text {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.copy-text .btn-copy{
+  visibility: hidden;
+}
+
+.copy-text:hover .btn-copy {
+  visibility: visible;
+}
+
+.btn-copy {
+  height: 14px;
+  width: 17px;
+  background-image: url('../ico/noun_copy to clipboard_1669410.png');
+  background-size: 22px;
+  padding: 0px 0px; 
+  border-width: 0px;
+  background-color: transparent;
 }

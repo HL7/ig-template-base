@@ -9,6 +9,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   <h2>{{site.data.pages[page.path].title | escape_once}}</h2>
+  {% if page.path == 'index.html' %}
+  {% include fragment-igTable.html %}
+  {% endif %}
+  {% include fragment-pageTable.html %}
   {% assign path = page.path | split: '.html' %}
   {% include {{path}}.xml %}
 </div>

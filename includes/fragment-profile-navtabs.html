@@ -9,6 +9,9 @@
 {% assign basepath = page.path | replace: '-examples.html', '.html' %}
 {% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
 {% assign example_count = site.data.pages[basepath].examples.size %}
+{% if site.data.resources[resource_].source contains "#" %}
+{% assign contained_resource = 'y' %}
+{% endif %}
 
 <ul class="nav nav-tabs">
 {% if include.active == 'content' %}
@@ -59,7 +62,7 @@
 {% endunless %}
 {% endunless %}
 
-{% unless excludexml == 'y' %}
+{% unless excludexml == 'y' or contained_resource == 'y' %}
   {% if include.active == 'xml' %}
     <li class="active">
       <a href="#">XML</a>
@@ -70,7 +73,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% unless excludejson == 'y' %}
+{% unless excludejson == 'y' or contained_resource == 'y' %}
   {% if include.active == 'json' %}
     <li class="active">
       <a href="#">JSON</a>
@@ -81,7 +84,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% unless excludettl == 'y' %}
+{% unless excludettl == 'y' or contained_resource == 'y' %}
   {% if include.active == 'ttl' %}
     <li class="active">
       <a href="#">TTL</a>

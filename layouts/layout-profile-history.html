@@ -11,6 +11,7 @@
 
   <a name="root"> </a>
   <h2 id="root">{{modelType}}: {{[title]}} - Change History</h2>
+{% include fragment-simpletable.html %}
   <p>Changes in the {{[id]}} {{modelType | downcase}}.</p>
 
   {%include {{[type]}}-{{[id]}}-history.xhtml%}

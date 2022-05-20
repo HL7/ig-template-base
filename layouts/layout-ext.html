@@ -5,14 +5,16 @@
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
   {% include fragment-profile-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
-  <h2 id="root">Extension: {{site.data.pages[page.path].title | escape_once}}</h2>
-  <p>{{site.data.structuredefinitions['{{[id]}}'].description | markdownify}}</p>
-  <p>
-  The official URL for this extension is:
-  </p>
-  <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
-  <p>Status: <b>{{site.data.structuredefinitions['{{[id]}}'].status}}</b><br/>
-    Extension maintained by: {{site.data.structuredefinitions['{{[id]}}'].publisher}}</p>
+  <h2 id="root">Extension: {{site.data.pages[page.path].title | escape_once}}
+{% if site.data.resources[resource_].experimental == true %}(Experimental){% endif %}
+  </h2>
+
+{% include fragment-resourceTable.html %}
+{%if site.data.resources[resource_].description %}
+{{site.data.resources[resource_].description|markdownify}}
+{% endif %}{%if site.data.resources[resource_].purpose %}
+{{site.data.resources[resource_].purpose|markdownify}}
+{% endif %}
 
   <p><b>Context of Use</b></p>
   <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>

@@ -19,6 +19,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 {% include {{path}}.md %}
 {% endcapture %}
 
+{% if page.path == 'index.html' %}
+{% include fragment-igTable.html %}
+{% endif %}
+{% include fragment-pageTable.html %}
+
 {% capture no-toc-content %} <!-- white space is critical inside of capture -->
 <div>
 <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
