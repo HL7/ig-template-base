@@ -47,9 +47,6 @@
   <div id="tabs">
     <ul>
       <li>
-        <a href="#tabs-summ">Text Summary</a>
-      </li>
-      <li>
         <a href="#tabs-diff">Differential Table</a>
       </li>
       <li>
@@ -57,6 +54,9 @@
       </li>
       <li>
         <a href="#tabs-snapms">Snapshot Table (Must Support)</a>
+      </li>
+      <li>
+        <a href="#tabs-summ">Text Summary</a>
       </li>
 {% unless excludexml == 'y' %}
 <!--      <li>
@@ -146,13 +146,6 @@
     </div>
     <a name="tabs-all"> </a>
     <div id="tabs-all">
-      <div id="all-summ">
-        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
-        </p>
-        <div id="all-summ-inner">
-          {%include StructureDefinition-{{[id]}}-summary.xhtml%}
-        </div>
-      </div>
       <div id="all-tbl-diff">
         <p>
           <b>Differential View</b>
@@ -169,6 +162,13 @@
         </p>
         <div id="all-tbl-snap-inner">
           {%include StructureDefinition-{{[id]}}-snapshot.xhtml%}
+        </div>
+      </div>
+      <div id="all-summ">
+        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
+        </p>
+        <div id="all-summ-inner">
+          {%include StructureDefinition-{{[id]}}-summary.xhtml%}
         </div>
       </div>
 {% unless excludexml == 'y' %}
