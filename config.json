@@ -16,6 +16,10 @@
       "isExamples": true
     },
     {
+      "name": "testscripts",
+      "description": "TestScripts"
+    },
+    {
       "name": "format",
       "description": "FMT Representation"
     },
@@ -116,12 +120,14 @@
       "template-defns": "template/layouts/layout-profile-definitions.html",
       "template-mappings": "template/layouts/layout-profile-mappings.html",
       "template-examples": "template/layouts/layout-profile-examples.html",
+      "template-testscripts": "template/layouts/layout-profile-testscripts.html",
       "template-profile-history": "template/layouts/layout-profile-history.html",
       "template-format": "template/layouts/layout-profile-format.html",
       "base": "{{[type]}}-{{[id]}}.html",
       "defns": "{{[type]}}-{{[id]}}-definitions.html",
       "mappings": "{{[type]}}-{{[id]}}-mappings.html",
       "examples": "{{[type]}}-{{[id]}}-examples.html",
+      "testscripts": "{{[type]}}-{{[id]}}-testscripts.html",
       "format": "{{[type]}}-{{[id]}}.profile.{{[fmt]}}.html",
       "profile-history": "{{[type]}}-{{[id]}}.profile.history.html",
       "template-change-history": "",
@@ -264,6 +270,14 @@
       "change-history": "{{[type]}}-{{[id]}}.change.history.html"
     },
     "TerminologyCapabilities": {
+      "template-base": "template/layouts/layout-canonical.html",
+      "template-format": "template/layouts/layout-instance-format.html",
+      "template-change-history": "template/layouts/layout-changehistory.html",
+      "base": "{{[type]}}-{{[id]}}.html",
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
+    },
+    "TestScript": {
       "template-base": "template/layouts/layout-canonical.html",
       "template-format": "template/layouts/layout-instance-format.html",
       "template-change-history": "template/layouts/layout-changehistory.html",

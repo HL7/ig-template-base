@@ -8,6 +8,7 @@
 {% assign has_history = site.data.resources[resource_].['history'] %}
 {% assign basepath = page.path | replace: '-examples.html', '.html' %}
 {% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
+{% assign testscript_count = site.data.pages[basepath].testscripts.size %}
 {% assign example_count = site.data.pages[basepath].examples.size %}
 {% if site.data.resources[resource_].source contains "#" %}
 {% assign contained_resource = 'y' %}
@@ -42,6 +43,18 @@
   {% else %}
     <li>
       <a href="{{include.type}}-{{include.id}}-mappings.html">Mappings</a>
+    </li>
+  {% endif %}
+{% endunless %}
+
+{% unless testscript_count == 0 %}
+  {% if include.active == 'testscripts' %}
+    <li class="active">
+      <a href="#">TestScripts</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testscripts.html">TestScripts</a>
     </li>
   {% endif %}
 {% endunless %}

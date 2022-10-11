@@ -63,6 +63,7 @@
         <xsl:when test="$infoExt='Library'">-ka-library</xsl:when>
         <xsl:when test="$infoExt='Measure'">-ka-measure</xsl:when>
         <xsl:when test="$infoExt='PlanDefinition'">-ka-plandefinition</xsl:when>
+        <xsl:when test="$infoExt='TestScript'">-test-testscript</xsl:when>
         <xsl:otherwise>-other</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>

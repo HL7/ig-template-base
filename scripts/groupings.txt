@@ -62,6 +62,10 @@
   <name value="Terminology: Concept Maps"/>
   <description value="These define transformations to convert between codes by systems conforming with this implementation guide"/>
 </grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-test-testscript">
+  <name value="Testing Artifacts: TestScripts"/>
+  <description value="These test definitions are available to FHIR test engines to verify systems are conforming to this implementation guide"/>
+</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-ka-activitydefinition">
   <name value="Knowledge Artifacts: Activity Definitions"/>
   <description value="These define activities that can be performed as part of content in this implementation guide"/>
