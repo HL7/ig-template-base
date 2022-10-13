@@ -3,6 +3,7 @@
 {% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
 {% assign excludelogbinaryformat = site.data.info.excludelogbinaryformat | downcase | slice: 0 %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
+{% assign has_testscript = site.data.resources[resource_].['testscript'] %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
 {% if site.data.resources[resource_].sourceTail contains "#" %}
 {% assign contained_resource = 'y' %}
@@ -58,7 +59,18 @@
     </li>
   {% endif %}
 {% endunless %}
-{% if  site.data.resources[resource_].['history'] %}
+{% if site.data.resources[resource_].['testscript'] %}
+  {% if include.active == 'testscripts' %}
+    <li class="active">
+      <a href="#">TestScripts</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testscripts.html">TestScripts</a>
+    </li>
+  {% endif %}
+{% endif %}
+{% if site.data.resources[resource_].['history'] %}
   {% if include.active == 'history' %}
     <li class="active">
       <a href="#">History</a>
