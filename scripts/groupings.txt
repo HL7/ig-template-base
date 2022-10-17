@@ -1,4 +1,12 @@
-<grouping xmlns="http://hl7.org/fhir" id="-dyn-capabilitystatement">
+<grouping xmlns="http://hl7.org/fhir" id="-req-actordefinition">
+  <name value="Requirements: Actor Definitions"/>
+  <description value="The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-req-requirements">
+  <name value="Requirements: Formal Requirements"/>
+  <description value="The following artifacts describe the specific requirements to be met by systems compliant with the implementation guide."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-req-capabilitystatement">
   <name value="Behavior: Capability Statements"/>
   <description value="The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems conforming to this implementation guide are expected to declare conformance to one or more of the following capability statements."/>
 </grouping>
@@ -13,6 +21,22 @@
 <grouping xmlns="http://hl7.org/fhir" id="-dyn-searchparameter">
   <name value="Behavior: Search Parameters"/>
   <description value="These define the properties by which a RESTful server can be searched.  They can also be used for sorting and including related resources."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-ka-activitydefinition">
+  <name value="Knowledge Artifacts: Activity Definitions"/>
+  <description value="These define activities that can be performed as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-ka-plandefinition">
+  <name value="Knowledge Artifacts: Plan Definitions"/>
+  <description value="These define workflows, rules, strategies, or protocols as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-ka-measure">
+  <name value="Knowledge Artifacts: Measure"/>
+  <description value="These define measures as part of content in this implementation guide"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-ka-library">
+  <name value="Knowledge Artifacts: Libraries"/>
+  <description value="These define logic, asset collections and other libraries as part of content in this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-str-graphdefinition">
   <name value="Structures: Graph Definitions"/>
@@ -61,22 +85,6 @@
 <grouping xmlns="http://hl7.org/fhir" id="-map-conceptmap">
   <name value="Terminology: Concept Maps"/>
   <description value="These define transformations to convert between codes by systems conforming with this implementation guide"/>
-</grouping>
-<grouping xmlns="http://hl7.org/fhir" id="-ka-activitydefinition">
-  <name value="Knowledge Artifacts: Activity Definitions"/>
-  <description value="These define activities that can be performed as part of content in this implementation guide"/>
-</grouping>
-<grouping xmlns="http://hl7.org/fhir" id="-ka-plandefinition">
-  <name value="Knowledge Artifacts: Plan Definitions"/>
-  <description value="These define workflows, rules, strategies, or protocols as part of content in this implementation guide"/>
-</grouping>
-<grouping xmlns="http://hl7.org/fhir" id="-ka-library">
-  <name value="Knowledge Artifacts: Libraries"/>
-  <description value="These define logic, asset collections and other libraries as part of content in this implementation guide"/>
-</grouping>
-<grouping xmlns="http://hl7.org/fhir" id="-ka-measure">
-  <name value="Knowledge Artifacts: Measure"/>
-  <description value="These define measures as part of content in this implementation guide"/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-ex-examplescenario">
   <name value="Example: Example Scenarios"/>

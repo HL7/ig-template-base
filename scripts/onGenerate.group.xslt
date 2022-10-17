@@ -42,10 +42,16 @@
       <xsl:choose>
         <xsl:when test="$mode='defaultgroup'">-other</xsl:when>
         <xsl:when test="f:exampleBoolean/@value='true' or f:exampleCanonical">-ex-example</xsl:when>
+        <xsl:when test="$infoExt='ActorDefinition'">-req-actordefinition</xsl:when>
+        <xsl:when test="$infoExt='Requirements'">-req-requirements</xsl:when>
         <xsl:when test="$infoExt='CapabilityStatement'">-dyn-capabilitystatement</xsl:when>
         <xsl:when test="$infoExt='OperationDefinition'">-dyn-operationdefinition</xsl:when>
         <xsl:when test="$infoExt='MessageDefinition'">-dyn-messagedefinition</xsl:when>
         <xsl:when test="$infoExt='SearchParameter'">-dyn-searchparameter</xsl:when>
+        <xsl:when test="$infoExt='ActivityDefinition'">-ka-activitydefinition</xsl:when>
+        <xsl:when test="$infoExt='Measure'">-ka-measure</xsl:when>
+        <xsl:when test="$infoExt='PlanDefinition'">-ka-plandefinition</xsl:when>
+        <xsl:when test="$infoExt='Library'">-ka-library</xsl:when>
         <xsl:when test="$infoExt='GraphDefinition'">-str-graphdefinition</xsl:when>
         <xsl:when test="starts-with($infoExt,'StructureDefinition:logical')">-str-logicalmodel</xsl:when>
         <xsl:when test="$infoExt='Questionnaire'">-str-questionnaire</xsl:when>
@@ -59,10 +65,6 @@
         <xsl:when test="$infoExt='StructureMap'">-map-structuremap</xsl:when>
         <xsl:when test="$infoExt='ConceptMap'">-map-conceptmap</xsl:when>
         <xsl:when test="$infoExt='ExampleScenario'">-ex-examplescenario</xsl:when>
-        <xsl:when test="$infoExt='ActivityDefinition'">-ka-activitydefinition</xsl:when>
-        <xsl:when test="$infoExt='Library'">-ka-library</xsl:when>
-        <xsl:when test="$infoExt='Measure'">-ka-measure</xsl:when>
-        <xsl:when test="$infoExt='PlanDefinition'">-ka-plandefinition</xsl:when>
         <xsl:otherwise>-other</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
