@@ -86,7 +86,6 @@
   <xsl:template match="f:definition">
     <xsl:copy>
       <xsl:apply-templates select="@*|f:id|f:extension"/>
-<xsl:message>got here 2</xsl:message>
       <xsl:apply-templates mode="convertParams" select="f:parameter[f:code[not(@value='apply' or @value='path-resource' or @value='path-pages' or @value='path-tx-cache' or @value='expansion-parameter' or @value='rule-broken-links' or @value='generate-xml' 
             or @value='generate-json' or @value='generate-turtle' or @value='html-template')]]"/>
       <xsl:call-template name="addParameters">
@@ -319,7 +318,6 @@
     </xsl:choose>
 	</xsl:template>
   <xsl:template mode="convertParams" match="f:parameter">
-<xsl:message>Got here</xsl:message>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="f:code/@value"/>
       <xsl:with-param name="value" select="f:value/@value"/>
