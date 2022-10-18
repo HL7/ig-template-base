@@ -6,7 +6,7 @@
   <name value="Requirements: Formal Requirements"/>
   <description value="The following artifacts describe the specific requirements to be met by systems compliant with the implementation guide."/>
 </grouping>
-<grouping xmlns="http://hl7.org/fhir" id="-req-capabilitystatement">
+<grouping xmlns="http://hl7.org/fhir" id="-dyn-capabilitystatement">
   <name value="Behavior: Capability Statements"/>
   <description value="The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems conforming to this implementation guide are expected to declare conformance to one or more of the following capability statements."/>
 </grouping>
