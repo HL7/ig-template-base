@@ -4,6 +4,7 @@
 {% assign excludelogbinaryformat = site.data.info.excludelogbinaryformat | downcase | slice: 0 %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
+{% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
 {% if site.data.resources[resource_].sourceTail contains "#" %}
 {% assign contained_resource = 'y' %}
 {% endif %}
@@ -55,6 +56,17 @@
   {% else %}
     <li>
       <a href="{{include.type}}-{{include.id}}.ttl.html">TTL</a>
+    </li>
+  {% endif %}
+{% endunless %}
+{% unless site.data.pages[basepath].testscripts.size == 0 %}
+  {% if include.active == 'testscripts' %}
+    <li class="active">
+      <a href="#">TestScripts</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testscripts.html">TestScripts</a>
     </li>
   {% endif %}
 {% endunless %}

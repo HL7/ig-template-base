@@ -86,6 +86,10 @@
   <name value="Terminology: Concept Maps"/>
   <description value="These define transformations to convert between codes by systems conforming with this implementation guide"/>
 </grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-test-testscript">
+  <name value="Testing Artifacts: TestScripts"/>
+  <description value="These test definitions are available to FHIR test engines to verify systems are conforming to this implementation guide"/>
+</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-ex-examplescenario">
   <name value="Example: Example Scenarios"/>
   <description value="These define groups of interrelated examples that demonstrate one or more of the workflows supported by this implementation guide"/>
