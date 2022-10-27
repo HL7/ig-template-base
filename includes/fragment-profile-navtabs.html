@@ -46,13 +46,13 @@
 {% endunless %}
 
 {% unless site.data.pages[basepath].testscripts.size == 0 %}
-  {% if include.active == 'testscripts' %}
+  {% if include.active == 'testing' %}
     <li class="active">
-      <a href="#">TestScripts</a>
+      <a href="#">Testing</a>
     </li>
   {% else %}
     <li>
-      <a href="{{include.type}}-{{include.id}}-testscripts.html">TestScripts</a>
+      <a href="{{include.type}}-{{include.id}}-testing.html">Testing</a>
     </li>
   {% endif %}
 {% endunless %}
