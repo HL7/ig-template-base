@@ -4,6 +4,7 @@
 {% assign excludelogbinaryformat = site.data.info.excludelogbinaryformat | downcase | slice: 0 %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
+{% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
 {% if site.data.resources[resource_].sourceTail contains "#" %}
 {% assign contained_resource = 'y' %}
 {% endif %}
@@ -25,6 +26,17 @@
     <a href="{{include.type}}-{{include.id}}.html">Narrative Content</a>
   </li>
 {% endif %}
+{% unless site.data.pages[basepath].testscripts.size == 0 %}
+  {% if include.active == 'testing' %}
+    <li class="active">
+      <a href="#">Testing</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testing.html">Testing</a>
+    </li>
+  {% endif %}
+{% endunless %}
 {% unless excludexml == 'y' or contained_resource == 'y' or suppressformat == 'y' %}
   {% if include.active == 'xml' %}
     <li class="active">
@@ -58,7 +70,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% if  site.data.resources[resource_].['history'] %}
+{% if site.data.resources[resource_].['history'] %}
   {% if include.active == 'history' %}
     <li class="active">
       <a href="#">History</a>
