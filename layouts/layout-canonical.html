@@ -3,7 +3,7 @@
 {% include fragment-pagebegin.html %}
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
-  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
+  {% include fragment-canonical-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
   <a name="root"> </a>
 
   <h2 id="root">{{[type]}}: {{site.data.pages[page.path].title | escape_once}}

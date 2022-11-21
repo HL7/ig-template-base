@@ -137,7 +137,7 @@
     },
     "CodeSystem": {
       "template-base": "template/layouts/layout-codesystem.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -147,7 +147,7 @@
     },
     "ValueSet": {
       "template-base": "template/layouts/layout-valueset.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -157,7 +157,7 @@
     },
     "ActivityDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -167,7 +167,7 @@
     },
     "ActorDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -177,7 +177,7 @@
     },
     "CapabilityStatement": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -187,7 +187,7 @@
     },
     "ConceptMap": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -197,7 +197,7 @@
     },
     "EventDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -207,7 +207,7 @@
     },
     "GraphDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -217,7 +217,7 @@
     },
     "Library": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -227,7 +227,7 @@
     },
     "Measure": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -237,7 +237,7 @@
     },
     "MeasureDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -247,7 +247,7 @@
     },
     "MessageDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -257,7 +257,7 @@
     },
     "NamingSystem": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -267,7 +267,7 @@
     },
     "OperationDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -277,7 +277,7 @@
     },
     "PlanDefinition": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -287,7 +287,7 @@
     },
     "Questionnaire": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -297,7 +297,7 @@
     },
     "Requirements": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -307,7 +307,7 @@
     },
     "SearchParameter": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -317,7 +317,7 @@
     },
     "StructureMap": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -327,7 +327,7 @@
     },
     "TerminologyCapabilities": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",
@@ -337,7 +337,7 @@
     },
     "TestScript": {
       "template-base": "template/layouts/layout-canonical.html",
-      "template-format": "template/layouts/layout-instance-format.html",
+      "template-format": "template/layouts/layout-canonical-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",
       "template-change-history": "template/layouts/layout-changehistory.html",
       "base": "{{[type]}}-{{[id]}}.html",

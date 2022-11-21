@@ -26,6 +26,17 @@
     <a href="{{include.type}}-{{include.id}}.html">Narrative Content</a>
   </li>
 {% endif %}
+{% unless site.data.pages[basepath].testscripts.size == 0 %}
+  {% if include.active == 'testing' %}
+    <li class="active">
+      <a href="#">Testing</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testing.html">Testing</a>
+    </li>
+  {% endif %}
+{% endunless %}
 {% unless excludexml == 'y' or contained_resource == 'y' or suppressformat == 'y' %}
   {% if include.active == 'xml' %}
     <li class="active">
