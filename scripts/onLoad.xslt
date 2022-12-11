@@ -106,7 +106,7 @@
       <xsl:call-template name="setParameter">
         <xsl:with-param name="code" select="'autoload-resources'"/>
         <xsl:with-param name="value" select="'true'"/>
-        <xsl:with-param name="single" select="'Y'"/>
+        <xsl:with-param name="supplement" select="'Y'"/>
         <xsl:with-param name="extensionMode" select="$extensionMode"/>
       </xsl:call-template>
     </xsl:if>

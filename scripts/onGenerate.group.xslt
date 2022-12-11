@@ -7,7 +7,7 @@
   <xsl:variable name="mode">
     <xsl:choose>
       <xsl:when test="not(f:definition/f:grouping[not(contains(@id, 'spreadsheet.xml'))])">allgroups</xsl:when>
-      <xsl:when test="f:resource(not(f:groupingId))">defaultgroup</xsl:when>
+      <xsl:when test="f:resource[not(f:groupingId)]">defaultgroup</xsl:when>
       <xsl:otherwise>noaction</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -55,7 +55,7 @@
         <xsl:when test="$infoExt='GraphDefinition'">-str-graphdefinition</xsl:when>
         <xsl:when test="starts-with($infoExt,'StructureDefinition:logical')">-str-logicalmodel</xsl:when>
         <xsl:when test="$infoExt='Questionnaire'">-str-questionnaire</xsl:when>
-        <xsl:when test="$infoExt='StructureDefinition:resource:abstract' or$infoExt='StructureDefinition:primitive-type:abstract' or $infoExt='StructureDefinition:complex-type:abstract'">-str-abstractprofile</xsl:when>
+        <xsl:when test="$infoExt='StructureDefinition:resource:abstract' or $infoExt='StructureDefinition:primitive-type:abstract' or $infoExt='StructureDefinition:complex-type:abstract'">-str-abstractprofile</xsl:when>
         <xsl:when test="$infoExt='StructureDefinition:resource'">-str-profile</xsl:when>
         <xsl:when test="$infoExt='StructureDefinition:primitive-type' or $infoExt='StructureDefinition:complex-type'">-str-datatype</xsl:when>
         <xsl:when test="$infoExt='StructureDefinition:extension'">-str-extension</xsl:when>
