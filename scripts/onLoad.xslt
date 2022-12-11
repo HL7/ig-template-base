@@ -4,12 +4,12 @@
   -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" exclude-result-prefixes="html f">
   <xsl:param name="spreadsheetList"/>
+  <xsl:variable name="autoload">
+    <xsl:call-template name="getParameter">
+      <xsl:with-param name="name">autoload-resources</xsl:with-param>
+    </xsl:call-template>
+  </xsl:variable>
   <xsl:variable name="addResources">
-    <xsl:variable name="autoload">
-      <xsl:call-template name="getParameter">
-        <xsl:with-param name="name">autoload-resources</xsl:with-param>
-      </xsl:call-template>
-    </xsl:variable>
     <xsl:if test="not(/f:ImplementationGuide/f:definition/f:resource or f:ImplementationGuide/f:extension[@url=$spreadsheetExt]) or not($autoload='false')">true</xsl:if>
   </xsl:variable>
   <xsl:variable name="spreadsheetExt" select="'http://hl7.org/fhir/StructureDefinition/igpublisher-spreadsheet'"/>
