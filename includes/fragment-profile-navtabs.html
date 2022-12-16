@@ -45,7 +45,7 @@
   {% endif %}
 {% endunless %}
 
-{% unless site.data.pages[basepath].testscripts.size == 0 %}
+{% if site.data.resources[resource_].['testscript'] %}
   {% if include.active == 'testing' %}
     <li class="active">
       <a href="#">Testing</a>
@@ -55,7 +55,7 @@
       <a href="{{include.type}}-{{include.id}}-testing.html">Testing</a>
     </li>
   {% endif %}
-{% endunless %}
+{% endif %}
 
 {% unless example_count == 0 %}
 {% unless sd_type == 'Extension' %}
