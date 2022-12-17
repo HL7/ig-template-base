@@ -2,15 +2,18 @@
 <!--
   - This process turns XHTML into simple HTML, ensures anchors defining names have end tags and creates section labels and links on all sections
   -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xsi xs html">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:svg="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="svg xsi xs html">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="no" omit-xml-declaration="yes"/>
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template xmlns:svg="http://www.w3.org/2000/svg" match="*[not(self::html:* or self::svg:*)]" priority="10">
-    <xsl:message terminate="yes">Only XHTML-namespaced content is permitted</xsl:message>
+  <xsl:template match="/">
+    <xsl:if test="not(html:* or svg:*)">
+      <xsl:message terminate="yes">Only XHTML-namespaced content is permitted</xsl:message>
+    </xsl:if>
+    <xsl:apply-templates select="*"/>
   </xsl:template>
   <xsl:template match="comment()[normalize-space(translate(., 'DRAFT','draft'))='draft']">
     <blockquote class="stu-note">

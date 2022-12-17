@@ -6,7 +6,6 @@
 {% assign sd_type = site.data.structuredefinitions.[include.id].type %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
-{% assign basepath = page.path | replace: '-examples.html', '.html' %}
 {% assign basepath = include.type | append: '-' | append: include.id | append: '.html' %}
 {% assign example_count = site.data.pages[basepath].examples.size %}
 {% if site.data.resources[resource_].source contains "#" %}
@@ -45,6 +44,18 @@
     </li>
   {% endif %}
 {% endunless %}
+
+{% if site.data.resources[resource_].['testscript'] %}
+  {% if include.active == 'testing' %}
+    <li class="active">
+      <a href="#">Testing</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testing.html">Testing</a>
+    </li>
+  {% endif %}
+{% endif %}
 
 {% unless example_count == 0 %}
 {% unless sd_type == 'Extension' %}
