@@ -12,12 +12,20 @@
       "current": true
     },
     {
+      "version": "0.3.0",
+      "desc": "Updated R5 support",
+      "path": "http://fhir.org/templates/fhir.base.template/0.3.0",
+      "status": "release",
+      "sequence": "Publications",
+      "current": true,
+      "date": "2022-09-16"
+    },
+    {
       "version": "0.2.2",
       "desc": "release updated version of onload.xslt for Sushi users",
       "path": "http://fhir.org/templates/fhir.base.template/0.2.2",
       "status": "release",
       "sequence": "Publications",
-      "current": true,
       "date": "2021-09-03"
     },
     {
