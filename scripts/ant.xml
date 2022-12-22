@@ -139,7 +139,8 @@
       <fileset refid="onGenerate.artifacts.id"/>
     </resources>
     <property name="onGenerate.files" refid="onGenerate.files.id"/>-->
-    <concat destfile="${ig.template}/onGenerate-validation.json" encoding="UTF-8" outputencoding="UTF-8">
+    <echo file="${ig.template}/onGenerate-validation.json" message=""/>
+    <concat destfile="${ig.template}/onGenerate-validation.json" encoding="UTF-8" outputencoding="UTF-8" append="yes">
       <header>{"resourceType":"OperationOutcome","issue":[
       </header>
       <footer>]}
