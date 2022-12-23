@@ -147,7 +147,7 @@
 <!--        <tailfilter lines="-1" skip="1"/>-->
       </filterchain>
     </concat>
-    <echo file="${ig.template}/onGenerate-validation.json" message="]}&#x0a;"/>
+    <echo file="${ig.template}/onGenerate-validation.json" message="]}&#x0a;" append="yes"/>
     <replace file="${ig.template}/onGenerate-validation.json" token=",]}" value="]}"/>
   </target>
   <scriptdef name="appendArtifacts" language="javascript" description="Adds additional values to the to the onGenerate.files list">
