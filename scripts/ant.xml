@@ -168,4 +168,14 @@
   -->  
   </target>
 
+  <target name="onGenerate.copyResourceFiles" depends="onGenerate.extend">
+  <!-- Copy resource json files so that they're available to jekyll -->
+    <copy todir="${ig.temp}/_data" failonerror="false">
+      <fileset dir="${ig.temp}/pages">
+        <include name="**/*.json"/>
+        <depth max="0"/>
+      </fileset>
+    </copy>
+  </target>
+
 </project>
