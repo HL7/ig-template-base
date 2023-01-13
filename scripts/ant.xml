@@ -168,4 +168,32 @@
   -->  
   </target>
 
+
+  <!-- add example scenario XSLT processing ) -->
+
+  <target name="prepareDiagramSource">
+    <property name="dir.lib" value="${ig.template}/scripts"/>
+
+    <property name="dir.scenarios" value="${ig.temp}/scenarios"/>
+    <mkdir dir="${dir.scenarios}"/>
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.scenarios}" extension=".plantuml" style="${ig.scripts}/examplescenario-diagram.xslt"/>
+  </target>
+  <target name="renderDiagram" depends="prepareDiagramSource">
+    <java jar="${dir.lib}/plantuml.jar" fork="true">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
+      <arg line="-tsvg -o &quot;${dir.scenarios}&quot; &quot;${dir.scenarios}/*.plantuml&quot;"/>
+    </java>
+  </target>
+  <target name="createExampleScenarioPage" depends="renderDiagram" extensionOf="onGenerate.extend">
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.temp.includes}" extension=".xhtml" style="${ig.scripts}/examplescenario-sequence.xslt"/>
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.temp.includes}" extension="-description.xhtml" style="${ig.scripts}/examplescenario-description.xslt"/>
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.temp.includes}" extension="-resources.xhtml" style="${ig.scripts}/examplescenario-resources.xslt"/>
+    <fileset id="onGenerate.scenario.id" dir="${ig.root}">
+      <include name="${ig.temp}/ExampleScenario*.xml"/>
+    </fileset>
+    <property name="onGenerate.scenario.files" refid="onGenerate.scenario.id"/>
+    <pathconvert property="scenariofiles" refid="onGenerate.scenario.id" pathsep="," />
+  </target>
+
+
 </project>
