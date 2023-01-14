@@ -1,0 +1,31 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+
+<!-- Option 1: Separate html per tab -->
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="{{[type]}}-{{[id]}}.html">Sequence</a>
+    </li>
+    <li>
+      <a href="{{[type]}}-{{[id]}}-description.html">Detailed Description</a>
+    </li>
+    <li>
+      <a href="{{[type]}}-{{[id]}}-resources.html">Resources</a>
+    </li>
+  </ul>
+
+  <a name="root"> </a>
+  <h2 id="root">ExampleScenario: {{[title]}}</h2>
+
+  {% include ExampleScenario-{{[id]}}.xhtml %} 
+  <br/>
+<!--  <img alt="Scenario diagram" src="ExampleScenario-{{[id]}}.svg"/> -->
+  <object type="image/svg+xml" data="scenarios/ExampleScenario-{{[id]}}.svg"></object>
+  
+  
+  <a name="root"> </a>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}
