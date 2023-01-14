@@ -32,6 +32,14 @@
       "name": "change-history",
       "description": "Resource Change History",
       "isHistory": true
+    },
+    {
+      "name": "resources",
+      "description": "Resources"
+    },
+    {
+      "name": "description",
+      "description": "Description"
     }
   ],
   "_formats-documentation": "Lists the formats in the order format-specific pages should be generated.  (Note that suppressed formats won't appear, even if listed here.)",
