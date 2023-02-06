@@ -124,8 +124,10 @@
   <target name="onGenerate.igQa" depends="onGenerate.processIg">
     <xslt in="${onGenerate.ig.dest}xml" out="${ig.template}/ongenerate-validation-igqa.json" style="${ig.scripts}/onGenerate.qa.xslt"/>
   </target>
-  <target name="onGenerate.artifactList" depends="onGenerate.igQa,onGenerate.setup">
-    <xslt in="${onGenerate.ig.dest}xml" out="${dir.temp.includes}/artifacts.xml" style="${ig.scripts}/createArtifactSummary.xslt"/>
+  <target name="onGenerate.artifactList" depends="onGenerate.checkVersions,onGenerate.igQa,onGenerate.setup">
+    <xslt in="${onGenerate.ig.dest}xml" out="${dir.temp.includes}/artifacts.xml" style="${ig.scripts}/createArtifactSummary.xslt">
+      <param name="globals" expression="${globals}"/>
+    </xslt>
     <fileset id="onGenerate.artifacts.id" dir="${ig.root}">
       <include name="${dir.temp.includes}/artifacts.xml"/>
       <include name="${dir.temp.includes}/*.svg"/>
