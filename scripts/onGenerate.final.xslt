@@ -9,6 +9,8 @@
   -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" exclude-result-prefixes="html f">
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+  <xsl:variable name="noRootToc" select="/f:ImplementationGuide/f:definition/f:parameter[f:code/@value='noRootToc']/f:value/@value"/>
+  <xsl:variable name="artifactsOnRoot" select="/f:ImplementationGuide/f:definition/f:parameter[f:code/@value='artifactsOnRoot']/f:value/@value"/>
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
@@ -56,7 +58,7 @@
   <xsl:template match="f:ImplementationGuide/f:definition/f:page">
     <xsl:copy>
       <xsl:choose>
-        <xsl:when test="f:nameUrl/@value='toc.html' and f:generation/@value='html'">
+        <xsl:when test="$noRootToc='true' or (f:nameUrl/@value='toc.html' and f:generation/@value='html')">
           <xsl:apply-templates select="@*|node()"/>
         </xsl:when>
         <xsl:otherwise>
@@ -69,20 +71,29 @@
           <xsl:apply-templates select="f:page"/>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:if test="not(descendant-or-self::f:page[f:nameUrl/@value='artifacts.html'])">
-        <page xmlns="http://hl7.org/fhir">
-          <nameUrl value="artifacts.html"/>
-          <title value="Artifacts Summary"/>
-          <generation value="html"/>
+      <xsl:choose>
+        <xsl:when test="$artifactsOnRoot='true'">
           <xsl:call-template name="artifactPages"/>
-        </page>
-      </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="not(descendant-or-self::f:page[f:nameUrl/@value='artifacts.html'])">
+            <page xmlns="http://hl7.org/fhir">
+              <nameUrl value="artifacts.html"/>
+              <title value="Artifacts Summary"/>
+              <generation value="html"/>
+              <xsl:call-template name="artifactPages"/>
+            </page>
+          </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>      
     </xsl:copy>
   </xsl:template>
   <xsl:template match="f:page[f:nameUrl/@value='artifacts.html']">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
-      <xsl:call-template name="artifactPages"/>
+      <xsl:if test="not($artifactsOnRoot='true')">
+        <xsl:call-template name="artifactPages"/>
+      </xsl:if>
     </xsl:copy>
   </xsl:template>
   <xsl:template name="artifactPages">

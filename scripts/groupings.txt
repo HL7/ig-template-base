@@ -98,6 +98,10 @@
   <name value="Example: Example Instances"/>
   <description value="These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like."/>
 </grouping>
+<grouping xmlns="http://hl7.org/fhir" id="-ex-examplesup">
+  <name value="Example: Example Supporting Instances"/>
+  <description value="These are example instances that are not governed by this implementation guide, but which are necessary to support other examples defined in the IG."/>
+</grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-other">
   <name value="Other"/>
   <description value="These are resources that are used within this implementation guide that do not fit into one of the other categories."/>
