@@ -609,7 +609,8 @@ div.markdown-toc p.link
 
 /* Fix to avoid truncating letter descenders in headings */
 h1, h2, h3, h4, h5, h6, .title {
-overflow: visible;
+  overflow: visible;
+  margin: 1em 0 0.4em 0;
 }
 
 /* Common content for section numbering */
