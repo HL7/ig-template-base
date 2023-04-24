@@ -12,6 +12,24 @@
 {% include fragment-simpletable.html %}
 
 {% assign basepath = page.path | replace: '-testing.html', '.html' %}
+
+{% if site.data.pages[basepath].testplans.size > 0 %}
+  <p>TestPlans for the {{[id]}} {{[type]}}.</p>
+  <table style="grid">
+    <tbody>
+      {% for testplan in site.data.pages[basepath].testplans %}
+        <tr>
+          <td>
+            <a href="{{testplan.url}}">{{testplan.title | escape_once}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p><b>No TestPlans are currently available for the {{id}} {{[type]}}.</b></p>
+{% endif %}
+
 {% if site.data.pages[basepath].testscripts.size > 0 %}
   <p>TestScripts for the {{[id]}} {{[type]}}.</p>
   <table style="grid">

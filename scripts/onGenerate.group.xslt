@@ -65,6 +65,7 @@
         <xsl:when test="$infoExt='StructureMap'">-map-structuremap</xsl:when>
         <xsl:when test="$infoExt='ConceptMap'">-map-conceptmap</xsl:when>
         <xsl:when test="$infoExt='ExampleScenario'">-ex-examplescenario</xsl:when>
+        <xsl:when test="$infoExt='TestPlan'">-test-testplan</xsl:when>
         <xsl:when test="$infoExt='TestScript'">-test-testscript</xsl:when>
         <xsl:otherwise>-other</xsl:otherwise>
       </xsl:choose>
