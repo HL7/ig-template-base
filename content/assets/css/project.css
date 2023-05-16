@@ -201,6 +201,7 @@ body {
 }
 
 #family-logo {
+  float: right;
   margin-left: 6px;
 }
 
@@ -259,7 +260,7 @@ body {
 .stu-note::before {
   white-space: pre;
   content: "Note\A ";
-  #background-color: yellow;
+  background-color: yellow;
   color: red;
   font-weight: bold;
 }
@@ -267,7 +268,7 @@ body {
 .note-to-balloters::before {
   white-space: pre;
   content: "Note to Balloters\A ";
-  #background-color: yellow;
+  background-color: yellow;
   color: red;
   font-weight: bold;
 }
@@ -560,7 +561,7 @@ ul.markdown-toc
   padding: 4px;
   float: right;
   z-index: 10;
-  width: 150px;
+  width: 30%;
   background-color:  var(--toc-box-bg-color);
   border: var(--toc-box-border);
 }
@@ -586,7 +587,7 @@ div.markdown-toc
   padding: 4px;
   float: right;
   z-index: 10;
-  width: 150px;
+  width: 30%;
   background-color:  var(--toc-box-bg-color);
   border: var(--toc-box-border);
 }
@@ -608,7 +609,8 @@ div.markdown-toc p.link
 
 /* Fix to avoid truncating letter descenders in headings */
 h1, h2, h3, h4, h5, h6, .title {
-overflow: visible;
+  overflow: visible;
+  margin: 1em 0 0.4em 0;
 }
 
 /* Common content for section numbering */
@@ -660,6 +662,19 @@ li a[href^="http://"]:not([no-external^="true"]):after,li a[href^="https://"]:no
     color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
+}
+
+.modified-content::before {
+  white-space: pre;
+  content: "Modified Content\A ";
+  color: red;
+  font-weight: bold;}
+.modified-content{
+    margin: 5px;
+    padding: 10px;
+    color: #784212;
+    background-color: #fef9e7;
+    border-color: #f9e79f;
 }
 
 .bg-success{
@@ -716,4 +731,27 @@ li a[href^="http://"]:not([no-external^="true"]):after,li a[href^="https://"]:no
   content: none !important;
   padding-left: 3px;
   padding-right: 3px;
+}
+
+.copy-text {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.copy-text .btn-copy{
+  visibility: hidden;
+}
+
+.copy-text:hover .btn-copy {
+  visibility: visible;
+}
+
+.btn-copy {
+  height: 14px;
+  width: 17px;
+  background-image: url('../ico/noun_copy to clipboard_1669410.png');
+  background-size: 22px;
+  padding: 0px 0px; 
+  border-width: 0px;
+  background-color: transparent;
 }

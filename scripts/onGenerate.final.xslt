@@ -8,7 +8,9 @@
   - If dealing with a multi-version IG, it will be run against both IG versions.
   -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" exclude-result-prefixes="html f">
-  <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+  <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+  <xsl:variable name="noRootToc" select="/f:ImplementationGuide/f:definition/f:parameter[f:code/@value='noRootToc']/f:value/@value"/>
+  <xsl:variable name="artifactsOnRoot" select="/f:ImplementationGuide/f:definition/f:parameter[f:code/@value='artifactsOnRoot']/f:value/@value"/>
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
@@ -56,7 +58,7 @@
   <xsl:template match="f:ImplementationGuide/f:definition/f:page">
     <xsl:copy>
       <xsl:choose>
-        <xsl:when test="f:nameUrl/@value='toc.html' and f:generation/@value='html'">
+        <xsl:when test="$noRootToc='true' or (f:nameUrl/@value='toc.html' and f:generation/@value='html')">
           <xsl:apply-templates select="@*|node()"/>
         </xsl:when>
         <xsl:otherwise>
@@ -69,29 +71,49 @@
           <xsl:apply-templates select="f:page"/>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:if test="not(descendant-or-self::f:page[f:nameUrl/@value='artifacts.html'])">
-        <page xmlns="http://hl7.org/fhir">
-          <nameUrl value="artifacts.html"/>
-          <title value="Artifacts Summary"/>
-          <generation value="html"/>
+      <xsl:choose>
+        <xsl:when test="$artifactsOnRoot='true'">
           <xsl:call-template name="artifactPages"/>
-        </page>
-      </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="not(descendant-or-self::f:page[f:nameUrl/@value='artifacts.html'])">
+            <page xmlns="http://hl7.org/fhir">
+              <nameUrl value="artifacts.html"/>
+              <title value="Artifacts Summary"/>
+              <generation value="html"/>
+              <xsl:call-template name="artifactPages"/>
+            </page>
+          </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>      
     </xsl:copy>
   </xsl:template>
   <xsl:template match="f:page[f:nameUrl/@value='artifacts.html']">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
-      <xsl:call-template name="artifactPages"/>
+      <xsl:if test="not($artifactsOnRoot='true')">
+        <xsl:call-template name="artifactPages"/>
+      </xsl:if>
     </xsl:copy>
   </xsl:template>
   <xsl:template name="artifactPages">
     <xsl:for-each select="/f:ImplementationGuide/f:definition/f:grouping">
       <xsl:for-each select="parent::f:definition/f:resource[f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']][f:groupingId/@value=current()/@id]">
+        <xsl:variable name="id" select="substring-after(f:reference/f:reference/@value, '/')"/>
         <page xmlns="http://hl7.org/fhir">
           <nameUrl value="{f:extension[@url='http://hl7.org/fhir/StructureDefinition/implementationguide-page']/f:valueUri/@value}"/>
           <title value="{f:name/@value}"/>
           <generation value="generated"/>
+          <xsl:for-each select="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/contained-resource-information']">
+            <page xmlns="http://hl7.org/fhir">
+              <xsl:variable name="url" select="concat(f:extension[@url='type']/f:valueCode/@value, '-', $id, '_', f:extension[@url='id']/f:valueId/@value, '.html')"/>
+              <nameUrl value="{$url}"/>
+              <xsl:for-each select="f:extension[@url='title']/f:valueString">
+                <title value="{@value}"/>
+              </xsl:for-each>
+              <generation value="generated"/>
+            </page>
+          </xsl:for-each>
         </page>      
       </xsl:for-each>
     </xsl:for-each>

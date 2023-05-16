@@ -1,9 +1,19 @@
 {% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
 {% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
 {% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
+{% assign excludelogbinaryformat = site.data.info.excludelogbinaryformat | downcase | slice: 0 %}
 {% assign resource_ = include.type| append: '/'| append: include.id  %}
 {% assign has_history = site.data.resources[resource_].['history'] %}
-
+{% if site.data.resources[resource_].sourceTail contains "#" %}
+{% assign contained_resource = 'y' %}
+{% endif %}
+{% if excludelogbinaryformat == 'y' and site.data.artifacts[page.path].type == 'Binary' %}
+{% assign profile_path = site.data.artifacts[page.path].exampleOf.url %}
+{% assign profile_structure = site.data.structuredefinitions | where: "path", profile_path | first %}
+{% if profile_structure.kind == 'logical' %}
+{% assign suppressformat = 'y' %}
+{% endif %}
+{% endif %}
 
 <ul class="nav nav-tabs">
 {% if include.active == 'content' %}
@@ -15,7 +25,18 @@
     <a href="{{include.type}}-{{include.id}}.html">Narrative Content</a>
   </li>
 {% endif %}
-{% unless excludexml == 'y' %}
+{% if site.data.resources[resource_].['testscript'] %}
+  {% if include.active == 'testing' %}
+    <li class="active">
+      <a href="#">Testing</a>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{include.type}}-{{include.id}}-testing.html">Testing</a>
+    </li>
+  {% endif %}
+{% endif %}
+{% unless excludexml == 'y' or contained_resource == 'y' or suppressformat == 'y' %}
   {% if include.active == 'xml' %}
     <li class="active">
       <a href="#">XML</a>
@@ -26,7 +47,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% unless excludejson == 'y' %}
+{% unless excludejson == 'y' or contained_resource == 'y' or suppressformat == 'y' %}
   {% if include.active == 'json' %}
     <li class="active">
       <a href="#">JSON</a>
@@ -37,7 +58,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% unless excludettl == 'y' %}
+{% unless excludettl == 'y' or contained_resource == 'y' or suppressformat == 'y' %}
   {% if include.active == 'ttl' %}
     <li class="active">
       <a href="#">TTL</a>
@@ -48,7 +69,7 @@
     </li>
   {% endif %}
 {% endunless %}
-{% if  site.data.resources[resource_].['history'] %}
+{% if site.data.resources[resource_].['history'] %}
   {% if include.active == 'history' %}
     <li class="active">
       <a href="#">History</a>
