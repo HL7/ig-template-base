@@ -4,6 +4,7 @@
     "onLoad": "onLoad",
     "onGenerate": "onGenerate"
   },
+  "parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm", "releaselabel", "shownav"],
   "_extraTemplates-documentation": "This array of objects identifies additional templates available for generation for different resource types",
   "extraTemplates": [
     {
