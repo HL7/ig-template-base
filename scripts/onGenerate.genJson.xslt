@@ -50,7 +50,7 @@
     </xsl:variable>
     <xsl:variable name="fmm">
       <xsl:call-template name="getParameter">
-        <xsl:with-param name="name">fmm-definition</xsl:with-param>
+        <xsl:with-param name="name" select="'fmm-definition'"/>
       </xsl:call-template>
     </xsl:variable>
     <xsl:value-of select="concat('{&#xa;',

@@ -4,7 +4,7 @@
     "onLoad": "onLoad",
     "onGenerate": "onGenerate"
   },
-  "template-parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm", "globals-in-artifacts", "releaselabel", "shownav"],
+  "template-parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm-definition", "globals-in-artifacts", "releaselabel", "shownav"],
   "_extraTemplates-documentation": "This array of objects identifies additional templates available for generation for different resource types",
   "extraTemplates": [
     {
