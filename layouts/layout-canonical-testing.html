@@ -13,8 +13,8 @@
 
 {% assign basepath = page.path | replace: '-testing.html', '.html' %}
 
+<h3>Test Plans</h3>
 {% if site.data.pages[basepath].testplans.size > 0 %}
-  <p>TestPlans for the {{[id]}} {{[type]}}.</p>
   <table style="grid">
     <tbody>
       {% for testplan in site.data.pages[basepath].testplans %}
@@ -27,11 +27,11 @@
     </tbody>
   </table>
 {% else %}
-  <p><b>No TestPlans are currently available for the {{id}} {{[type]}}.</b></p>
+  <p><b>No test plans are currently available for the {{id}} {{[type]}}.</b></p>
 {% endif %}
 
+<h3>Test Scripts</h3>
 {% if site.data.pages[basepath].testscripts.size > 0 %}
-  <p>TestScripts for the {{[id]}} {{[type]}}.</p>
   <table style="grid">
     <tbody>
       {% for testscript in site.data.pages[basepath].testscripts %}
@@ -44,7 +44,7 @@
     </tbody>
   </table>
 {% else %}
-  <p><b>No TestScripts are currently available for the {{id}} {{[type]}}.</b></p>
+  <p><b>No test scripts are currently available for the {{id}} {{[type]}}.</b></p>
 {% endif %}
 
 <!-- insert notes if present -->
