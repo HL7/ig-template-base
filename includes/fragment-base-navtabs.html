@@ -25,7 +25,7 @@
     <a href="{{include.type}}-{{include.id}}.html">Narrative Content</a>
   </li>
 {% endif %}
-{% if site.data.resources[resource_].['testscript'] %}
+{% if site.data.resources[resource_].['testplan'] or site.data.resources[resource_].['testscript'] %}
   {% if include.active == 'testing' %}
     <li class="active">
       <a href="#">Testing</a>
