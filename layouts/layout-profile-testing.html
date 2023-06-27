@@ -14,6 +14,9 @@
 
 {% assign basepath = page.path | replace: '-testing.html', '.html' %}
 
+<!-- insert intro if present -->
+{% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
+
 <h3>Test Plans</h3>
 {% if site.data.pages[basepath].testplans.size > 0 %}
   <table style="grid">
