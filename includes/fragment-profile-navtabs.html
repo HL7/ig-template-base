@@ -45,7 +45,7 @@
   {% endif %}
 {% endunless %}
 
-{% if site.data.resources[resource_].['testscript'] %}
+{% if site.data.resources[resource_].['testplan'] or site.data.resources[resource_].['testscript'] %}
   {% if include.active == 'testing' %}
     <li class="active">
       <a href="#">Testing</a>
