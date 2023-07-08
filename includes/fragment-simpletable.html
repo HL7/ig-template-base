@@ -1,3 +1,4 @@
+{% if site.data.resources[resource_].status.status or site.data.resources[resource_].status.standards-status %}
   <table class="{{site.data.resources[resource_].status.class}}">
     <tr>
 {% if site.data.resources[resource_].status.fmm %}
@@ -28,3 +29,4 @@
 {% endif %}
     </tr>
   </table>
+{% endif %}
