@@ -54,6 +54,7 @@
               </xsl:choose>
             </xsl:if>
           </xsl:for-each>
+          <xsl:apply-templates select="f:page|f:parameter|f:template"/>
         </xsl:copy>
       </xsl:when>
       <xsl:otherwise>
