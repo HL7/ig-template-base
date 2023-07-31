@@ -27,9 +27,15 @@
   <xsl:template match="f:definition">
     <!-- If we've defined the groups, then we sort based on the groups, then alphabetically -->
     <xsl:choose>
-      <xsl:when test="f:group[starts-with(@id, '-')]">
+      <xsl:when test="f:grouping[starts-with(@id, '-')]">
         <xsl:copy>
-          <xsl:apply-templates select="@*|f:extension|f:modifierExtension|f:grouping|comment()[not(preceding-sibling::f:resource)]"/>
+          <xsl:apply-templates select="@*|f:extension|f:modifierExtension"/>
+          <xsl:for-each select="f:grouping">
+            <xsl:if test="not(following-sibling::f:grouping[@id=current()/@id])">
+              <xsl:apply-templates select="."/>
+            </xsl:if>
+          </xsl:for-each>
+          <xsl:apply-templates select="comment()[not(preceding-sibling::f:resource)]"/>
           <xsl:for-each select="f:grouping">
             <xsl:choose>
               <xsl:when test="starts-with(@id, '-')">
@@ -118,4 +124,4 @@
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
-</xsl:stylesheet>  
+</xsl:stylesheet>
