@@ -37,20 +37,22 @@
           </xsl:for-each>
           <xsl:apply-templates select="comment()[not(preceding-sibling::f:resource)]"/>
           <xsl:for-each select="f:grouping">
-            <xsl:choose>
-              <xsl:when test="starts-with(@id, '-')">
-                <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
-                  <xsl:sort select="f:name/@value"/>
-                  <xsl:sort select="f:reference/f:reference/@value"/>
-                  <xsl:apply-templates select="."/>
-                </xsl:for-each>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
-                  <xsl:apply-templates select="."/>
-                </xsl:for-each>
-              </xsl:otherwise>
-            </xsl:choose>
+            <xsl:if test="not(following-sibling::f:grouping[@id=current()/@id])">
+              <xsl:choose>
+                <xsl:when test="starts-with(@id, '-')">
+                  <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
+                    <xsl:sort select="f:name/@value"/>
+                    <xsl:sort select="f:reference/f:reference/@value"/>
+                    <xsl:apply-templates select="."/>
+                  </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
+                    <xsl:apply-templates select="."/>
+                  </xsl:for-each>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:if>
           </xsl:for-each>
         </xsl:copy>
       </xsl:when>
