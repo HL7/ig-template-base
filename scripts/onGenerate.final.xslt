@@ -27,32 +27,25 @@
   <xsl:template match="f:definition">
     <!-- If we've defined the groups, then we sort based on the groups, then alphabetically -->
     <xsl:choose>
-      <xsl:when test="f:grouping[starts-with(@id, '-')]">
+      <xsl:when test="f:grouping[starts-with(@id, '-')] or groups/f:grouping[starts-with(@id, '-')]">
         <xsl:copy>
-          <xsl:apply-templates select="@*|f:extension|f:modifierExtension"/>
+          <xsl:apply-templates select="node()[not(self::f:resource or preceding-sibling::f:resource)]"/>
           <xsl:for-each select="f:grouping">
-            <xsl:if test="not(following-sibling::f:grouping[@id=current()/@id])">
-              <xsl:apply-templates select="."/>
-            </xsl:if>
-          </xsl:for-each>
-          <xsl:apply-templates select="comment()[not(preceding-sibling::f:resource)]"/>
-          <xsl:for-each select="f:grouping">
-            <xsl:if test="not(following-sibling::f:grouping[@id=current()/@id])">
-              <xsl:choose>
-                <xsl:when test="starts-with(@id, '-')">
-                  <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
-                    <xsl:sort select="f:name/@value"/>
-                    <xsl:sort select="f:reference/f:reference/@value"/>
-                    <xsl:apply-templates select="."/>
-                  </xsl:for-each>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
-                    <xsl:apply-templates select="."/>
-                  </xsl:for-each>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:if>
+            <xsl:choose>
+              <xsl:when test="starts-with(@id, '-')">
+                <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
+                  <xsl:sort select="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/resource-sort']/f:valueInteger/@value"/>
+                  <xsl:sort select="f:name/@value"/>
+                  <xsl:sort select="f:reference/f:reference/@value"/>
+                  <xsl:apply-templates select="."/>
+                </xsl:for-each>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
+                  <xsl:apply-templates select="."/>
+                </xsl:for-each>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:for-each>
           <xsl:apply-templates select="f:page|f:parameter|f:template"/>
         </xsl:copy>
