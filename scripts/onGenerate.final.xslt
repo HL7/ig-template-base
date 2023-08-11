@@ -47,6 +47,7 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:for-each>
+          <xsl:apply-templates select="f:resource[not(f:groupingId)]"/>
           <xsl:apply-templates select="f:page|f:parameter|f:template"/>
         </xsl:copy>
       </xsl:when>
