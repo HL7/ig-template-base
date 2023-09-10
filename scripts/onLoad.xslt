@@ -393,17 +393,7 @@
       </xsl:when>
       <xsl:when test="not($extensionMode='Y') and (not($oldFHIR='Y') or $oldParam='Y')">
         <parameter xmlns="http://hl7.org/fhir">
-          <xsl:choose>
-            <xsl:when test="$oldFHIR='Y'">
-              <code value="{$code}"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <code>
-                <system value="{$system}"/>
-                <code value="{$code}"/>
-              </code>
-            </xsl:otherwise>
-          </xsl:choose>
+          <code value="{$code}"/>
           <value value="{$value}"/>
         </parameter>
       </xsl:when>
