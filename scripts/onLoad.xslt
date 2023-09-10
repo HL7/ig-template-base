@@ -26,9 +26,6 @@
     </xsl:copy>
   </xsl:template>
   <xsl:template match="f:ImplementationGuide">
-<xsl:message>
-<xsl:value-of select="$oldFHIR"/>
-</xsl:message>
     <xsl:if test="not(f:version/@value)">
       <xsl:message terminate="yes">ImplementationGuide.version must be specified</xsl:message>
     </xsl:if>
@@ -100,13 +97,11 @@
         <xsl:apply-templates mode="convertParams" select="f:parameter[f:code[not(@value='apply' or @value='path-resource' or @value='path-pages' or @value='path-tx-cache' or @value='expansion-parameter' or @value='rule-broken-links' or @value='generate-xml' 
               or @value='generate-json' or @value='generate-turtle' or @value='html-template')]]"/>
         <xsl:call-template name="addParameters">
-          <xsl:with-param name="extensionMode" select="$oldFHIR"/>
+          <xsl:with-param name="extensionMode" select="'Y'"/>
         </xsl:call-template>
       </xsl:if>
       <xsl:apply-templates select="f:modifierExtension|f:grouping|f:resource|f:page|f:parameter"/>
-      <xsl:if test="not($oldFHIR='Y')">
-        <xsl:call-template name="addParameters"/>
-      </xsl:if>
+      <xsl:call-template name="addParameters"/>
       <xsl:apply-templates select="f:template"/>
     </xsl:copy>
   </xsl:template>
@@ -385,7 +380,10 @@
     <xsl:param name="value"/>
     <xsl:param name="supplement"/>
     <xsl:param name="extensionMode"/>
-    
+    <xsl:variable name="oldParam">
+      <xsl:if test="$code='apply' or $code='path-resource' or $code='path-pages' or $code='path-tx-cache' or $code='expansion-parameter' or $code='rule-broken-links' or $code='generate-xml' or $code='generate-json' or $code='generate-turtle' 
+        or $code='html-template' or $code=''">Y</xsl:if>
+    </xsl:variable>
     <xsl:choose>
       <xsl:when test="f:parameter[f:code[@value=$code] and f:value[@value=$value or $supplement!='Y']]">
         <!-- Don't add - exists as parameter -->
@@ -393,24 +391,23 @@
       <xsl:when test="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/ig-parameter'][f:extension[@url='code']/f:valueString/@value=$code] and f:extension[@url='value']/f:valueString[@value=$value or $supplement!='Y']">
         <!-- Don't add - exists as extension -->
       </xsl:when>
-      <xsl:when test="$code='apply' or $code='path-resource' or $code='path-pages' or $code='path-tx-cache' or $code='expansion-parameter' or $code='rule-broken-links' or $code='generate-xml' or $code='generate-json' or $code='generate-turtle' 
-      or $code='html-template' or $code=''">
-        <xsl:if test="not($extensionMode='Y')">
-          <parameter xmlns="http://hl7.org/fhir">
-            <code value="{$code}"/>
-            <system value="{$system}"/>
-            <value value="{$value}"/>
-          </parameter>
-        </xsl:if>
-      </xsl:when>
-      <xsl:when test="not($oldFHIR='Y')">
+      <xsl:when test="not($extensionMode='Y') and (not($oldFHIR='Y') or $oldParam='Y')">
         <parameter xmlns="http://hl7.org/fhir">
-          <code value="{$code}"/>
-          <system value="{$system}"/>
+          <xsl:choose>
+            <xsl:when test="$oldFHIR='Y'">
+              <code value="{$code}"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <code>
+                <system value="{$system}"/>
+                <code value="{$code}"/>
+              </code>
+            </xsl:otherwise>
+          </xsl:choose>
           <value value="{$value}"/>
         </parameter>
       </xsl:when>
-      <xsl:otherwise>
+      <xsl:when test="$extensionMode='Y' and $oldFHIR='Y' and not($oldParam='Y')">
         <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
           <extension url="code">
             <valueString value="{$code}"/>
@@ -419,7 +416,7 @@
             <valueString value="{$value}"/>
           </extension>
         </extension>
-      </xsl:otherwise>
+      </xsl:when>
     </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>
