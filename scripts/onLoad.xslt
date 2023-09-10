@@ -13,12 +13,22 @@
     <xsl:if test="not(/f:ImplementationGuide/f:definition/f:resource or f:ImplementationGuide/f:extension[@url=$spreadsheetExt]) or not($autoload='false')">true</xsl:if>
   </xsl:variable>
   <xsl:variable name="spreadsheetExt" select="'http://hl7.org/fhir/StructureDefinition/igpublisher-spreadsheet'"/>
+  <xsl:variable name="toolsSystem" select="'http://hl7.org/fhir/tools/CodeSystem/ig-parameters'"/>
+  <xsl:variable name="fhirVersion">
+    <xsl:value-of select="substring(f:ImplementationGuide/f:fhirVersion/@value,1,1)"/>
+  </xsl:variable>
+  <xsl:variable name="oldFHIR">
+    <xsl:if test="$fhirVersion='1' or $fhirVersion='3' or $fhirVersion='4'">Y</xsl:if>
+  </xsl:variable>
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
   <xsl:template match="f:ImplementationGuide">
+<xsl:message>
+<xsl:value-of select="$oldFHIR"/>
+</xsl:message>
     <xsl:if test="not(f:version/@value)">
       <xsl:message terminate="yes">ImplementationGuide.version must be specified</xsl:message>
     </xsl:if>
@@ -86,25 +96,34 @@
   <xsl:template match="f:definition">
     <xsl:copy>
       <xsl:apply-templates select="@*|f:id|f:extension"/>
-      <xsl:apply-templates mode="convertParams" select="f:parameter[f:code[not(@value='apply' or @value='path-resource' or @value='path-pages' or @value='path-tx-cache' or @value='expansion-parameter' or @value='rule-broken-links' or @value='generate-xml' 
-            or @value='generate-json' or @value='generate-turtle' or @value='html-template')]]"/>
-      <xsl:call-template name="addParameters">
-        <xsl:with-param name="extensionMode" select="'Y'"/>
-      </xsl:call-template>
+      <xsl:if test="$oldFHIR='Y'">
+        <xsl:apply-templates mode="convertParams" select="f:parameter[f:code[not(@value='apply' or @value='path-resource' or @value='path-pages' or @value='path-tx-cache' or @value='expansion-parameter' or @value='rule-broken-links' or @value='generate-xml' 
+              or @value='generate-json' or @value='generate-turtle' or @value='html-template')]]"/>
+        <xsl:call-template name="addParameters">
+          <xsl:with-param name="extensionMode" select="$oldFHIR"/>
+        </xsl:call-template>
+      </xsl:if>
       <xsl:apply-templates select="f:modifierExtension|f:grouping|f:resource|f:page|f:parameter"/>
-      <xsl:call-template name="addParameters"/>
+      <xsl:if test="not($oldFHIR='Y')">
+        <xsl:call-template name="addParameters"/>
+      </xsl:if>
       <xsl:apply-templates select="f:template"/>
     </xsl:copy>
   </xsl:template>
   <xsl:template mode="convertParams" match="f:parameter[f:code/@value='find-other-resources']" priority="10"/>
   <xsl:template match="f:parameter[f:code[not(@value='apply' or @value='path-resource' or @value='path-pages' or @value='path-tx-cache' or @value='expansion-parameter' or @value='rule-broken-links' or @value='generate-xml' or @value='generate-json' 
-                or @value='generate-turtle' or @value='html-template')]]"/>
+                or @value='generate-turtle' or @value='html-template')]]">
+    <xsl:if test="not($oldFHIR='Y')">
+      <xsl:copy-of select="."/>
+    </xsl:if>
+  </xsl:template>
   <xsl:template match="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/ig-parameter' and f:extension[@url='code']/f:valueString/@value='find-other-resources']"/>
   <xsl:template name="addParameters">
     <xsl:param name="extensionMode"/>
     <xsl:if test="$addResources='true'">
       <xsl:call-template name="setParameter">
         <xsl:with-param name="code" select="'autoload-resources'"/>
+        <xsl:with-param name="system" select="$toolsSystem"/>
         <xsl:with-param name="value" select="'true'"/>
         <xsl:with-param name="supplement" select="'Y'"/>
         <xsl:with-param name="extensionMode" select="$extensionMode"/>
@@ -112,196 +131,232 @@
     </xsl:if>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/capabilities'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/examples'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/extensions'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/models'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/operations'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/profiles'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/resources'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/vocabulary'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/maps'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/testing'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/history'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-resource'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'fsh-generated/resources'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-pages'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'template/config'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-pages'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/images'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-liquid'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'template/liquid'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-liquid'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/liquid'"/>
       <xsl:with-param name="supplement" select="'Y'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-qa'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'temp/qa'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-temp'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'temp/pages'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-output'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'output'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-tx-cache'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input-cache/txcache'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-suppressed-warnings'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'input/ignoreWarnings.txt'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'path-history'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="concat(substring-before(ancestor::f:ImplementationGuide/f:url/@value, 'ImplementationGuide'), 'history.html')"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'template-html'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'template-page.html'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'template-md'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'template-page-md.html'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-contact'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-context'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-copyright'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-jurisdiction'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-license'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-publisher'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'apply-version'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'active-tables'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'fmm-definition'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'http://hl7.org/fhir/versions.html#maturity'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'propagate-status'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'excludelogbinaryformat'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
     <xsl:call-template name="setParameter">
       <xsl:with-param name="code" select="'tabbed-snapshots'"/>
+      <xsl:with-param name="system" select="$toolsSystem"/>
       <xsl:with-param name="value" select="'true'"/>
       <xsl:with-param name="extensionMode" select="$extensionMode"/>
     </xsl:call-template>
@@ -339,31 +394,31 @@
         <!-- Don't add - exists as extension -->
       </xsl:when>
       <xsl:when test="$code='apply' or $code='path-resource' or $code='path-pages' or $code='path-tx-cache' or $code='expansion-parameter' or $code='rule-broken-links' or $code='generate-xml' or $code='generate-json' or $code='generate-turtle' 
-      or $code='html-template'">
-        <xsl:if test="$extensionMode!='Y'">
+      or $code='html-template' or $code=''">
+        <xsl:if test="not($extensionMode='Y')">
           <parameter xmlns="http://hl7.org/fhir">
             <code value="{$code}"/>
+            <system value="{$system}"/>
             <value value="{$value}"/>
           </parameter>
         </xsl:if>
       </xsl:when>
+      <xsl:when test="not($oldFHIR='Y')">
+        <parameter xmlns="http://hl7.org/fhir">
+          <code value="{$code}"/>
+          <system value="{$system}"/>
+          <value value="{$value}"/>
+        </parameter>
+      </xsl:when>
       <xsl:otherwise>
-<!--        <xsl:if test="$extensionMode!='Y'">
-          <parameter xmlns="http://hl7.org/fhir">
-            <code value="{$code}"/>
-            <value value="{$value}"/>
-          </parameter>
-        </xsl:if>-->
-        <xsl:if test="$extensionMode='Y'">
-          <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-            <extension url="code">
-              <valueString value="{$code}"/>
-            </extension>
-            <extension url="value">
-              <valueString value="{$value}"/>
-            </extension>
+        <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+          <extension url="code">
+            <valueString value="{$code}"/>
           </extension>
-        </xsl:if>
+          <extension url="value">
+            <valueString value="{$value}"/>
+          </extension>
+        </extension>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
