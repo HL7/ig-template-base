@@ -12,12 +12,20 @@
       "current" : true
     },
     {
+      "version" : "0.5.0",
+      "desc" : "Add otherScripts for template security changes",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.5.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "current" : true,
+      "date" : "2023-09-13"
+    },
+    {
       "version" : "0.4.0",
       "desc" : "Fix bugs in xslt + add test tab",
       "path" : "http://fhir.org/templates/fhir.base.template/0.4.0",
       "status" : "release",
       "sequence" : "Publications",
-      "current" : true,
       "date" : "2022-12-17"
     },
     {
