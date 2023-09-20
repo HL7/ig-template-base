@@ -29,7 +29,7 @@
     <xsl:choose>
       <xsl:when test="f:grouping[starts-with(@id, '-')] or groups/f:grouping[starts-with(@id, '-')]">
         <xsl:copy>
-          <xsl:apply-templates select="node()[not(self::f:resource or preceding-sibling::f:resource)]"/>
+          <xsl:apply-templates select="node()[not(self::f:resource or self::f:page or self::f:parameter or self::f:template)]"/>
           <xsl:for-each select="f:grouping">
             <xsl:choose>
               <xsl:when test="starts-with(@id, '-')">
