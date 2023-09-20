@@ -12,12 +12,20 @@
       "current" : true
     },
     {
+      "version" : "0.6.0",
+      "desc" : "Update template for apply-wg",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.6.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2023-09-21",
+      "current" : true
+    },
+    {
       "version" : "0.5.0",
       "desc" : "Add otherScripts for template security changes",
       "path" : "http://fhir.org/templates/fhir.base.template/0.5.0",
       "status" : "release",
       "sequence" : "Publications",
-      "current" : true,
       "date" : "2023-09-13"
     },
     {
