@@ -63,7 +63,7 @@
       </xsl:copy>
     </xsl:for-each>
     <xsl:for-each select="f:grouping[starts-with(@id, $prefix)]">
-      <xsl:if test="not(f:groups/f:grouping[@id=current()/@id])">
+      <xsl:if test="not(parent::*/f:groups/f:grouping[@id=current()/@id])">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
