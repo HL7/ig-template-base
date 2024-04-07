@@ -98,13 +98,13 @@
   <target name="onGenerate.plantUml.ig" depends="check-plantumlfiles" if="ig.plantumlfiles.exist">
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
-      <arg line="-nometadata -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/*.plantuml&quot;"/>
+      <arg line="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/*.plantuml&quot;"/>
     </java>
   </target>
   <target name="onGenerate.plantUml.template" depends="check-plantumlfiles" if="template.plantumlfiles.exist">
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
-      <arg line="-nometadata -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/*.plantuml&quot;"/>
+      <arg line="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/*.plantuml&quot;"/>
     </java>
   </target>
   <target name="onGenerate.plantUml" depends="onGenerate.plantUml.ig,onGenerate.plantUml.template"/>

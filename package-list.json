@@ -1,4 +1,4 @@
-﻿{
+{
   "package-id" : "fhir.base.template",
   "title" : "Base template for FHIR IGs",
   "canonical" : "http://fhir.org/templates/fhir.base.template",
@@ -12,13 +12,21 @@
       "current" : true
     },
     {
+      "version" : "0.7.0",
+      "desc" : "Force snapshot release of all templates prior to making a change to the base template that depends on a new IG publisher",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.7.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2024-03-07",
+      "current" : true
+    },
+    {
       "version" : "0.6.0",
       "desc" : "Update template for apply-wg",
       "path" : "http://fhir.org/templates/fhir.base.template/0.6.0",
       "status" : "release",
       "sequence" : "Publications",
-      "date" : "2023-09-21",
-      "current" : true
+      "date" : "2023-09-21"
     },
     {
       "version" : "0.5.0",
