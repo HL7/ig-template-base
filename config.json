@@ -100,7 +100,8 @@
     "ImplementationGuide": {
       "template-base": "",
       "template-format": "",
-      "template-change-history":""
+      "template-change-history":"",
+      "base": "index.html"
     },
     "StructureDefinition:extension": {
       "template-base": "template/layouts/layout-ext.html",
