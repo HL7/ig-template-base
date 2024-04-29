@@ -12,13 +12,21 @@
       "current" : true
     },
     {
+      "version" : "0.8.0",
+      "desc" : "Security fix after IG Publisher rule about anonymous scripts fixed",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.8.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2024-04-25",
+      "current" : true
+    },
+    {
       "version" : "0.7.0",
       "desc" : "Force snapshot release of all templates prior to making a change to the base template that depends on a new IG publisher",
       "path" : "http://fhir.org/templates/fhir.base.template/0.7.0",
       "status" : "release",
       "sequence" : "Publications",
-      "date" : "2024-03-07",
-      "current" : true
+      "date" : "2024-03-07"
     },
     {
       "version" : "0.6.0",
