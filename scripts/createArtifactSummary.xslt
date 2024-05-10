@@ -58,6 +58,13 @@
       <xsl:variable name="showDescriptions" select="count(parent::f:definition/f:resource[f:groupingId/@value=current()/@id]/f:description/@value)!=0"/>
       <table class="grid">
         <col style="width:20%"/>
+		<thead>
+		<tr>		
+			<td>Title</td>
+			<td>Artifact Id</td>
+			<td>Description</td>		
+		</tr>
+		</thead>
         <tbody>
           <xsl:for-each select="parent::f:definition/f:resource[f:groupingId/@value=current()/@id]">
             <tr>
@@ -73,6 +80,9 @@
                     </xsl:otherwise>
                   </xsl:choose>
                 </a>
+              </td>
+			  <td>
+                <xsl:value-of select="f:reference/f:reference/@value"/>			
               </td>
               <xsl:if test="$showDescriptions">
                 <td>
