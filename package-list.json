@@ -12,13 +12,21 @@
       "current" : true
     },
     {
+      "version" : "0.8.1",
+      "desc" : "Use -all fragments to fix duplicate ids",
+      "path" : "http://fhir.org/templates/fhir.base.template/0.8.1",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2024-07-06",
+      "current" : true
+    },
+    {
       "version" : "0.8.0",
       "desc" : "Security fix after IG Publisher rule about anonymous scripts fixed",
       "path" : "http://fhir.org/templates/fhir.base.template/0.8.0",
       "status" : "release",
       "sequence" : "Publications",
-      "date" : "2024-04-25",
-      "current" : true
+      "date" : "2024-04-25"
     },
     {
       "version" : "0.7.0",
