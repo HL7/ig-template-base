@@ -131,7 +131,7 @@
         <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
         </p>
         <div id="all-summ-inner">
-          {%include StructureDefinition-{{[id]}}-summary.xhtml%}
+          {%include StructureDefinition-{{[id]}}-summary-all.xhtml%}
         </div>
       </div>
       <div id="all-tbl-diff">
@@ -141,7 +141,7 @@
         <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
         </p>
         <div id="all-tbl-diff-inner">
-          {%include StructureDefinition-{{[id]}}-diff.xhtml%}
+          {%include StructureDefinition-{{[id]}}-diff-all.xhtml%}
         </div>
       </div>
       <div id="all-tbl-snap">
@@ -149,7 +149,7 @@
           <b>Snapshot View</b>
         </p>
         <div id="all-tbl-snap-inner">
-          {%include StructureDefinition-{{[id]}}-snapshot.xhtml%}
+          {%include StructureDefinition-{{[id]}}-snapshot-all.xhtml%}
         </div>
       </div>
 {% unless excludexml == 'y' %}

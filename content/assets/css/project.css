@@ -755,3 +755,9 @@ li a[href^="http://"]:not([no-external^="true"]):after,li a[href^="https://"]:no
   border-width: 0px;
   background-color: transparent;
 }
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    text-shadow: none;
+}
