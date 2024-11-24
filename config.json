@@ -3,7 +3,8 @@
 	"otherScripts" : [],
   "targets": {
     "onLoad": "onLoad",
-    "onGenerate": "onGenerate"
+    "onGenerate": "onGenerate",
+    "onCheck": "onCheck"
   },
   "template-parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm-definition", "globals-in-artifacts", "releaselabel", "shownav"],
   "_extraTemplates-documentation": "This array of objects identifies additional templates available for generation for different resource types",
