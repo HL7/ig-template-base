@@ -82,7 +82,7 @@
       <and>
         <available type="dir" file="${basedir}/${folder.input}/images-source"/>
         <resourcecount when="greater" count="0">
-          <fileset file="${basedir}/${folder.input}/images-source/**.plantuml"/>
+          <fileset dir="${basedir}/${folder.input}/images-source" includes="**/*.plantuml"/>
         </resourcecount>
       </and>
     </condition>
@@ -90,18 +90,20 @@
       <and>
         <available type="dir" file="${ig.template}/images-source"/>
         <resourcecount when="greater" count="0">
-          <fileset file="${ig.template}/images-source/**.plantuml"/>
+          <fileset dir="${basedir}/${folder.input}/images-source" includes="**/*.plantuml"/>
         </resourcecount>
       </and>
     </condition>
   </target>
   <target name="onGenerate.plantUml.ig" depends="check-plantumlfiles" if="ig.plantumlfiles.exist">
+<echo message="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/**.plantuml&quot;"/>
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/**.plantuml&quot;"/>
     </java>
   </target>
   <target name="onGenerate.plantUml.template" depends="check-plantumlfiles" if="template.plantumlfiles.exist">
+<echo message="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/**.plantuml&quot;"/>
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/**.plantuml&quot;"/>
@@ -170,5 +172,23 @@
     </copy>
   -->  
   </target>
+
+  <extension-point name="onCheck.extend"/>
+  <target name="onCheck" depends="onCheck.extend">
+    <echo file="${ig.template}/onCheck-validation.json" message="{&quot;resourceType&quot;:&quot;OperationOutcome&quot;,&quot;issue&quot;:[&#x0a;"/>
+    <concat destfile="${ig.template}/onCheck-validation.json" encoding="UTF-8" outputencoding="UTF-8" append="yes">
+      <fileset dir="${ig.template}" includes="oncheck-validation*.json"/>
+      <fileset dir="${ig.template}" includes="*.oncheck-validation.json"/>
+      <filterchain>
+        <tailfilter lines="-1" skip="0"/>
+      </filterchain>
+    </concat>
+    <echo file="${ig.template}/onCheck-validation.json" message="]}&#x0a;" append="yes"/>
+    <replace file="${ig.template}/onCheck-validation.json" token=",]}" value="]}"/>
+  </target>
+  <scriptdef name="appendArtifacts" language="javascript" description="Adds additional values to the to the onGenerate.files list">
+    <attribute name="files"/>
+    self.project.setProperty("onGenerate.files", self.project.getProperty("onGenerate.files").concat(";").concat(attributes.get("files")));
+  </scriptdef>
 
 </project>
