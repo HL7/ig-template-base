@@ -82,7 +82,7 @@
       <and>
         <available type="dir" file="${basedir}/${folder.input}/images-source"/>
         <resourcecount when="greater" count="0">
-          <fileset dir="${basedir}/${folder.input}/images-source" includes="**/*.plantuml"/>
+          <fileset file="${basedir}/${folder.input}/images-source/**.plantuml"/>
         </resourcecount>
       </and>
     </condition>
@@ -90,20 +90,18 @@
       <and>
         <available type="dir" file="${ig.template}/images-source"/>
         <resourcecount when="greater" count="0">
-          <fileset dir="${basedir}/${folder.input}/images-source" includes="**/*.plantuml"/>
+          <fileset file="${ig.template}/images-source/**.plantuml"/>
         </resourcecount>
       </and>
     </condition>
   </target>
   <target name="onGenerate.plantUml.ig" depends="check-plantumlfiles" if="ig.plantumlfiles.exist">
-<echo message="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/**.plantuml&quot;"/>
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${basedir}/${folder.input}/images-source/**.plantuml&quot;"/>
     </java>
   </target>
   <target name="onGenerate.plantUml.template" depends="check-plantumlfiles" if="template.plantumlfiles.exist">
-<echo message="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/**.plantuml&quot;"/>
     <java jar="${ig.scripts}/plantuml.jar" fork="true" failonerror="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-nometadata -failfast2 -tsvg -o &quot;${basedir}/${dir.temp.includes}&quot; &quot;${ig.template}/images-source/**.plantuml&quot;"/>
