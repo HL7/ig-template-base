@@ -96,12 +96,12 @@
       <xsl:if test="$oldFHIR='Y'">
         <xsl:apply-templates mode="convertParams" select="f:parameter[f:code[not(@value='apply' or @value='path-resource' or @value='path-pages' or @value='path-tx-cache' or @value='expansion-parameter' or @value='rule-broken-links' or @value='generate-xml' 
               or @value='generate-json' or @value='generate-turtle' or @value='html-template')]]"/>
-        <xsl:call-template name="addParameters">
+        <xsl:apply-templates select="." mode="addParameters">
           <xsl:with-param name="extensionMode" select="'Y'"/>
-        </xsl:call-template>
+        </xsl:apply-templates>
       </xsl:if>
       <xsl:apply-templates select="f:modifierExtension|f:grouping|f:resource|f:page|f:parameter"/>
-      <xsl:call-template name="addParameters"/>
+      <xsl:apply-templates select="." mode="addParameters"/>
       <xsl:apply-templates select="f:template"/>
     </xsl:copy>
   </xsl:template>
@@ -113,7 +113,7 @@
     </xsl:if>
   </xsl:template>
   <xsl:template match="f:extension[@url='http://hl7.org/fhir/tools/StructureDefinition/ig-parameter' and f:extension[@url='code']/f:valueString/@value='find-other-resources']"/>
-  <xsl:template name="addParameters">
+  <xsl:template match="node()" mode="addParameters">
     <xsl:param name="extensionMode"/>
     <xsl:if test="$addResources='true'">
       <xsl:call-template name="setParameter">
