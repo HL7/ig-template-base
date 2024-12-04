@@ -1,0 +1,21 @@
+{% for extension in include.contained.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' or url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition') %}        
+<tr>
+  <th scope="row" class="row-header" rowspan="2">
+    {% if extension.extension.where(url = 'name').exists() and extension.extension.where(url = 'libraryName') %}
+      {% assign logicDefUrl = extension.extension.where(url = 'libraryName').value.lower().replace(' ', '-') + '-' + extension.extension.where(url = 'name').value.lower().replace(' ', '-') %}
+      <a name="{{logicDefUrl}}"> </a>
+    {% endif %}
+    Logic Definition
+  </th>
+{% for lNameExtension in extension.extension.where(url = 'libraryName') %}
+  <td class="content-container"><em>Library Name:</em> {{lNameExtension.value}}</td>
+{% endfor %}
+</tr>
+<tr>
+{% for statementExtension in extension.extension.where(url = 'statement') %}
+  <td>
+    <pre class="content-container highlight language-cql" style="border: none;"><code class="language-cql">{{statementExtension.value}}</code></pre>
+  </td>
+{% endfor %}
+</tr>
+{% endfor %}

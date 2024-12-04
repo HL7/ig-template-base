@@ -1,0 +1,4 @@
+{% if include.period.exists() %}
+{%assign period = include.period.start.toString() + '..' + include.period.end.toString() %}
+{%include default.html header=include.header content=period %}
+{% endif %}
