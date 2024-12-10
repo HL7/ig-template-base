@@ -1,0 +1,22 @@
+{%include section-header.html header='Knowledge Artifact Metadata' %}
+{%include default.html header='Name (machine-readable)' content=Resource.name %}
+{%include default.html header='Title (human-readable)' content=Resource.title %}
+{%include default.html header='Subtitle' content=Resource.subtitle %}
+{%include default.html header='Status' content=Resource.status %}
+{%include default.html header='Experimental' content=Resource.experimental %}
+{%include default.html header='Description' content=Resource.description %}
+{%include default.html header='Purpose' content=Resource.purpose %}
+{%include default.html header='Clinical Usage' content=Resource.usage %}
+{%include default.html header='Approval Date' content=Resource.approvalDate %}
+{%include period.html header='Effective Period' period=Resource.effectivePeriod %}
+{%include default-list.html header='Use Context' content=Resource.useContext %}
+{%include default-list.html header='Topic' content=Resource.topic %}
+{%include default-list.html header='Measure Developer' content=Resource.author %}
+{%include default-list.html header='Measure Editor' content=Resource.editor %}
+{%include default-list.html header='Measure Reviewer' content=Resource.reviewer %}
+{%include default-list.html header='Measure Endorser' content=Resource.endorser %}
+{%include default.html header='Measure Steward' content=Resource.publisher %}
+{%include default-list.html header='Steward Contact Details' content=Resource.contact %}
+{%include default.html header='Copyright' content=Resource.copyright %}
+{%include related-artifact.html relatedArtifact=Resource.relatedArtifact %}
+{%include knowledge-artifact-metadata-extensions.html resource=Resource %}
