@@ -17,12 +17,7 @@
 {% endif %}
 
   <p><b>Context of Use</b></p>
-  <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
-  <ul>
-    {% for context in site.data.structuredefinitions['{{[id]}}'].contexts %}
-    <li>{{context.type}} {{context.expression}}</li>
-    {% endfor %}
-  </ul>
+  {%include StructureDefinition-{{[id]}}-sd-use-context.xhtml%}
 
   <!-- insert intro if present -->
   {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
