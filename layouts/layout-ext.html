@@ -19,7 +19,9 @@
   <p><b>Context of Use</b></p>
   <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
   <ul>
-    {%include StructureDefinition-{{[id]}}-sd-ctxts.xhtml%}
+    {% for context in site.data.structuredefinitions['{{[id]}}'].contexts %}
+    <li>{{context.type}} {{context.expression}}</li>
+    {% endfor %}
   </ul>
 
   <!-- insert intro if present -->
