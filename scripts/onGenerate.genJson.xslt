@@ -48,6 +48,11 @@
         <xsl:with-param name="property" select="'shownav'"/>
       </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="fcp">
+      <xsl:call-template name="getParameter">
+        <xsl:with-param name="name" select="'fcp-approved-specification'"/>
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:variable name="fmm">
       <xsl:call-template name="getParameter">
         <xsl:with-param name="name" select="'fmm-definition'"/>
@@ -62,6 +67,7 @@
     '  &quot;excludettl&quot;:&quot;', $excludettl, '&quot;,&#xa;',
     '  &quot;excludelogbinaryformat&quot;:&quot;', $excludelogbinaryformat, '&quot;,&#xa;',
     '  &quot;excludemap&quot;:&quot;', $excludemap, '&quot;,&#xa;',
+    '  &quot;fcpspec&quot;:&quot;', $fcp, '&quot;,&#xa;',
     '  &quot;fmm-definition&quot;:&quot;', $fmm, '&quot;&#xa;}')"/>
   </xsl:template>
 	<xsl:template name="getParameter">

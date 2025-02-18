@@ -1,0 +1,14 @@
+{% for group in include.measure.group %}
+  {% if group.id.exists() %}
+    {%assign groupid = 'Measure Population Criteria' + ' (ID: ' + group.id + ')' %}
+    {%include section-header.html header=groupid %}
+  {% else %}
+    {%include section-header.html header='Measure Population Criteria' %}
+  {% endif %}
+  {% if group.description.exists() %}
+    {%include default.html header='Summary' content=group.description %}
+  {% endif %}
+  {%include measure-population-criteria-population.html group=group library=include.measure.library %}
+  {%include measure-population-criteria-stratifier.html group=group %}
+  {%include measure-population-criteria-extensions.html group=group %}
+{% endfor %}

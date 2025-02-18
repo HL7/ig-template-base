@@ -18,6 +18,7 @@
     <link href="{{site.data.info.assets}}assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="{{site.data.info.assets}}assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="{{site.data.info.assets}}assets/css/prism.css" rel="stylesheet" />
+  	<link href="{{site.data.info.assets}}assets/css/cqf.css" rel="stylesheet" />
     {% include fragment-css.html %}
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
@@ -44,6 +45,13 @@
     h3,h4,h5,h6{--heading-prefix:"{{site.data.info.headingOffset}}{{site.data.pages[page.path].label}}"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
+{% if site.data.info.fcpspec == 'true' %}
+        <div id="fcp-nav">
+          <a id="fcp-logo" no-external="true" href="https://confluence.hl7.org/display/FCP/FCP+Specification+Registry">
+            <img height="60" alt="Visit the FHIR Community Process Specification Registry" src="assets/images/fcp-logo.png"/>
+          </a>
+        </div>
+{% endif %}
         {% include fragment-header.html %}
 {% if site.data.info.releaselabel != '' %}
 {% assign status = site.data.info.releaselabel %}

@@ -1,0 +1,24 @@
+{% if include.measure.library.exists() %}
+{%include section-header.html header='Measure Logic' %}
+{%include default.html header='Primary Library' content=include.measure.library %}
+{% endif %}
+
+{% if include.measure.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements' or url = 'http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements').exists() %}
+  {% for contained in include.measure.contained.where(id.contains('effective-data-requirements')) %}
+  {%include related-artifact.html relatedArtifact=contained.relatedArtifact %}
+  {%include direct-reference-code.html contained=contained %}
+  {% for parameter in contained.parameter %}
+  {%include parameter.html header='Parameter' parameter=parameter %}
+  {% endfor %}
+  {% if contained.dataRequirement.exists() %}
+  <tr>
+    <th class="section-header" colspan="2" scope="row"><a name="effective-data-requirements"> </a>Measure Logic Data Requirements</th>
+  </tr>
+  {% endif %}
+  {%include datarequirement.html header='Data Requirement' dataRequirement=contained.dataRequirement %}
+  {% if contained.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition' or url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition').exists() %}
+  {%include section-header.html header='Measure Logic Definitions' %}
+  {% endif %}
+  {%include logic-definition.html header='Data Requirement' contained=contained %}
+  {% endfor %}
+{% endif %}

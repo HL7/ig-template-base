@@ -1,0 +1,20 @@
+{% for identifier in include.measure.identifier.where(type.coding.where(code = 'short-name').exists()) %}
+  {%include default.html header='Short Name Identifier' content=identifier.value %}
+{% endfor %}
+{% for identifier in include.measure.identifier.where(type.coding.where(code = 'version-independent').exists()) %}
+  {%include default.html header='Version Independent Identifier' content=identifier.value %}
+{% endfor %}
+{% for identifier in include.measure.identifier.where(type.coding.where(code = 'version-specific').exists()) %}
+  {%include default.html header='Version Specific Identifier' content=identifier.value %}
+{% endfor %}
+{% for identifier in include.measure.identifier.where(type.coding.where(code = 'publisher').exists()) %}
+  {% if identifier.assigner.display.exists() %}
+    {%assign pheader = 'Publisher (' + identifier.assigner.display.value + ') Identifier' %}
+    {%include default.html header=pheader content=identifier.value %}
+  {% else %}
+    {%include default.html header='Publisher Identifier' content=identifier.value %}
+  {% endif %}
+{% endfor %}
+{% for identifier in include.measure.identifier.where(type.coding.where(code != 'short-name' and code != 'version-independent' and code != 'version-specific' and code != 'publisher').exists()) %}
+  {%include default.html header='Identifier' content=identifier %}
+{% endfor %}

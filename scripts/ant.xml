@@ -171,4 +171,22 @@
   -->  
   </target>
 
+  <extension-point name="onCheck.extend"/>
+  <target name="onCheck" depends="onCheck.extend">
+    <echo file="${ig.template}/onCheck-validation.json" message="{&quot;resourceType&quot;:&quot;OperationOutcome&quot;,&quot;issue&quot;:[&#x0a;"/>
+    <concat destfile="${ig.template}/onCheck-validation.json" encoding="UTF-8" outputencoding="UTF-8" append="yes">
+      <fileset dir="${ig.template}" includes="oncheck-validation*.json"/>
+      <fileset dir="${ig.template}" includes="**/*.oncheck-validation.json"/>
+      <filterchain>
+        <tailfilter lines="-1" skip="0"/>
+      </filterchain>
+    </concat>
+    <echo file="${ig.template}/onCheck-validation.json" message="]}&#x0a;" append="yes"/>
+    <replace file="${ig.template}/onCheck-validation.json" token=",]}" value="]}"/>
+  </target>
+  <scriptdef name="appendArtifacts" language="javascript" description="Adds additional values to the to the onGenerate.files list">
+    <attribute name="files"/>
+    self.project.setProperty("onGenerate.files", self.project.getProperty("onGenerate.files").concat(";").concat(attributes.get("files")));
+  </scriptdef>
+
 </project>

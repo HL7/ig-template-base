@@ -1,0 +1,19 @@
+{% if include.measure.identifier.exists() or include.measure.version.exists() or include.measure.scoring.exists() or
+include.measure.compositeScoring.exists() or include.measure.type.exists() or include.measure.riskAdjustment.exists() or
+include.measure.rateAggregation.exists() or include.measure.rationale.exists() or include.measure.clinicalRecommendationStatement.exists() or
+include.measure.improvementNotation.exists() or include.measure.definition.exists() or include.measure.guidance.exists() %}
+{%include section-header.html header='Measure Metadata' %}
+{%include measure-identifier.html measure=include.measure %}
+{%include default.html header='Version Number' content=include.measure.version %}
+{%include default.html header='Measure Scoring' content=include.measure.scoring %}
+{%include default.html header='Measure Composite Scoring' content=include.measure.compositeScoring %}
+{%include default-list.html header='Measure Type' content=include.measure.type %}
+{%include default.html header='Risk Adjustment' content=include.measure.riskAdjustment %}
+{%include default.html header='Rate Aggregation' content=include.measure.rateAggregation %}
+{%include default.html header='Rationale' content=include.measure.rationale %}
+{%include default.html header='Clinical Recommendation Statement' content=include.measure.clinicalRecommendationStatement %}
+{%include default.html header='Improvement Notation' content=include.measure.improvementNotation %}
+{%include default.html header='Definition' content=include.measure.definition %}
+{%include default.html header='Guidance' content=include.measure.guidance %}
+{%include measure-metadata-extensions.html measure=include.measure %}
+{% endif %}

@@ -3,7 +3,8 @@
 	"otherScripts" : [],
   "targets": {
     "onLoad": "onLoad",
-    "onGenerate": "onGenerate"
+    "onGenerate": "onGenerate",
+    "onCheck": "onCheck"
   },
   "template-parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm-definition", "globals-in-artifacts", "releaselabel", "shownav"],
   "_extraTemplates-documentation": "This array of objects identifies additional templates available for generation for different resource types",
@@ -359,6 +360,16 @@
       "change-history" : "{{[type]}}-{{[id]}}.change.history.html"
     },
     "TestScript": {
+      "template-base": "template/layouts/layout-canonical.html",
+      "template-format": "template/layouts/layout-instance-format.html",
+      "template-testing": "template/layouts/layout-canonical-testing.html",
+      "template-change-history": "template/layouts/layout-changehistory.html",
+      "base": "{{[type]}}-{{[id]}}.html",
+      "format": "{{[type]}}-{{[id]}}.{{[fmt]}}.html",
+      "testing": "{{[type]}}-{{[id]}}-testing.html",
+      "change-history": "{{[type]}}-{{[id]}}.change.history.html"
+    },
+    "logical-canonical": {
       "template-base": "template/layouts/layout-canonical.html",
       "template-format": "template/layouts/layout-instance-format.html",
       "template-testing": "template/layouts/layout-canonical-testing.html",

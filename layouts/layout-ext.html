@@ -17,7 +17,14 @@
 {% endif %}
 
   <p><b>Context of Use</b></p>
+<<<<<<< HEAD
   {%include StructureDefinition-{{[id]}}-sd-use-context.xhtml%}
+=======
+  <p>This extension may be used on the following {{site.data.structuredefinitions['{{[id]}}'].contextType}} element(s):</p>
+  <ul>
+  {%include StructureDefinition-{{[id]}}-sd-use-context.xhtml%}
+  </ul>
+>>>>>>> 2d992575cfddace9dd5822e354f98886e156bc9c
 
   <!-- insert intro if present -->
   {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
@@ -33,9 +40,6 @@
   </p>
   <div id="tabs">
     <ul>
-      <li>
-        <a href="#tabs-summ">Text Summary</a>
-      </li>
       <li>
         <a href="#tabs-diff">Differential Table</a>
       </li>
@@ -58,20 +62,12 @@
       </li>-->
 {% endunless %}
       <li>
+        <a href="#tabs-summ">Statistics/References</a>
+      </li>
+      <li>
         <a href="#tabs-all">All</a>
       </li>
     </ul>
-    <a name="tabs-summ"> </a>
-    <div id="tabs-summ">
-      <div id="tbl-summ">
-        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
-        </p>
-        <div id="tbl-summ-inner">
-          <a name="summary"> </a>
-          {%include StructureDefinition-{{[id]}}-summary.xhtml%}
-        </div>
-      </div>
-    </div>
     <a name="tabs-diff"> </a>
     <div id="tabs-diff">
       <div id="tbl-diff">
@@ -120,15 +116,19 @@
       </div>
     </div>-->
 {% endunless %}
-    <a name="tabs-all"> </a>
-    <div id="tabs-all">
-      <div id="all-summ">
+    <a name="tabs-summ"> </a>
+    <div id="tabs-summ">
+      <div id="tbl-summ">
         <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
         </p>
-        <div id="all-summ-inner">
-          {%include StructureDefinition-{{[id]}}-summary-all.xhtml%}
+        <div id="tbl-summ-inner">
+          <a name="summary"> </a>
+          {%include StructureDefinition-{{[id]}}-summary.xhtml%}
         </div>
       </div>
+    </div>
+    <a name="tabs-all"> </a>
+    <div id="tabs-all">
       <div id="all-tbl-diff">
         <p>
           <b>Differential View</b>
@@ -177,6 +177,13 @@
         </div>
       </div>-->
 {% endunless %}
+      <div id="all-summ">
+        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
+        </p>
+        <div id="all-summ-inner">
+          {%include StructureDefinition-{{[id]}}-summary-all.xhtml%}
+        </div>
+      </div>
     </div>
   </div>
   <p>&#160;</p>

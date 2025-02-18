@@ -180,6 +180,15 @@ body {
   max-width: 100%;
 }
 
+#fcp-nav {
+  line-height: 50px;
+  float: right;
+}
+
+#fcp-nav a {
+  color: inherit;
+}
+
 #project-nav {
   line-height: 50px;
   float: left;
