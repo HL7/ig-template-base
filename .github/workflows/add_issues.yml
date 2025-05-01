@@ -1,16 +1,61 @@
-name: Add new issues to Project column
-on: [issues]
+name: Auto-add to HL7 Project 6 and set Inbox status
+
+on:
+  issues:
+    types: [opened]
+
 jobs:
-  github-actions-automate-projects:
+  add-to-project:
     runs-on: ubuntu-latest
-    env:
-      projectname: https://github.com/${{ github.repository }}/projects/1
-      
+    permissions:
+      issues: read
+      contents: read
+      projects: write
     steps:
-    - name: add-new-issues-to-repository-based-project-column
-      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
-      if: github.event_name == 'issues' && github.event.action == 'opened'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PROJECT_URL: ${{env.projectname}}
-        GITHUB_PROJECT_COLUMN_NAME: Inbox
+      - name: Add issue to HL7 project and move to Inbox
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const projectId = "PVT_kwDOAURDVc4AkS-i";
+            const statusFieldId = "PVTSSF_lADOAURDVc4AkS-izgchrII";
+            const inboxOptionId = "6e0766a4";
+
+            const itemId = context.payload.issue.node_id;
+
+            const addResp = await github.graphql(`
+              mutation($projectId: ID!, $itemId: ID!) {
+                addProjectV2ItemById(input: {
+                  projectId: $projectId,
+                  contentId: $itemId
+                }) {
+                  item {
+                    id
+                  }
+                }
+              }
+            `, { projectId, itemId });
+
+            const projectItemId = addResp.addProjectV2ItemById.item.id;
+
+            await github.graphql(`
+              mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $projectId,
+                  itemId: $itemId,
+                  fieldId: $fieldId,
+                  value: {
+                    singleSelectOptionId: $optionId
+                  }
+                }) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }
+            `, {
+              projectId,
+              itemId: projectItemId,
+              fieldId: statusFieldId,
+              optionId: inboxOptionId
+            });
