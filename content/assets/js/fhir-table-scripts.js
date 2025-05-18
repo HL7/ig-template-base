@@ -181,4 +181,6 @@ function showPanel(button, table, panel) {
   panel.style.display = 'block';
   visiblePanel = panel;
   window.addEventListener('scroll', hide);
+  window.addEventListener('click', hide);
+  event.stopPropagation();
 }
