@@ -77,6 +77,11 @@
       "transform": "template/scripts/processPages.xslt"
     }
   ],
+  "script-mappings" : { 
+    "text/x-gherkin" : "gherkin",
+    "text/markdown" : "markdown",
+    "text/graphql" : "graphql"
+  },
   "defaults": {
     "_documentation": "this object contains the default publishing policy for different types. Anything not mentioned defaults to true",
     "Any": {
