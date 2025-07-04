@@ -158,8 +158,13 @@ function filterDesc(table, prop, value, panel) {
     if (cell) {
       for (let i = 0; i < cell.children.length; i++) {
         const childElement = cell.children[i];
+<<<<<<< HEAD
         let classes = childElement.getAttribute('class');
         if (classes.includes(prop)) {
+=======
+        let role = childElement.getAttribute('data-role');
+        if (role == prop) {
+>>>>>>> c4bdb8486dfbf95ffad09ba3e5043f9b9c931f16
           childElement.style.display = v;
         }
       }
@@ -181,4 +186,9 @@ function showPanel(button, table, panel) {
   panel.style.display = 'block';
   visiblePanel = panel;
   window.addEventListener('scroll', hide);
+<<<<<<< HEAD
+=======
+  window.addEventListener('click', hide);
+  event.stopPropagation();
+>>>>>>> c4bdb8486dfbf95ffad09ba3e5043f9b9c931f16
 }
