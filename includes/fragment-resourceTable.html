@@ -52,6 +52,9 @@
           {% if site.data.resources[resource_].status.normativeVersion %}
             (from v{{site.data.resources[resource_].status.normativeVersion}})
           {% endif %}
+          {% if site.data.resources[resource_].status.standards-status-support %}
+            <span title="{{site.data.resources[resource_].status.standards-status-support | markdownify}}">*</span>
+          {% endif
         {% else %}
           {{site.data.resources[resource_].status.status}}
           {% if site.data.resources[resource_].date %}
@@ -62,8 +65,8 @@
 {% if site.data.resources[resource_].status.fmm %}
       <td>
         <a href="{{site.data.info.fmm-definition}}">Maturity Level</a>: {{site.data.resources[resource_].status.fmm}}
-        {% if site.data.resources[resource_].status.fmmSource %}
-          <span title="{{site.data.resources[resource_].status.fmmSource}}">*</span>
+        {% if site.data.resources[resource_].status.fmmSource or site.data.resources[resource_].status.fmm-support %}
+          <span title="{{site.data.resources[resource_].status.fmmSource}}{{site.data.resources[resource_].status.fmm-support | markdownify }}">*</span>
         {% endif %}
       </td>
 {% endif %}
