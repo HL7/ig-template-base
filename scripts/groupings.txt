@@ -52,7 +52,7 @@
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-str-abstractprofile">
   <name value="Structures: Abstract Profiles"/>
-  <description value="These are profiles on resources or data types that describe patterns used by other profiles, but cannot be instantiated directly.  I.e. instances can conform to profiles *based* on these abstract profiles, but do not declare conformance to the abstract profiles themselves."/>
+  <description value="These are profiles on resources or data types that describe patterns used by other profiles, but cannot be instantiated directly.  I.e. instances can conform to profiles *based* on these abstract profiles but do not declare conformance to the abstract profiles themselves."/>
 </grouping>
 <grouping xmlns="http://hl7.org/fhir" id="-str-profile">
   <name value="Structures: Resource Profiles"/>
