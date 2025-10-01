@@ -12,13 +12,21 @@
       "current" : true
     },
     {
+      "version" : "1.0.0",
+      "desc" : "Final release of this template - no further changes planned. Focus is moving to fhir.base.template2 which hs multi-language support",
+      "path" : "http://fhir.org/templates/fhir.base.template/1.0.0",
+      "status" : "release",
+      "sequence" : "Publications",
+      "date" : "2025-10-01",
+      "current" : true
+    },
+    {
       "version" : "0.8.1",
       "desc" : "Use -all fragments to fix duplicate ids",
       "path" : "http://fhir.org/templates/fhir.base.template/0.8.1",
       "status" : "release",
       "sequence" : "Publications",
-      "date" : "2024-07-06",
-      "current" : true
+      "date" : "2024-07-06"
     },
     {
       "version" : "0.8.0",
