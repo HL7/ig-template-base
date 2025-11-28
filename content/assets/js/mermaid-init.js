@@ -8,5 +8,5 @@ document.addEventListener('DOMContentLoaded', function() {
     mermaidDiv.textContent = content;
     pre.parentNode.replaceChild(mermaidDiv, pre);
   });
-  mermaid.initialize({ securityLevel: 'sandbox' });
+  mermaid.initialize({ securityLevel: 'antiscript' });
 });
