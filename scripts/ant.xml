@@ -56,7 +56,7 @@
     <xslt in="${onGenerate.ig.source}xml" out="${ig.temp}/_data/artifacts.json" style="${ig.scripts}/onGenerate.data.xslt"/>
   </target>
   <target name="onGenerate.r5-schemas" depends="onGenerate.checkVersions" if="R5">
-    <getSchemas version="R5" url="http://build.fhir.org/"/>
+    <getSchemas version="R5" url="http://hl7.org/fhir/R5/"/>
   </target>
   <target name="onGenerate.r4-schemas" depends="onGenerate.checkVersions" if="R4">
     <getSchemas version="R4" url="http://hl7.org/fhir/R4/"/>
