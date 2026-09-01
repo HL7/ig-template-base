@@ -415,8 +415,16 @@
             </table>
           </td>
         </tr>
-        {% endif %}
-        {% if c.contentType != 'text/cql' %}
+        {% elsif c.contentType = 'application/sql' %}
+        <tr>
+          <td colspan="2">
+            <table>
+              <tr><th><a id="sql-content"><b>Content: </b></a> {{c.contentType}}</th></tr>
+              <tr><td><pre><code class="language-sql">{{c.data.decode('base64')}}</code></pre></td></tr>
+            </table>
+          </td>
+        </tr>
+        {% else %}
         <tr>
           <td colspan="2">
             <table>
